@@ -245,34 +245,6 @@
 }
 
 /* =========================================================
-   REVEAL SCROLL
-========================================================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:
-        translateY(80px);
-
-    transition:
-
-        opacity 1s ease,
-
-        transform 1s ease;
-
-}
-
-.reveal.active{
-
-    opacity:1;
-
-    transform:
-        translateY(0);
-
-}
-
-/* =========================================================
    OPENING
 ========================================================= */
 
@@ -280,20 +252,6 @@
 
     animation:
         fadeTop 1s ease both;
-
-}
-
-.bismillah{
-
-    animation:
-        zoomIn 1.2s ease both;
-
-}
-
-.opening-text{
-
-    animation:
-        fadeBottom 1.3s ease both;
 
 }
 
@@ -318,104 +276,9 @@
 
 }
 
-@keyframes fadeBottom{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(35px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
-
-@keyframes zoomIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            scale(.9);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            scale(1);
-
-    }
-
-}
-
 /* =========================================================
    COUPLE
 ========================================================= */
-
-.person{
-
-    animation:
-        personFade 1.2s ease both;
-
-}
-
-.photo{
-
-    transition:
-
-        transform .6s ease,
-
-        box-shadow .6s ease;
-
-}
-
-.photo:hover{
-
-    transform:
-
-        translateY(-10px)
-
-        scale(1.03);
-
-    box-shadow:
-
-        0 30px 55px rgba(0,0,0,.45);
-
-}
-
-.photo img{
-
-    transition:
-        transform .8s ease;
-
-}
-
-.photo:hover img{
-
-    transform:
-        scale(1.08);
-
-}
-
-.person h2{
-
-    animation:
-        nameGlow 5s ease-in-out infinite;
-
-}
 
 @keyframes nameGlow{
 
@@ -440,67 +303,6 @@
 
 }
 
-.love{
-
-    animation:
-        heartbeat 2s infinite;
-
-}
-
-@keyframes heartbeat{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    20%{
-
-        transform:scale(1.18);
-
-    }
-
-    40%{
-
-        transform:scale(1);
-
-    }
-
-    60%{
-
-        transform:scale(1.18);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-@keyframes personFade{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(60px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
 /* =========================================================
    OPENING ANIMATION
 ========================================================= */
@@ -836,34 +638,6 @@
 
 }
 
-@keyframes nameGlow{
-
-    0%{
-
-        text-shadow:
-
-            0 0 8px rgba(212,175,55,.2);
-
-    }
-
-    50%{
-
-        text-shadow:
-
-            0 0 20px rgba(212,175,55,.55);
-
-    }
-
-    100%{
-
-        text-shadow:
-
-            0 0 8px rgba(212,175,55,.2);
-
-    }
-
-}
-
 /* ==========================================
    Love Animation
 ========================================== */
@@ -929,5 +703,600 @@
 .person:hover h4{
 
     color:#FFF5DD;
+
+}
+/* =========================================================
+   SAVE THE DATE ANIMATION
+========================================================= */
+
+/* ==========================================
+   Save Card
+========================================== */
+
+.save-card{
+
+    animation:
+
+        saveCardFloat 8s ease-in-out infinite;
+
+}
+
+@keyframes saveCardFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   Countdown
+========================================== */
+
+.count-item{
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
+
+}
+
+.count-item:hover{
+
+    transform:
+
+        translateY(-10px)
+
+        scale(1.05);
+
+    border-color:
+
+        rgba(212,175,55,.6);
+
+    box-shadow:
+
+        0 18px 40px rgba(0,0,0,.35);
+
+}
+
+/* Number */
+
+.count-item span{
+
+    animation:
+
+        countdownGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes countdownGlow{
+
+    0%{
+
+        text-shadow:
+
+            0 0 5px rgba(212,175,55,.2);
+
+    }
+
+    50%{
+
+        text-shadow:
+
+            0 0 18px rgba(212,175,55,.8);
+
+    }
+
+    100%{
+
+        text-shadow:
+
+            0 0 5px rgba(212,175,55,.2);
+
+    }
+
+}
+
+/* ==========================================
+   Event Card
+========================================== */
+
+.event-card{
+
+    transition:
+
+        transform .45s ease,
+
+        box-shadow .45s ease;
+
+}
+
+.event-card:hover{
+
+    transform:
+
+        translateY(-10px);
+
+    box-shadow:
+
+        0 28px 60px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   Location Card
+========================================== */
+
+.location-card{
+
+    transition:
+
+        transform .45s ease,
+
+        box-shadow .45s ease;
+
+}
+
+.location-card:hover{
+
+    transform:
+
+        translateY(-10px);
+
+    box-shadow:
+
+        0 30px 65px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   Maps Button
+========================================== */
+
+.mapsButton{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.mapsButton::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.5),
+
+            transparent
+
+        );
+
+    transform:skewX(-25deg);
+
+}
+
+.mapsButton:hover::before{
+
+    animation:
+
+        buttonShine .8s ease;
+
+}
+
+@keyframes buttonShine{
+
+    from{
+
+        left:-120%;
+
+    }
+
+    to{
+
+        left:150%;
+
+    }
+
+}
+/* =========================================================
+   RSVP ANIMATION
+========================================================= */
+
+/* Form */
+
+#rsvpForm{
+
+    animation:
+
+        formFade 1s ease;
+
+}
+
+@keyframes formFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Input */
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+
+    transition:
+
+        border-color .35s ease,
+
+        box-shadow .35s ease,
+
+        transform .35s ease;
+
+}
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus{
+
+    transform:translateY(-2px);
+
+}
+
+/* Submit */
+
+#rsvpForm button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+#rsvpForm button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.55),
+
+            transparent
+
+        );
+
+    transform:skewX(-25deg);
+
+}
+
+#rsvpForm button:hover::before{
+
+    animation:
+
+        buttonShine .8s ease;
+
+}
+
+/* =========================================================
+   GIFT CARD
+========================================================= */
+
+.gift-card{
+
+    transition:
+
+        transform .45s ease,
+
+        box-shadow .45s ease;
+
+}
+
+.gift-card:hover{
+
+    transform:
+
+        translateY(-10px);
+
+    box-shadow:
+
+        0 28px 60px rgba(0,0,0,.35);
+
+}
+
+/* QR */
+
+.gift-card img{
+
+    transition:
+
+        transform .5s ease;
+
+}
+
+.gift-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* Copy Button */
+
+.copyButton{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.copyButton::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.5),
+
+            transparent
+
+        );
+
+    transform:skewX(-25deg);
+
+}
+
+.copyButton:hover::before{
+
+    animation:
+
+        buttonShine .8s ease;
+
+}
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing-content{
+
+    animation:
+
+        closingFade 1.4s ease;
+
+}
+
+@keyframes closingFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Couple Name */
+
+.closing-content h1{
+
+    animation:
+
+        closingGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes closingGlow{
+
+    0%{
+
+        text-shadow:
+
+            0 0 8px rgba(212,175,55,.25);
+
+    }
+
+    50%{
+
+        text-shadow:
+
+            0 0 25px rgba(212,175,55,.8);
+
+    }
+
+    100%{
+
+        text-shadow:
+
+            0 0 8px rgba(212,175,55,.25);
+
+    }
+
+}
+
+/* Prayer */
+
+.closing-doa{
+
+    animation:
+
+        doaFloat 5s ease-in-out infinite;
+
+}
+
+@keyframes doaFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Footer */
+
+.footer-credit{
+
+    animation:
+
+        footerFade 2s ease;
+
+}
+
+@keyframes footerFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* =========================================================
+   GLOBAL HOVER SMOOTH
+========================================================= */
+
+button,
+a{
+
+    transition:
+
+        all .35s ease;
+
+}
+
+/* =========================================================
+   SCROLL REVEAL IMPROVEMENT
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
 
 }
