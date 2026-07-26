@@ -23,21 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const guestName = document.getElementById("guestName");
 
 
-    /* ==========================================
-       LOADER
-    ========================================== */
+/* ==========================================
+   LOADER
+========================================== */
 
-    window.addEventListener("load", () => {
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        loader.classList.add("fade-out");
 
         setTimeout(() => {
 
-            loader.style.opacity = "0";
-            loader.style.visibility = "hidden";
+            loader.remove();
 
-        }, 1200);
+        }, 800);
 
-    });
+    }, 1200);
 
+});
 
     /* ==========================================
        GUEST NAME
