@@ -22,39 +22,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const guestName = document.getElementById("guestName");
 
+    const floatingContainer =
+        document.getElementById("floatingDecorations");
 
-/* ==========================================
-   LOADER
-========================================== */
 
-window.addEventListener("load", () => {
 
-    setTimeout(() => {
+    /* ==========================================
+       LOADER
+    ========================================== */
 
-        loader.classList.add("fade-out");
+    window.addEventListener("load", () => {
 
-        loader.addEventListener("animationend", () => {
+        setTimeout(() => {
 
-            loader.remove();
+            loader.classList.add("fade-out");
 
-        }, { once: true });
+            loader.addEventListener("animationend", () => {
 
-    }, 1200);
+                loader.remove();
 
-});
+            }, { once: true });
+
+        }, 1200);
+
+    });
+
+
 
     /* ==========================================
        GUEST NAME
     ========================================== */
 
     const params = new URLSearchParams(window.location.search);
+
     const guest = params.get("to");
 
-    if (guest) {
+    if (guest && guestName) {
 
-        guestName.innerHTML = guest.replace(/\+/g, " ");
+        guestName.innerHTML =
+            guest.replace(/\+/g, " ");
 
     }
+
 
 
     /* ==========================================
@@ -63,81 +72,95 @@ window.addEventListener("load", () => {
 
     openButton.addEventListener("click", () => {
 
-    /* disable double click */
-    openButton.disabled = true;
+        openButton.disabled = true;
 
-    /* fade cover */
-    cover.classList.add("fade-out");
+        cover.classList.add("fade-out");
 
-    cover.addEventListener("animationend", () => {
+        cover.addEventListener("animationend", () => {
 
-        cover.style.display = "none";
+            cover.style.display = "none";
 
-        openingAnimation.classList.add("active");
-        openingAnimation.classList.add("fade-in");
+            openingAnimation.classList.add("active");
+            openingAnimation.classList.add("fade-in");
 
-        document.body.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
 
-        openingVideo.currentTime = 0;
-        openingVideo.play();
+            openingVideo.currentTime = 0;
 
-        music.play().catch(() => {});
+            openingVideo.play();
 
-        musicButton.classList.add("show");
+            music.play().catch(() => {});
 
-    }, { once: true });
+            musicButton.classList.add("show");
 
-});
+        }, { once: true });
+
+    });
+
+
+
     /* ==========================================
-   VIDEO FINISHED
-========================================== */
+       VIDEO FINISHED
+    ========================================== */
 
-openingVideo.addEventListener("ended", () => {
+    openingVideo.addEventListener("ended", () => {
 
-    continueButton.classList.add("show");
+        continueButton.classList.add("show");
 
-    continueButton.focus();
+        continueButton.focus();
 
-});
-   /* ==========================================
-   VIDEO ERROR
-========================================== */
+    });
 
-openingVideo.addEventListener("error", () => {
 
-    continueButton.classList.add("show");
 
-});
-  /* ==========================================
-   CONTINUE TO INVITATION
-========================================== */
+    /* ==========================================
+       VIDEO ERROR
+    ========================================== */
 
-continueButton.addEventListener("click", () => {
+    openingVideo.addEventListener("error", () => {
 
-    openingAnimation.classList.remove("fade-in");
-    openingAnimation.classList.add("fade-out");
+        continueButton.classList.add("show");
 
-    setTimeout(() => {
+    });
 
-        openingAnimation.classList.remove("active");
-        openingAnimation.style.display = "none";
 
-        continueButton.classList.remove("show");
 
-        openingVideo.pause();
-        openingVideo.currentTime = 0;
+    /* ==========================================
+       CONTINUE
+    ========================================== */
 
-        document.body.style.overflowY = "auto";
+    continueButton.addEventListener("click", () => {
 
-        document.getElementById("opening").scrollIntoView({
+        openingAnimation.classList.remove("fade-in");
 
-            behavior: "smooth"
+        openingAnimation.classList.add("fade-out");
 
-        });
+        setTimeout(() => {
 
-    }, 800);
+            openingAnimation.classList.remove("active");
 
-});
+            openingAnimation.style.display = "none";
+
+            continueButton.classList.remove("show");
+
+            openingVideo.pause();
+
+            openingVideo.currentTime = 0;
+
+            document.body.style.overflowY = "auto";
+
+            document.getElementById("opening").scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }, 800);
+
+    });
+
+
+
     /* ==========================================
        MUSIC
     ========================================== */
@@ -165,6 +188,7 @@ continueButton.addEventListener("click", () => {
         playing = !playing;
 
     });
+
 
 
     /* ==========================================
@@ -195,91 +219,79 @@ continueButton.addEventListener("click", () => {
 
     });
 
-});
-/* ==========================================
-   SCROLL ANIMATION
-========================================== */
 
-const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach((entry) => {
+    /* ==========================================
+       FLOATING DECORATIONS
+    ========================================== */
 
-        if (entry.isIntersecting) {
+    if (floatingContainer) {
 
-            entry.target.classList.add("show");
+        const icons = [
+
+            {
+                class: "gold",
+                icon: "✦"
+            },
+
+            {
+                class: "gold",
+                icon: "✧"
+            },
+
+            {
+                class: "flower",
+                icon: "🌸"
+            },
+
+            {
+                class: "leaf",
+                icon: "🍃"
+            }
+
+        ];
+
+        function createFloatingItem() {
+
+            const data =
+                icons[Math.floor(Math.random() * icons.length)];
+
+            const item =
+                document.createElement("span");
+
+            item.className =
+                `float-item ${data.class}`;
+
+            item.innerHTML =
+                data.icon;
+
+            item.style.left =
+                Math.random() * 100 + "%";
+
+            item.style.animationDuration =
+                (8 + Math.random() * 6) + "s";
+
+            item.style.animationDelay =
+                Math.random() * 2 + "s";
+
+            item.style.opacity =
+                0.3 + Math.random() * 0.5;
+
+            item.style.fontSize =
+                (14 + Math.random() * 18) + "px";
+
+            floatingContainer.appendChild(item);
+
+            item.addEventListener("animationend", () => {
+
+                item.remove();
+
+            });
 
         }
 
-    });
-
-}, {
-    threshold: 0.15
-});
-
-document.querySelectorAll("section").forEach((section) => {
-
-    observer.observe(section);
-
-});
-
-
-/* ==========================================
-   FLOATING DECORATIONS
-========================================== */
-
-const floatingContainer =
-    document.getElementById("floatingDecorations");
-
-if (floatingContainer) {
-
-    const icons = [
-
-        { class: "gold", icon: "✦" },
-        { class: "gold", icon: "✧" },
-        { class: "flower", icon: "🌸" },
-        { class: "leaf", icon: "🍃" }
-
-    ];
-
-    function createFloatingItem() {
-
-        const data =
-            icons[Math.floor(Math.random() * icons.length)];
-
-        const item = document.createElement("span");
-
-        item.className =
-            `float-item ${data.class}`;
-
-        item.innerHTML = data.icon;
-
-        item.style.left =
-            Math.random() * 100 + "%";
-
-        item.style.animationDuration =
-            (8 + Math.random() * 6) + "s";
-
-        item.style.animationDelay =
-            Math.random() * 2 + "s";
-
-        item.style.opacity =
-            0.3 + Math.random() * 0.5;
-
-        item.style.fontSize =
-            (14 + Math.random() * 18) + "px";
-
-        floatingContainer.appendChild(item);
-
-        item.addEventListener("animationend", () => {
-
-            item.remove();
-
-        });
+        setInterval(createFloatingItem, 600);
 
     }
-
-    setInterval(createFloatingItem, 600);
-
-}
 
 });
