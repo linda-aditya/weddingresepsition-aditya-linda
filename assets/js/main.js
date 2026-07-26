@@ -45,19 +45,42 @@ if(guest){
    Open Invitation
 ========================== */
 
+const openingAnimation = document.getElementById("openingAnimation");
+const openingVideo = document.getElementById("openingVideo");
+const continueButton = document.getElementById("continueButton");
+
 openButton.addEventListener("click", () => {
 
-    document.body.style.overflowY = "auto";
-
+    // sembunyikan cover
     document.getElementById("cover").style.display = "none";
 
+    // tampilkan video opening
+    openingAnimation.classList.add("active");
+
+    // putar video
+    openingVideo.play();
+
+    // putar musik
     music.play();
 
+    // tampilkan tombol musik
     musicButton.classList.add("show");
 
-    window.scrollTo({
+});
 
-        top:0,
+// setelah video selesai
+openingVideo.addEventListener("ended", () => {
+
+    continueButton.style.display = "block";
+
+});
+
+// tombol lanjut
+continueButton.addEventListener("click", () => {
+
+    openingAnimation.style.display = "none";
+
+    document.getElementById("opening").scrollIntoView({
 
         behavior:"smooth"
 
