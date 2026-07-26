@@ -65,3 +65,5 @@ if (musicButton) {
     });
 
 }
+window.playMusic = playMusic;
+window.pauseMusic = pauseMusic;
