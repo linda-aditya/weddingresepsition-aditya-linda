@@ -1,36 +1,39 @@
 /* =========================================================
    ANIMATION.CSS
-   Wedding Reception
+   Wedding Reception Premium
 ========================================================= */
+
+/* =========================================================
+   GLOBAL TRANSITION
+========================================================= */
+
+*{
+    transition:
+        color .35s ease,
+        background-color .35s ease,
+        border-color .35s ease;
+}
 
 /* =========================================================
    FADE
 ========================================================= */
 
 .fade-in{
-
-    animation:fadeIn .8s ease forwards;
-
+    animation:fadeIn .9s ease forwards;
 }
 
 .fade-out{
-
-    animation:fadeOut .8s ease forwards;
-
+    animation:fadeOut .9s ease forwards;
 }
 
 @keyframes fadeIn{
 
     from{
-
         opacity:0;
-
     }
 
     to{
-
         opacity:1;
-
     }
 
 }
@@ -38,15 +41,11 @@
 @keyframes fadeOut{
 
     from{
-
         opacity:1;
-
     }
 
     to{
-
         opacity:0;
-
     }
 
 }
@@ -57,21 +56,22 @@
 
 .loader-content{
 
-    animation:loaderZoom 1.5s ease infinite alternate;
+    animation:
+        loaderZoom 2s ease-in-out infinite;
 
 }
 
 @keyframes loaderZoom{
 
-    from{
+    0%{
 
-        transform:scale(.95);
+        transform:scale(.96);
 
-        opacity:.7;
+        opacity:.75;
 
     }
 
-    to{
+    100%{
 
         transform:scale(1.05);
 
@@ -87,7 +87,8 @@
 
 .cover-image{
 
-    animation:coverZoom 18s linear infinite alternate;
+    animation:
+        coverZoom 18s ease-in-out infinite alternate;
 
 }
 
@@ -101,7 +102,7 @@
 
     to{
 
-        transform:scale(1.10);
+        transform:scale(1.12);
 
     }
 
@@ -113,17 +114,19 @@
 
 .cover-content{
 
-    animation:coverUp 1.2s ease;
+    animation:
+        coverContent 1.3s ease;
 
 }
 
-@keyframes coverUp{
+@keyframes coverContent{
 
     from{
 
         opacity:0;
 
-        transform:translateY(40px);
+        transform:
+            translateY(40px);
 
     }
 
@@ -131,22 +134,95 @@
 
         opacity:1;
 
-        transform:translateY(0);
+        transform:
+            translateY(0);
 
     }
 
 }
+
 /* =========================================================
-   FLOATING CARD
+   GOLD GLOW
+========================================================= */
+
+.cover-name{
+
+    animation:
+        goldGlow 4.5s ease-in-out infinite;
+
+}
+
+@keyframes goldGlow{
+
+    0%{
+
+        text-shadow:
+            0 0 10px rgba(212,175,55,.25);
+
+    }
+
+    50%{
+
+        text-shadow:
+            0 0 25px rgba(255,220,90,.8),
+            0 0 45px rgba(212,175,55,.45);
+
+    }
+
+    100%{
+
+        text-shadow:
+            0 0 10px rgba(212,175,55,.25);
+
+    }
+
+}
+
+/* =========================================================
+   BUTTON PULSE
+========================================================= */
+
+#openInvitation{
+
+    animation:
+        buttonPulse 3s ease-in-out infinite;
+
+}
+
+@keyframes buttonPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* =========================================================
+   FLOAT CARD
 ========================================================= */
 
 .guest-box{
 
-    animation:floatCard 5s ease-in-out infinite;
+    animation:
+        floatingCard 6s ease-in-out infinite;
 
 }
 
-@keyframes floatCard{
+@keyframes floatingCard{
 
     0%{
 
@@ -169,81 +245,15 @@
 }
 
 /* =========================================================
-   GOLD GLOW
-========================================================= */
-
-.cover-name{
-
-    animation:goldGlow 4s ease-in-out infinite;
-
-}
-
-@keyframes goldGlow{
-
-    0%{
-
-        text-shadow:
-            0 0 10px rgba(212,175,55,.3);
-
-    }
-
-    50%{
-
-        text-shadow:
-            0 0 18px rgba(255,215,0,.7),
-            0 0 35px rgba(255,215,0,.5);
-
-    }
-
-    100%{
-
-        text-shadow:
-            0 0 10px rgba(212,175,55,.3);
-
-    }
-
-}
-
-/* =========================================================
-   BUTTON PULSE
-========================================================= */
-
-#openInvitation{
-
-    animation:pulseButton 2.8s infinite;
-
-}
-
-@keyframes pulseButton{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.05);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-/* =========================================================
-   SECTION REVEAL
+   REVEAL SCROLL
 ========================================================= */
 
 .reveal{
 
     opacity:0;
 
-    transform:translateY(80px);
+    transform:
+        translateY(80px);
 
     transition:
 
@@ -257,17 +267,118 @@
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 
 }
 
 /* =========================================================
-   PHOTO
+   OPENING
 ========================================================= */
+
+#opening .section-subtitle{
+
+    animation:
+        fadeTop 1s ease both;
+
+}
+
+.bismillah{
+
+    animation:
+        zoomIn 1.2s ease both;
+
+}
+
+.opening-text{
+
+    animation:
+        fadeBottom 1.3s ease both;
+
+}
+
+@keyframes fadeTop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(-25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+@keyframes fadeBottom{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+/* =========================================================
+   COUPLE
+========================================================= */
+
+.person{
+
+    animation:
+        personFade 1.2s ease both;
+
+}
 
 .photo{
 
-    transition:.5s;
+    transition:
+
+        transform .6s ease,
+
+        box-shadow .6s ease;
 
 }
 
@@ -275,19 +386,64 @@
 
     transform:
 
-        translateY(-8px)
+        translateY(-10px)
 
-        scale(1.02);
+        scale(1.03);
+
+    box-shadow:
+
+        0 30px 55px rgba(0,0,0,.45);
 
 }
 
-/* =========================================================
-   LOVE
-========================================================= */
+.photo img{
+
+    transition:
+        transform .8s ease;
+
+}
+
+.photo:hover img{
+
+    transform:
+        scale(1.08);
+
+}
+
+.person h2{
+
+    animation:
+        nameGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes nameGlow{
+
+    0%{
+
+        text-shadow:none;
+
+    }
+
+    50%{
+
+        text-shadow:
+            0 0 18px rgba(212,175,55,.45);
+
+    }
+
+    100%{
+
+        text-shadow:none;
+
+    }
+
+}
 
 .love{
 
-    animation:heartbeat 2s infinite;
+    animation:
+        heartbeat 2s infinite;
 
 }
 
@@ -301,7 +457,7 @@
 
     20%{
 
-        transform:scale(1.15);
+        transform:scale(1.18);
 
     }
 
@@ -313,7 +469,7 @@
 
     60%{
 
-        transform:scale(1.15);
+        transform:scale(1.18);
 
     }
 
@@ -324,73 +480,335 @@
     }
 
 }
-/* =========================================================
-   COUNTDOWN
-========================================================= */
 
-.count-item{
-
-    transition:.35s;
-
-}
-
-.count-item:hover{
-
-    transform:
-
-        translateY(-6px);
-
-}
-
-/* =========================================================
-   MAP BUTTON
-========================================================= */
-
-.mapsButton,
-
-.copyButton{
-
-    transition:.35s;
-
-}
-
-.mapsButton:hover,
-
-.copyButton:hover{
-
-    transform:
-
-        translateY(-4px);
-
-}
-
-/* =========================================================
-   FLOATING DECORATION
-========================================================= */
-
-.float-item{
-
-    animation:floatDown linear forwards;
-
-}
-
-@keyframes floatDown{
+@keyframes personFade{
 
     from{
 
-        transform:
-
-            translateY(-120px)
-
-            rotate(0deg);
-
         opacity:0;
+
+        transform:
+            translateY(60px);
 
     }
 
-    10%{
+    to{
 
-        opacity:.8;
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+/* =========================================================
+   OPENING ANIMATION
+========================================================= */
+
+/* Ornament */
+
+.opening-ornament{
+
+    opacity:0;
+
+    transform:translateY(40px) scale(.8);
+
+    animation:
+
+        ornamentFade 1.2s ease forwards;
+
+}
+
+@keyframes ornamentFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(40px)
+            scale(.8)
+            rotate(-10deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+
+    }
+
+}
+
+/* Bismillah */
+
+.bismillah{
+
+    opacity:0;
+
+    animation:
+
+        bismillahFade 1.3s ease forwards;
+
+    animation-delay:.25s;
+
+}
+
+@keyframes bismillahFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Paragraph */
+
+.opening-text{
+
+    opacity:0;
+
+    animation:
+
+        openingParagraph 1.3s ease forwards;
+
+}
+
+.opening-text:nth-of-type(1){
+
+    animation-delay:.55s;
+
+}
+
+.opening-text:nth-of-type(2){
+
+    animation-delay:.8s;
+
+}
+
+.opening-text:nth-of-type(3){
+
+    animation-delay:1.05s;
+
+}
+
+@keyframes openingParagraph{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(28px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Divider */
+
+.divider{
+
+    opacity:0;
+
+    animation:
+
+        dividerFade 1.4s ease forwards;
+
+    animation-delay:1.2s;
+
+}
+
+@keyframes dividerFade{
+
+    from{
+
+        opacity:0;
+
+        transform:scaleX(.3);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scaleX(1);
+
+    }
+
+}
+/* =========================================================
+   BRIDE & GROOM ANIMATION
+========================================================= */
+
+/* ==========================================
+   Person Reveal
+========================================== */
+
+.person{
+
+    opacity:0;
+
+    transform:translateY(70px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+.person.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================
+   Photo Frame
+========================================== */
+
+.photo{
+
+    overflow:hidden;
+
+    transition:
+
+        transform .6s ease,
+
+        box-shadow .6s ease;
+
+}
+
+.photo:hover{
+
+    transform:
+
+        translateY(-12px)
+
+        scale(1.03);
+
+    box-shadow:
+
+        0 30px 60px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   Image Zoom
+========================================== */
+
+.photo img{
+
+    transition:
+
+        transform 1s ease,
+
+        filter .8s ease;
+
+}
+
+.photo:hover img{
+
+    transform:scale(1.08);
+
+    filter:brightness(1.05);
+
+}
+
+/* ==========================================
+   Gold Frame Glow
+========================================== */
+
+.photo::before{
+
+    animation:
+
+        frameGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes frameGlow{
+
+    0%{
+
+        opacity:.35;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.35;
+
+    }
+
+}
+
+/* ==========================================
+   Ornament Sparkle
+========================================== */
+
+.photo::after{
+
+    animation:
+
+        ornamentFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes ornamentFloat{
+
+    0%{
+
+        transform:
+
+            translateX(-50%)
+
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+
+            translateX(-50%)
+
+            translateY(-5px);
 
     }
 
@@ -398,125 +816,118 @@
 
         transform:
 
-            translateY(120vh)
+            translateX(-50%)
 
-            rotate(360deg);
-
-        opacity:0;
+            translateY(0);
 
     }
 
 }
 
-/* =========================================================
-   SPARKLE
-========================================================= */
+/* ==========================================
+   Couple Name
+========================================== */
 
-.sparkle{
+.person h2{
 
-    position:fixed;
+    animation:
 
-    width:6px;
-
-    height:6px;
-
-    border-radius:50%;
-
-    background:#FFD700;
-
-    pointer-events:none;
-
-    animation:sparkle 3s linear forwards;
+        nameGlow 5s ease-in-out infinite;
 
 }
 
-@keyframes sparkle{
+@keyframes nameGlow{
 
     0%{
 
-        opacity:0;
+        text-shadow:
 
-        transform:scale(0);
+            0 0 8px rgba(212,175,55,.2);
+
+    }
+
+    50%{
+
+        text-shadow:
+
+            0 0 20px rgba(212,175,55,.55);
+
+    }
+
+    100%{
+
+        text-shadow:
+
+            0 0 8px rgba(212,175,55,.2);
+
+    }
+
+}
+
+/* ==========================================
+   Love Animation
+========================================== */
+
+.love{
+
+    animation:
+
+        lovePulse 2.4s ease-in-out infinite;
+
+}
+
+@keyframes lovePulse{
+
+    0%{
+
+        transform:scale(1);
 
     }
 
     25%{
 
-        opacity:1;
+        transform:scale(1.12);
+
+    }
+
+    50%{
+
+        transform:scale(.96);
+
+    }
+
+    75%{
+
+        transform:scale(1.12);
+
+    }
+
+    100%{
 
         transform:scale(1);
 
     }
 
-    100%{
-
-        opacity:0;
-
-        transform:
-
-            scale(0)
-
-            translateY(-50px);
-
-    }
-
 }
+
 /* ==========================================
-   PREMIUM SPARKLE
+   Parent Text
 ========================================== */
 
-.sparkle{
+.person p,
 
-    position:fixed;
+.person h4{
 
-    width:8px;
+    transition:
 
-    height:8px;
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:4;
-
-    background:radial-gradient(
-        circle,
-        rgba(255,245,180,1) 0%,
-        rgba(212,175,55,.9) 45%,
-        rgba(212,175,55,0) 100%
-    );
-
-    animation:
-        sparkleFade linear forwards;
+        color .35s ease;
 
 }
 
-@keyframes sparkleFade{
+.person:hover p,
 
-    0%{
+.person:hover h4{
 
-        opacity:0;
-
-        transform:
-            scale(.2)
-            rotate(0deg);
-
-    }
-
-    20%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            scale(2)
-            rotate(180deg);
-
-    }
+    color:#FFF5DD;
 
 }
