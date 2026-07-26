@@ -133,3 +133,127 @@ section.show{
     transform:translateY(0);
 
 }
+/* ===========================================
+   PREMIUM TRANSITION
+=========================================== */
+
+.fade-in{
+
+    animation:fadeIn .8s ease forwards;
+
+}
+
+.fade-out{
+
+    animation:fadeOut .8s ease forwards;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+/* ===========================================
+   OPENING CONTENT
+=========================================== */
+
+.cover-content{
+
+    animation:coverUp 1.2s ease;
+
+}
+
+@keyframes coverUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+#openInvitation{
+
+    animation:pulseButton 2s infinite;
+
+}
+
+@keyframes pulseButton{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+.cover-image{
+
+    animation:slowZoom 18s linear infinite alternate;
+
+}
+
+@keyframes slowZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
