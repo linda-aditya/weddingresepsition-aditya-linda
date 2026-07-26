@@ -338,13 +338,13 @@ button{
 
     overflow:hidden;
 
-    transition:
+    display:flex;
 
-        opacity .9s ease,
+    justify-content:center;
 
-        transform .9s ease,
+    align-items:center;
 
-        visibility .9s ease;
+    padding:40px 20px;
 
 }
 /* ==========================================
@@ -412,9 +412,8 @@ button{
 
     z-index:2;
 
-    width:min(92%,520px);
-
-    min-height:100vh;
+    width:100%;
+    max-width:520px;
 
     display:flex;
 
@@ -426,10 +425,9 @@ button{
 
     text-align:center;
 
-    padding:70px 25px;
+    margin:auto;
 
 }
-
 /* Small Title */
 
 .cover-title{
