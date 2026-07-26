@@ -1,0 +1,146 @@
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+/* Laptop */
+@media (max-width:1200px){
+
+.container{
+    width:90%;
+}
+
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+.cover-content{
+    width:90%;
+    padding:40px 25px;
+}
+
+.couple-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:40px;
+}
+
+.person{
+    width:100%;
+}
+
+.event-card,
+.gift-card{
+    width:100%;
+}
+
+#countdown{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+body{
+    font-size:15px;
+}
+
+h1{
+    font-size:42px;
+}
+
+h2{
+    font-size:30px;
+}
+
+.section-heading{
+    font-size:30px;
+}
+
+.cover-content{
+    padding:30px 20px;
+}
+
+.cover-content h1{
+    font-size:48px;
+}
+
+.count-item{
+    width:70px;
+    height:70px;
+}
+
+.count-item span{
+    font-size:24px;
+}
+
+.maps-button{
+    width:100%;
+    display:block;
+    text-align:center;
+}
+
+button{
+    width:100%;
+}
+
+.photo img{
+    width:220px;
+    height:220px;
+}
+
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+.cover-content h1{
+    font-size:38px;
+}
+
+.cover-content h4{
+    font-size:18px;
+}
+
+.section-heading{
+    font-size:26px;
+}
+
+.section-title{
+    font-size:14px;
+}
+
+.person h2{
+    font-size:28px;
+}
+
+.photo img{
+    width:180px;
+    height:180px;
+}
+
+#countdown{
+    gap:10px;
+}
+
+.count-item{
+    width:60px;
+    height:60px;
+}
+
+.count-item span{
+    font-size:20px;
+}
+
+#musicButton{
+    width:50px;
+    height:50px;
+    right:15px;
+    bottom:15px;
+}
+
+}
