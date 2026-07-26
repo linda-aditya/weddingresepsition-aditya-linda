@@ -505,3 +505,84 @@ h5{
     }
 
 }
+/* ===========================================
+   FLOATING DECORATIONS
+=========================================== */
+
+#floatingDecorations{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:5;
+
+}
+
+.float-item{
+
+    position:absolute;
+
+    top:-80px;
+
+    opacity:.6;
+
+    animation:floatDown linear forwards;
+
+    will-change:transform;
+
+}
+
+.float-item.gold{
+
+    color:#D4AF37;
+
+    font-size:10px;
+
+}
+
+.float-item.flower{
+
+    font-size:18px;
+
+}
+
+.float-item.leaf{
+
+    font-size:16px;
+
+}
+
+@keyframes floatDown{
+
+    from{
+
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.7;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
