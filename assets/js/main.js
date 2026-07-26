@@ -234,17 +234,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         openingVideo.addEventListener("ended", () => {
 
-            hideVideo();
+    setTimeout(() => {
 
-            document
-                .getElementById("opening")
-                ?.scrollIntoView({
+        hideVideo();
 
-                    behavior: "smooth"
+        document
+            .getElementById("opening")
+            ?.scrollIntoView({
 
-                });
+                behavior: "smooth"
 
-        });
+            });
+
+    }, 1200); // tunggu 1,2 detik setelah video selesai
+
+});
 
     }
 
