@@ -661,47 +661,39 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
-/* ==========================================
-   OPEN INVITATION FLOW
-========================================== */
+/* =====================================================
+   SECTION SCROLL ANIMATION
+===================================================== */
 
-const openButton = document.getElementById("openInvitation");
-const cover = document.getElementById("cover");
-const videoOpening = document.getElementById("videoOpening");
-const openingVideo = document.getElementById("openingVideo");
-
-
-openButton.addEventListener("click",()=>{
+const animatedSections = document.querySelectorAll(
+    "section:not(#cover):not(#videoOpening)"
+);
 
 
-    // sembunyikan cover
-    cover.classList.add("hide");
+const observer = new IntersectionObserver(
+    (entries)=>{
 
+        entries.forEach(entry=>{
 
-    // tampilkan video
-    videoOpening.classList.add("active");
+            if(entry.isIntersecting){
 
+                entry.target.classList.add("show");
 
-    // jalankan video
-    openingVideo.play();
+            }
 
-
-    // setelah video selesai
-    openingVideo.addEventListener("ended",()=>{
-
-
-        videoOpening.classList.remove("active");
-
-
-        // scroll ke halaman pertama undangan
-        document
-        .getElementById("opening")
-        .scrollIntoView({
-            behavior:"smooth"
         });
 
+    },
+    {
+        threshold:0.2
+    }
+);
 
-    });
 
+animatedSections.forEach(section=>{
+
+    section.classList.add("hidden");
+
+    observer.observe(section);
 
 });
