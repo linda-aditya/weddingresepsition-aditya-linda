@@ -45,44 +45,52 @@ if(guest){
    Open Invitation
 ========================== */
 
+const cover = document.getElementById("cover");
 const openingAnimation = document.getElementById("openingAnimation");
 const openingVideo = document.getElementById("openingVideo");
 const continueButton = document.getElementById("continueButton");
 
 openButton.addEventListener("click", () => {
 
-    // sembunyikan cover
-    document.getElementById("cover").style.display = "none";
+    cover.style.display = "none";
 
-    // tampilkan video opening
     openingAnimation.classList.add("active");
 
-    // putar video
-    openingVideo.play();
+    document.body.style.overflow = "hidden";
 
-    // putar musik
     music.play();
 
-    // tampilkan tombol musik
     musicButton.classList.add("show");
 
-});
+    openingVideo.currentTime = 0;
 
-// setelah video selesai
+    openingVideo.play();
+
+});
+   /* ==========================
+   Opening Video End
+========================== */
+
 openingVideo.addEventListener("ended", () => {
 
-    continueButton.style.display = "block";
+    continueButton.classList.add("show");
 
 });
+   /* ==========================
+   Continue Button
+========================== */
 
-// tombol lanjut
 continueButton.addEventListener("click", () => {
 
     openingAnimation.style.display = "none";
 
-    document.getElementById("opening").scrollIntoView({
+    document.body.style.overflowY = "auto";
 
-        behavior:"smooth"
+    window.scrollTo({
+
+        top: document.getElementById("opening").offsetTop,
+
+        behavior: "smooth"
 
     });
 
