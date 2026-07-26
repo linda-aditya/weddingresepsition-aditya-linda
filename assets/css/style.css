@@ -1398,12 +1398,13 @@ button{
 
 .person{
 
-    opacity:1;
+    opacity:0;
 
-    transform:translateY(0);
+    transform:translateY(50px);
+
+    transition:.8s ease;
 
 }
-
 
 .person.show{
 
