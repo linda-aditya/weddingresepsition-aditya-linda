@@ -1,35 +1,55 @@
-/* ==========================================
-   Wedding Invitation
-   Music Controller
-========================================== */
+"use strict";
 
-(() => {
+/* =========================================================
+   WEDDING RECEPTION
+   Aditya & Linda
+   Music.js
+========================================================= */
 
-    const music = document.getElementById("music");
-    const button = document.getElementById("musicButton");
-
-    if (!music || !button) return;
-
-    let playing = false;
+document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
-       Update Button
+       DOM ELEMENTS
+    ========================================== */
+
+    const music =
+        document.getElementById("music");
+
+    const musicButton =
+        document.getElementById("musicButton");
+
+    if (!music || !musicButton) {
+
+        return;
+
+    }
+
+    /* ==========================================
+       APPLICATION STATE
+    ========================================== */
+
+    let isPlaying = false;
+
+    /* ==========================================
+       BUTTON UI
     ========================================== */
 
     function updateButton() {
 
-        if (playing) {
+        if (isPlaying) {
 
-            button.classList.add("playing");
+            musicButton.classList.add("playing");
 
-            button.innerHTML =
+            musicButton.innerHTML =
+
                 '<i class="fa-solid fa-pause"></i>';
 
         } else {
 
-            button.classList.remove("playing");
+            musicButton.classList.remove("playing");
 
-            button.innerHTML =
+            musicButton.innerHTML =
+
                 '<i class="fa-solid fa-music"></i>';
 
         }
@@ -37,72 +57,106 @@
     }
 
     /* ==========================================
-       Play Music
+       PLAY MUSIC
     ========================================== */
 
-    async function playMusic() {
+    async function play() {
 
         try {
 
             await music.play();
 
-            playing = true;
+            isPlaying = true;
 
             updateButton();
 
         } catch (error) {
 
-            console.warn("Music blocked:", error);
+            console.warn(
+
+                "Music autoplay blocked.",
+
+                error
+
+            );
 
         }
 
     }
 
     /* ==========================================
-       Pause Music
+       PAUSE MUSIC
     ========================================== */
 
-    function pauseMusic() {
+    function pause() {
 
         music.pause();
 
-        playing = false;
+        isPlaying = false;
 
         updateButton();
 
     }
 
     /* ==========================================
-       Toggle
+       NEXT PART
+       Toggle + Public API
+    ========================================== */
+                              /* ==========================================
+       TOGGLE MUSIC
     ========================================== */
 
-    function toggleMusic() {
+    function toggle() {
 
-        if (playing) {
+        if (isPlaying) {
 
-            pauseMusic();
+            pause();
 
         } else {
 
-            playMusic();
+            play();
 
         }
 
     }
 
     /* ==========================================
-       Button Click
+       PUBLIC API
     ========================================== */
 
-    button.addEventListener("click", toggleMusic);
+    window.WeddingMusic = {
+
+        play,
+
+        pause,
+
+        toggle,
+
+        isPlaying() {
+
+            return isPlaying;
+
+        }
+
+    };
 
     /* ==========================================
-       Sync State
+       MUSIC BUTTON
+    ========================================== */
+
+    musicButton.addEventListener("click", () => {
+
+        toggle();
+
+    });
+
+    /* ==========================================
+       AUDIO EVENTS
     ========================================== */
 
     music.addEventListener("play", () => {
 
-        playing = true;
+        isPlaying = true;
 
         updateButton();
 
@@ -110,7 +164,7 @@
 
     music.addEventListener("pause", () => {
 
-        playing = false;
+        isPlaying = false;
 
         updateButton();
 
@@ -118,20 +172,236 @@
 
     music.addEventListener("ended", () => {
 
-        playing = false;
+        isPlaying = false;
 
         updateButton();
 
     });
 
     /* ==========================================
-       Global Function
+       INITIAL BUTTON STATE
     ========================================== */
-
-    window.playMusic = playMusic;
-    window.pauseMusic = pauseMusic;
-    window.toggleMusic = toggleMusic;
 
     updateButton();
 
-})();
+    /* ==========================================
+       NEXT PART
+       Visibility + Auto Resume
+    ========================================== */
+                              /* ==========================================
+       PAGE VISIBILITY
+    ========================================== */
+
+    document.addEventListener(
+
+        "visibilitychange",
+
+        () => {
+
+            if (document.hidden) {
+
+                if (isPlaying) {
+
+                    music.pause();
+
+                }
+
+            } else {
+
+                if (isPlaying) {
+
+                    music.play().catch(() => {});
+
+                }
+
+            }
+
+        }
+
+    );
+
+    /* ==========================================
+       AUTOPLAY RECOVERY
+    ========================================== */
+
+    let firstInteraction = false;
+
+    function recoverAutoplay() {
+
+        if (firstInteraction) return;
+
+        firstInteraction = true;
+
+        if (isPlaying) {
+
+            music.play().catch(() => {});
+
+        }
+
+    }
+
+    [
+
+        "click",
+
+        "touchstart",
+
+        "keydown"
+
+    ].forEach((eventName) => {
+
+        document.addEventListener(
+
+            eventName,
+
+            recoverAutoplay,
+
+            {
+
+                once: true
+
+            }
+
+        );
+
+    });
+
+    /* ==========================================
+       KEYBOARD SHORTCUT
+       Press "M"
+    ========================================== */
+
+    document.addEventListener(
+
+        "keydown",
+
+        (event) => {
+
+            if (
+
+                event.target.tagName === "INPUT" ||
+
+                event.target.tagName === "TEXTAREA"
+
+            ) {
+
+                return;
+
+            }
+
+            if (
+
+                event.key === "m" ||
+
+                event.key === "M"
+
+            ) {
+
+                toggle();
+
+            }
+
+        }
+
+    );
+
+    /* ==========================================
+       AUDIO ERROR HANDLER
+    ========================================== */
+
+    music.addEventListener(
+
+        "error",
+
+        () => {
+
+            console.warn(
+
+                "Music file failed to load."
+
+            );
+
+        }
+
+    );
+
+    /* ==========================================
+       AUDIO READY
+    ========================================== */
+
+    music.addEventListener(
+
+        "canplay",
+
+        () => {
+
+            console.log(
+
+                "Music ready."
+
+            );
+
+        }
+
+    );
+
+    /* ==========================================
+       NEXT PART
+       Initialization + Finish
+    ========================================== */
+                              /* ==========================================
+       INITIALIZATION
+    ========================================== */
+
+    function initializeMusic() {
+
+        /* Volume awal */
+
+        music.volume = 0.5;
+
+        /* Sinkronkan tombol */
+
+        updateButton();
+
+        console.log(
+            "%cMusic Module",
+            "color:#D4AF37;font-weight:bold;"
+        );
+
+        console.log(
+            "Music controller initialized."
+        );
+
+    }
+
+    initializeMusic();
+
+    /* ==========================================
+       BEFORE UNLOAD
+    ========================================== */
+
+    window.addEventListener("beforeunload", () => {
+
+        pause();
+
+    });
+
+    /* ==========================================
+       DEBUG (Development Only)
+    ========================================== */
+
+    window.WeddingMusic.version = "1.0.0";
+
+    window.WeddingMusic.getAudio = () => music;
+
+    /* ==========================================
+       FINISHED
+    ========================================== */
+
+    console.log(
+
+        "Wedding Music Ready."
+
+    );
+
+});
