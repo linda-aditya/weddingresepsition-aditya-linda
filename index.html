@@ -163,12 +163,11 @@
 <section id="videoOpening">
 
     <video
-        id="openingVideo"
-        playsinline
-        preload="auto"
-        muted
-    >
-
+    id="openingVideo"
+    muted
+    playsinline
+    preload="auto"
+>
         <source
             src="assets/video/opening.mp4"
             type="video/mp4"
@@ -567,47 +566,51 @@
 
         <form id="rsvpForm">
 
-            <input
-                type="text"
-                placeholder="Nama Lengkap"
-                required
-            >
+    <input
+        id="guestInput"
+        type="text"
+        placeholder="Nama Lengkap"
+        required
+    >
 
-            <select required>
+    <select
+        id="guestStatus"
+        required
+    >
 
-                <option value="">
+        <option value="">
 
-                    Konfirmasi Kehadiran
+            Konfirmasi Kehadiran
 
-                </option>
+        </option>
 
-                <option value="Hadir">
+        <option value="Hadir">
 
-                    Hadir
+            Hadir
 
-                </option>
+        </option>
 
-                <option value="Tidak Hadir">
+        <option value="Tidak Hadir">
 
-                    Tidak Hadir
+            Tidak Hadir
 
-                </option>
+        </option>
 
-            </select>
+    </select>
 
-            <textarea
-                placeholder="Tuliskan doa dan ucapan..."
-                rows="6"
-            ></textarea>
+    <textarea
+        id="guestMessage"
+        placeholder="Tuliskan doa dan ucapan..."
+        rows="6"
+    ></textarea>
 
-            <button type="submit">
+    <button type="submit">
 
-                Kirim Ucapan
+        Kirim Ucapan
 
-            </button>
+    </button>
 
-        </form>
-
+</form>
         <p class="public-note">
 
             Ucapan akan ditampilkan untuk publik.
@@ -773,7 +776,7 @@
 
         </h4>
 
-        <div class="closing-prayer">
+        <div class="closing-doa">
 
             وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
 
@@ -781,11 +784,11 @@
         
 <div class="footer-credit">
 
-            Made with ❤️ for Aditya & Linda
-    </div>
-        
+    Made with ❤️ for Aditya & Linda
+
 </div>
-    
+</div>
+
 </section>
 
 <!-- ======================================================
