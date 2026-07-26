@@ -14,19 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loader = document.getElementById("loader");
 
-    const cover = document.getElementById("cover");
-
     const openInvitation =
         document.getElementById("openInvitation");
 
     const guestName =
         document.getElementById("guestName");
-
-    const music =
-        document.getElementById("music");
-
-    const musicButton =
-        document.getElementById("musicButton");
 
     const openingVideo =
         document.getElementById("openingVideo");
@@ -41,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
        APPLICATION STATE
     ========================================== */
 
-    let musicPlaying = false;
-
     let invitationOpened = false;
 
     let videoFinished = false;
+
+    let scrollLocked = false;
 
     /* ==========================================
        LOADER
@@ -66,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================
-       GUEST NAME FROM URL
-       ?to=Nama Tamu
+       GUEST NAME
     ========================================== */
 
     function setGuestName() {
@@ -80,17 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!guestName) return;
 
-        if (guest && guest.trim() !== "") {
+        guestName.textContent =
 
-            guestName.textContent =
-                decodeURIComponent(guest);
+            guest && guest.trim() !== ""
 
-        } else {
+                ? decodeURIComponent(guest)
 
-            guestName.textContent =
-                "Bapak / Ibu / Saudara / i";
-
-        }
+                : "Bapak / Ibu / Saudara / i";
 
     }
 
@@ -102,13 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const revealElements = document.querySelectorAll(
 
-        "#opening .container",
-        "#couple .container",
-        "#saveDate .container",
-        "#countdownSection .container",
-        "#location .container",
-        "#rsvp .container",
-        "#gift .container",
+        "#opening .container," +
+        "#couple .container," +
+        "#saveDate .container," +
+        "#countdownSection .container," +
+        "#location .container," +
+        "#rsvp .container," +
+        "#gift .container," +
         "#closing .closing-content"
 
     );
@@ -125,13 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             entries.forEach((entry) => {
 
-                if (entry.isIntersecting) {
+                if (!entry.isIntersecting) return;
 
-                    entry.target.classList.add("active");
+                entry.target.classList.add("active");
 
-                    revealObserver.unobserve(entry.target);
-
-                }
+                revealObserver.unobserve(entry.target);
 
             });
 
@@ -152,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================
-       SCROLL HINT
+       COVER HINT
     ========================================== */
 
     function hideCoverHint() {
@@ -163,72 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         coverScroll.style.transform =
             "translateY(15px)";
-
-    }
-
-    /* ==========================================
-       NEXT PART
-       (Cover -> Music -> Video)
-    ========================================== */
-                              /* ==========================================
-       MUSIC
-    ========================================== */
-
-    function playMusic() {
-
-        if (!music) return;
-
-        music.play()
-            .then(() => {
-
-                musicPlaying = true;
-
-                if (musicButton) {
-
-                    musicButton.classList.add("playing");
-
-                }
-
-            })
-            .catch(() => {});
-
-    }
-
-    function pauseMusic() {
-
-        if (!music) return;
-
-        music.pause();
-
-        musicPlaying = false;
-
-        if (musicButton) {
-
-            musicButton.classList.remove("playing");
-
-        }
-
-    }
-
-    /* ==========================================
-       MUSIC BUTTON
-    ========================================== */
-
-    if (musicButton) {
-
-        musicButton.addEventListener("click", () => {
-
-            if (musicPlaying) {
-
-                pauseMusic();
-
-            } else {
-
-                playMusic();
-
-            }
-
-        });
 
     }
 
@@ -259,8 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         videoFinished = true;
 
     }
-
-    /* ==========================================
+       /* ==========================================
        OPEN INVITATION
     ========================================== */
 
@@ -274,19 +192,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
             hideCoverHint();
 
-            playMusic();
+            /* Play Music */
+
+            if (window.WeddingMusic) {
+
+                window.WeddingMusic.play();
+
+            }
+
+            /* Show Video */
 
             setTimeout(() => {
 
                 showVideo();
 
-                videoSection.scrollIntoView({
+                videoSection?.scrollIntoView({
 
                     behavior: "smooth"
 
                 });
 
             }, 350);
+
+        });
+
+        /* Prevent Double Click */
+
+        openInvitation.addEventListener("dblclick", (event) => {
+
+            event.preventDefault();
 
         });
 
@@ -318,19 +252,22 @@ document.addEventListener("DOMContentLoaded", () => {
        USER CAN SCROLL ANYTIME
     ========================================== */
 
-    let scrollLocked = false;
-
     window.addEventListener("scroll", () => {
 
         if (scrollLocked) return;
 
         if (!invitationOpened) return;
 
+        if (!videoSection) return;
+
         const trigger = window.innerHeight * 0.45;
 
         if (
+
             window.scrollY >
+
             (videoSection.offsetTop + trigger)
+
         ) {
 
             scrollLocked = true;
@@ -360,10 +297,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ==========================================
-       NEXT PART
-       RSVP + COPY BUTTON
+       ESC CLOSE VIDEO
     ========================================== */
-                              /* ==========================================
+
+    document.addEventListener("keydown", (event) => {
+
+        if (
+
+            event.key === "Escape" &&
+
+            !videoFinished
+
+        ) {
+
+            hideVideo();
+
+        }
+
+    });
+
+    /* ==========================================
+       PRELOAD VIDEO
+    ========================================== */
+
+    if (openingVideo) {
+
+        openingVideo.load();
+
+    }
+
+    /* ==========================================
+       PAGE VISIBILITY
+    ========================================== */
+
+    document.addEventListener(
+
+        "visibilitychange",
+
+        () => {
+
+            if (!window.WeddingMusic) return;
+
+            if (!invitationOpened) return;
+
+            if (document.hidden) {
+
+                window.WeddingMusic.pause();
+
+            } else {
+
+                window.WeddingMusic.play();
+
+            }
+
+        }
+
+    );
+       /* ==========================================
        RSVP ELEMENTS
     ========================================== */
 
@@ -382,14 +372,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const guestMessages =
         document.getElementById("guestMessages");
 
-    /* ==========================================
-       LOCAL STORAGE KEY
-    ========================================== */
-
     const STORAGE_KEY = "wedding_guestbook";
 
     /* ==========================================
-       LOAD MESSAGES
+       LOAD GUEST BOOK
     ========================================== */
 
     function loadMessages() {
@@ -400,9 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = JSON.parse(
 
-            localStorage.getItem(STORAGE_KEY)
-
-            || "[]"
+            localStorage.getItem(STORAGE_KEY) || "[]"
 
         );
 
@@ -422,33 +406,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        data.reverse().forEach((item) => {
+        data
+            .slice()
+            .reverse()
+            .forEach((item) => {
 
-            const card = document.createElement("div");
+                const card = document.createElement("div");
 
-            card.className = "guest-card";
+                card.className = "guest-card";
 
-            card.innerHTML = `
+                card.innerHTML = `
 
-                <div class="guest-card-header">
+                    <div class="guest-card-header">
 
-                    <strong>${item.name}</strong>
+                        <strong>${item.name}</strong>
 
-                    <span>${item.status}</span>
+                        <span>${item.status}</span>
 
-                </div>
+                    </div>
 
-                <p>
+                    <p>${item.message || "-"}</p>
 
-                    ${item.message}
+                `;
 
-                </p>
+                guestMessages.appendChild(card);
 
-            `;
-
-            guestMessages.appendChild(card);
-
-        });
+            });
 
     }
 
@@ -456,23 +439,31 @@ document.addEventListener("DOMContentLoaded", () => {
        SAVE MESSAGE
     ========================================== */
 
-    function saveMessage(data) {
+    function saveMessage(name, status, message) {
 
-        const messages = JSON.parse(
+        const data = JSON.parse(
 
-            localStorage.getItem(STORAGE_KEY)
-
-            || "[]"
+            localStorage.getItem(STORAGE_KEY) || "[]"
 
         );
 
-        messages.push(data);
+        data.push({
+
+            name,
+
+            status,
+
+            message,
+
+            date: Date.now()
+
+        });
 
         localStorage.setItem(
 
             STORAGE_KEY,
 
-            JSON.stringify(messages)
+            JSON.stringify(data)
 
         );
 
@@ -497,17 +488,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const message =
                 guestMessage.value.trim();
 
-            if (
-
-                name === "" ||
-
-                status === ""
-
-            ) {
+            if (!name || !status) {
 
                 alert(
 
-                    "Silakan lengkapi data terlebih dahulu."
+                    "Silakan lengkapi nama dan konfirmasi kehadiran."
 
                 );
 
@@ -515,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-            saveMessage({
+            saveMessage(
 
                 name,
 
@@ -523,7 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 message
 
-            });
+            );
 
             rsvpForm.reset();
 
@@ -531,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             alert(
 
-                "Terima kasih atas doa dan ucapan Anda."
+                "Terima kasih atas doa dan ucapannya."
 
             );
 
@@ -547,41 +532,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const copyButtons =
 
-        document.querySelectorAll(
-
-            ".copyButton"
-
-        );
+        document.querySelectorAll(".copyButton");
 
     copyButtons.forEach((button) => {
 
         button.addEventListener("click", () => {
 
-            const value =
+            const number =
 
                 button.dataset.copy;
 
             navigator.clipboard
 
-                .writeText(value)
+                .writeText(number)
 
                 .then(() => {
 
-                    const oldText =
+                    const originalText =
 
                         button.innerHTML;
 
                     button.innerHTML =
 
-                        "✓ Berhasil Disalin";
+                        '<i class="fa-solid fa-check"></i> Berhasil Disalin';
+
+                    button.disabled = true;
 
                     setTimeout(() => {
 
                         button.innerHTML =
 
-                            oldText;
+                            originalText;
+
+                        button.disabled = false;
 
                     }, 2000);
+
+                })
+
+                .catch(() => {
+
+                    alert(
+
+                        "Nomor gagal disalin."
+
+                    );
 
                 });
 
@@ -590,140 +585,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ==========================================
-       UTILITY
-    ========================================== */
-
-    function smoothScroll(id) {
-
-        document
-
-            .getElementById(id)
-
-            ?.scrollIntoView({
-
-                behavior: "smooth"
-
-            });
-
-    }
-
-    /* ==========================================
-       NEXT PART
-       INITIALIZATION
-    ========================================== */
-                              /* ==========================================
-       INITIALIZATION
-    ========================================== */
-
-    function initializeApplication() {
-
-        console.log(
-            "%cWedding Reception",
-            "color:#D4AF37;font-size:16px;font-weight:bold;"
-        );
-
-        console.log(
-            "Application initialized successfully."
-        );
-
-    }
-
-    initializeApplication();
-
-    /* ==========================================
-       PREVENT DOUBLE CLICK
-    ========================================== */
-
-    if (openInvitation) {
-
-        openInvitation.addEventListener("dblclick", (event) => {
-
-            event.preventDefault();
-
-        });
-
-    }
-
-    /* ==========================================
-       PRELOAD VIDEO
-    ========================================== */
-
-    if (openingVideo) {
-
-        openingVideo.load();
-
-    }
-
-    /* ==========================================
-       ESC KEY
-       Close video if still open
-    ========================================== */
-
-    document.addEventListener("keydown", (event) => {
-
-        if (event.key === "Escape") {
-
-            if (!videoFinished) {
-
-                hideVideo();
-
-            }
-
-        }
-
-    });
-
-    /* ==========================================
-       WINDOW RESIZE
-    ========================================== */
-
-    window.addEventListener("resize", () => {
-
-        // Reserved for future responsive logic
-
-    });
-
-    /* ==========================================
-       PAGE VISIBILITY
-       Pause music when tab inactive
-    ========================================== */
-
-    document.addEventListener(
-
-        "visibilitychange",
-
-        () => {
-
-            if (document.hidden) {
-
-                if (musicPlaying) {
-
-                    music.pause();
-
-                }
-
-            } else {
-
-                if (
-
-                    invitationOpened &&
-
-                    musicPlaying
-
-                ) {
-
-                    music.play().catch(() => {});
-
-                }
-
-            }
-
-        }
-
-    );
-
-    /* ==========================================
-       SMOOTH INTERNAL LINKS
+       SMOOTH SCROLL
     ========================================== */
 
     document
@@ -755,6 +617,34 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         });
+       /* ==========================================
+       INITIALIZATION
+    ========================================== */
+
+    function initializeApplication() {
+
+        console.log(
+            "%cWedding Reception",
+            "color:#D4AF37;font-size:16px;font-weight:bold;"
+        );
+
+        console.log(
+            "Application initialized successfully."
+        );
+
+    }
+
+    initializeApplication();
+
+    /* ==========================================
+       WINDOW RESIZE
+    ========================================== */
+
+    window.addEventListener("resize", () => {
+
+        // Reserved for future responsive logic
+
+    });
 
     /* ==========================================
        FINISHED
