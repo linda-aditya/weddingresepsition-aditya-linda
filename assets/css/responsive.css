@@ -144,3 +144,13 @@ button{
 }
 
 }
+@media (max-width:768px){
+
+    .photo{
+
+        width:220px;
+        height:220px;
+
+    }
+
+}
