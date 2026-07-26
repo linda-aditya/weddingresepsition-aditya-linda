@@ -1,24 +1,7 @@
-/* =========================================
+/* ===========================================
    WEDDING ADITYA & LINDA
-   Royal Java Vintage Theme
-========================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#2A1B12;
-    color:#F5E8D3;
-    overflow-x:hidden;
-}
+   Royal Brown Gold Theme
+=========================================== */
 
 :root{
 
@@ -27,12 +10,735 @@ body{
     --gold:#D4AF37;
     --cream:#F5E8D3;
     --accent:#8C6239;
+    --shadow:rgba(0,0,0,.45);
 
 }
 
-#cover{
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--cream);
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+    line-height:1.8;
+
+}
+
+section{
+
+    position:relative;
+
+    padding:100px 25px;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+img{
 
     width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+h2,h3,h4,h5{
+
+    font-family:'Cinzel',serif;
+
+}
+
+.section-title{
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+    text-align:center;
+
+}
+
+.section-heading{
+
+    font-size:46px;
+
+    color:var(--cream);
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+}
+
+.section-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:#d9c7ad;
+
+}
+
+/* =============================
+   Loader
+============================= */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#2A1B12;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+
+}
+
+.loader-text h1{
+
+    font-size:80px;
+
+    color:var(--gold);
+
+    animation:pulse 2s infinite;
+
+}
+
+.loader-text p{
+
+    margin-top:15px;
+
+    color:var(--cream);
+
+    letter-spacing:4px;
+
+}
+
+/* =============================
+   Cover
+============================= */
+
+#cover{
+
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../images/cover.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.cover-content{
+
+    background:rgba(58,38,26,.55);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    padding:55px;
+
+    border-radius:20px;
+
+    width:min(90%,700px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,.4);
+
+}
+
+.cover-content h5{
+
+    color:var(--gold);
+
+    letter-spacing:5px;
+
+    margin:15px 0;
+
+}
+
+.cover-content h1{
+
+    font-size:82px;
+
+    color:var(--gold);
+
+    line-height:1;
+
+    text-shadow:0 0 25px rgba(212,175,55,.3);
+
+}
+
+.cover-content span{
+
+    font-size:45px;
+
+    color:white;
+
+}
+
+.cover-content h4{
+
+    margin-top:25px;
+
+    color:#f2e2c5;
+
+}
+
+#guestName{
+
+    margin:15px 0;
+
+    font-size:26px;
+
+    color:white;
+
+}
+
+.note{
+
+    font-size:14px;
+
+    opacity:.85;
+
+}
+
+#openInvitation{
+
+    margin-top:40px;
+
+    background:linear-gradient(135deg,#D4AF37,#B88A22);
+
+    color:#2A1B12;
+
+    border:none;
+
+    padding:18px 45px;
+
+    border-radius:60px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+}
+
+#openInvitation:hover{
+
+    transform:translateY(-3px);
+
+}
+/* ===========================================
+   OPENING
+=========================================== */
+
+#opening{
+
+    background:linear-gradient(180deg,#2A1B12,#342116);
+
+    text-align:center;
+
+}
+
+#opening .bismillah{
+
+    font-family:'Amiri',serif;
+
+    font-size:42px;
+
+    color:var(--gold);
+
+    margin-bottom:30px;
+
+    line-height:1.8;
+
+}
+
+#opening .opening-text{
+
+    max-width:750px;
+
+    margin:auto;
+
+    color:#F5E8D3;
+
+    font-size:18px;
+
+}
+
+
+/* ===========================================
+   COUPLE
+=========================================== */
+
+#couple{
+
+    background:#24160F;
+
+}
+
+.couple-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:70px;
+
+    flex-wrap:wrap;
+
+    margin-top:70px;
+
+}
+
+.person{
+
+    width:360px;
+
+    text-align:center;
+
+}
+
+.photo{
+
+    width:280px;
+
+    height:280px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:4px solid var(--gold);
+
+    padding:8px;
+
+    background:#3A261A;
+
+    box-shadow:0 0 35px rgba(212,175,55,.25);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+.person h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:58px;
+
+    color:var(--gold);
+
+    margin-top:30px;
+
+    text-shadow:0 0 18px rgba(212,175,55,.25);
+
+}
+
+.person p{
+
+    margin-top:10px;
+
+    color:#F5E8D3;
+
+}
+
+.person h4{
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#fff;
+
+}
+
+.love{
+
+    font-size:70px;
+
+    color:var(--gold);
+
+    animation:pulse 2s infinite;
+
+}
+
+
+/* ===========================================
+   CARD
+=========================================== */
+
+.event-card,
+.gift-card{
+
+    width:min(700px,100%);
+
+    margin:40px auto;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    background:rgba(58,38,26,.82);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    box-shadow:0 25px 40px rgba(0,0,0,.35);
+
+}
+
+.event-card h3,
+.gift-card h3{
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+.event-card p,
+.gift-card p{
+
+    margin-bottom:25px;
+
+    color:#F5E8D3;
+
+}
+
+
+/* ===========================================
+   BUTTON
+=========================================== */
+
+.maps-button,
+#rsvp button,
+.gift-card button{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:16px 40px;
+
+    border-radius:60px;
+
+    background:linear-gradient(135deg,#D4AF37,#B88A22);
+
+    color:#2A1B12;
+
+    font-weight:700;
+
+    border:none;
+
+    transition:.35s;
+
+}
+
+.maps-button:hover,
+#rsvp button:hover,
+.gift-card button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(212,175,55,.35);
+
+}
+
+
+/* ===========================================
+   GLOW
+=========================================== */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+/* ===========================================
+   EVENT
+=========================================== */
+
+#event{
+
+    background:linear-gradient(180deg,#24160F,#2A1B12);
+
+    text-align:center;
+
+}
+
+.event-desc{
+
+    max-width:760px;
+
+    margin:0 auto 60px;
+
+    color:#e8d9c3;
+
+    font-size:17px;
+
+}
+
+/* ===========================================
+   COUNTDOWN
+=========================================== */
+
+#countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:60px;
+
+}
+
+.count-item{
+
+    width:130px;
+
+    height:130px;
+
+    background:rgba(58,38,26,.85);
+
+    border:1px solid rgba(212,175,55,.3);
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+    backdrop-filter:blur(10px);
+
+}
+
+.count-item span{
+
+    font-size:48px;
+
+    font-weight:bold;
+
+    color:var(--gold);
+
+    line-height:1;
+
+}
+
+.count-item small{
+
+    margin-top:12px;
+
+    color:#F5E8D3;
+
+    letter-spacing:2px;
+
+}
+
+/* ===========================================
+   RSVP
+=========================================== */
+
+#rsvp{
+
+    background:#2A1B12;
+
+}
+
+#rsvpForm{
+
+    width:min(700px,100%);
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(212,175,55,.2);
+
+    background:#3A261A;
+
+    color:#fff;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+#rsvpForm textarea{
+
+    resize:none;
+
+}
+
+/* ===========================================
+   GIFT
+=========================================== */
+
+#gift{
+
+    background:#24160F;
+
+    text-align:center;
+
+}
+
+.gift-card img{
+
+    width:220px;
+
+    margin:25px auto;
+
+    border-radius:12px;
+
+}
+
+/* ===========================================
+   CLOSING
+=========================================== */
+
+#closing{
+
+    position:relative;
+
     height:100vh;
 
     display:flex;
@@ -43,85 +749,416 @@ body{
 
     text-align:center;
 
-    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop");
+    background:
+
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+
+    url("../images/closing.jpg");
 
     background-size:cover;
 
     background-position:center;
 
-}
-
-.cover-content{
-
-    max-width:700px;
-
-    padding:30px;
+    background-attachment:fixed;
 
 }
 
-.cover-content h5{
+.closing-content{
+
+    width:min(800px,90%);
+
+    background:rgba(58,38,26,.55);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    padding:60px;
+
+    border-radius:25px;
+
+}
+
+.closing-content h5{
 
     color:var(--gold);
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    margin:20px 0;
-
-    font-family:'Cinzel',serif;
+    margin-bottom:20px;
 
 }
 
-.cover-content h1{
+.closing-content h1{
 
-    font-family:'Great Vibes',cursive;
-
-    font-size:70px;
+    font-size:80px;
 
     color:var(--gold);
 
-}
+    line-height:1.1;
 
-.cover-content span{
-
-    font-size:40px;
-
-    color:var(--cream);
+    margin-bottom:30px;
 
 }
 
-.cover-content h4{
+.closing-content p{
 
-    margin-top:20px;
+    color:#F5E8D3;
 
-    font-weight:500;
+    margin-bottom:30px;
 
 }
 
-#openInvitation{
+/* ===========================================
+   MUSIC BUTTON
+=========================================== */
 
-    margin-top:35px;
+#musicButton{
 
-    background:var(--gold);
+    position:fixed;
 
-    color:#2A1B12;
+    right:25px;
+
+    bottom:25px;
+
+    width:60px;
+
+    height:60px;
 
     border:none;
 
-    padding:15px 40px;
+    border-radius:50%;
 
-    border-radius:50px;
+    background:linear-gradient(135deg,#D4AF37,#B88A22);
 
-    cursor:pointer;
+    color:#2A1B12;
 
-    font-weight:bold;
+    font-size:22px;
 
-    transition:.3s;
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+    z-index:999;
 
 }
 
-#openInvitation:hover{
+#musicButton:hover{
 
-    transform:scale(1.05);
+    transform:scale(1.1);
+
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+footer{
+
+    background:#1d120c;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#bda98a;
+
+    font-size:14px;
+
+}
+/* ===========================================
+   PREMIUM EFFECT
+=========================================== */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    rgba(20,12,8,.35),
+    rgba(20,12,8,.65)
+    );
+
+}
+
+.container{
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* ===========================================
+   GOLD ORNAMENT
+=========================================== */
+
+section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border:1px solid rgba(212,175,55,.08);
+
+    border-radius:50%;
+
+    top:40px;
+
+    left:-100px;
+
+}
+
+section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border:1px solid rgba(212,175,55,.08);
+
+    border-radius:50%;
+
+    right:-70px;
+
+    bottom:40px;
+
+}
+
+/* ===========================================
+   GLASS EFFECT
+=========================================== */
+
+.cover-content,
+.event-card,
+.gift-card,
+.closing-content{
+
+    background:rgba(58,38,26,.55);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+/* ===========================================
+   GOLD BORDER ANIMATION
+=========================================== */
+
+.cover-content,
+.event-card,
+.gift-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.cover-content::before,
+.event-card::before,
+.gift-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-100%;
+
+    width:250%;
+
+    height:250%;
+
+    background:
+
+    linear-gradient(
+        transparent,
+        rgba(212,175,55,.18),
+        transparent
+    );
+
+    transform:rotate(35deg);
+
+    animation:shine 8s linear infinite;
+
+}
+
+@keyframes shine{
+
+    from{
+
+        transform:
+        translateX(-60%)
+        rotate(35deg);
+
+    }
+
+    to{
+
+        transform:
+        translateX(60%)
+        rotate(35deg);
+
+    }
+
+}
+
+/* ===========================================
+   GOLD GLOW
+=========================================== */
+
+.cover-content h1,
+.person h2,
+.closing-content h1{
+
+    text-shadow:
+
+    0 0 8px rgba(212,175,55,.25),
+
+    0 0 18px rgba(212,175,55,.20),
+
+    0 0 35px rgba(212,175,55,.18);
+
+}
+
+/* ===========================================
+   FLOATING
+=========================================== */
+
+.photo{
+
+    animation:floating 5s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+   BUTTON SHINE
+=========================================== */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+        rgba(255,255,255,0),
+
+        rgba(255,255,255,.35),
+
+        rgba(255,255,255,0)
+
+    );
+
+    transform:skewX(-25deg);
+
+}
+
+button:hover::after{
+
+    animation:btnshine .9s;
+
+}
+
+@keyframes btnshine{
+
+    from{
+
+        left:-120%;
+
+    }
+
+    to{
+
+        left:180%;
+
+    }
+
+}
+
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#24160F;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#D4AF37;
+
+    border-radius:20px;
+
+}
+
+/* ===========================================
+   TEXT SELECTION
+=========================================== */
+
+::selection{
+
+    background:#D4AF37;
+
+    color:#2A1B12;
 
 }
