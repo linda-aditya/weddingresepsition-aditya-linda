@@ -26,20 +26,6 @@
 
 }
 
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
-}
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
 /* =========================================================
    GLOBAL
 ========================================================= */
@@ -350,15 +336,30 @@ button{
 
     min-height:100vh;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
     overflow:hidden;
 
-    isolation:isolate;
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s ease,
+
+        visibility .9s ease;
+
+}
+/* ==========================================
+   COVER EXIT
+========================================== */
+
+#cover.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:scale(1.03);
+
+    pointer-events:none;
 
 }
 
@@ -686,18 +687,32 @@ button{
 
 #videoOpening{
 
-    position:relative;
-
-    width:100%;
-
-    height:100vh;
-
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background:#000;
 
-    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+    will-change: opacity;
+
+    z-index:9998;
 
 }
+#videoOpening.active{
 
+    opacity:1;
+
+    visibility:visible;
+
+}
 #openingVideo{
 
     position:absolute;
@@ -810,21 +825,6 @@ button{
 
 }
 
-/* Fade ketika video selesai */
-
-#videoOpening.hide{
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:
-
-        opacity .8s ease,
-
-        visibility .8s ease;
-
-}
 /* =========================================================
    OPENING
 ========================================================= */
