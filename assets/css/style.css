@@ -1398,11 +1398,9 @@ button{
 
 .person{
 
-    opacity:0;
+    opacity:1;
 
-    transform:translateY(50px);
-
-    transition:.8s ease;
+    transform:translateY(0);
 
 }
 
