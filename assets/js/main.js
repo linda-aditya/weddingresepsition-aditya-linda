@@ -5,149 +5,176 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const loader = document.getElementById("loader");
-const openButton = document.getElementById("openInvitation");
-const music = document.getElementById("music");
-const guestName = document.getElementById("guestName");
-const musicButton = document.getElementById("musicButton");
+    /* ==========================================
+       ELEMENT
+    ========================================== */
 
-/* ==========================
-   Loader
-========================== */
+    const loader = document.getElementById("loader");
+    const cover = document.getElementById("cover");
+    const openButton = document.getElementById("openInvitation");
 
-window.addEventListener("load", () => {
+    const openingAnimation = document.getElementById("openingAnimation");
+    const openingVideo = document.getElementById("openingVideo");
+    const continueButton = document.getElementById("continueButton");
 
-    setTimeout(() => {
+    const music = document.getElementById("music");
+    const musicButton = document.getElementById("musicButton");
 
-        loader.style.opacity = "0";
+    const guestName = document.getElementById("guestName");
 
-        loader.style.visibility = "hidden";
 
-    },1200);
+    /* ==========================================
+       LOADER
+    ========================================== */
 
-});
+    window.addEventListener("load", () => {
 
-/* ==========================
-   Guest Name
-========================== */
+        setTimeout(() => {
 
-const params = new URLSearchParams(window.location.search);
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
 
-const guest = params.get("to");
-
-if(guest){
-
-    guestName.innerHTML = guest.replace(/\+/g," ");
-
-}
-
-/* ==========================
-   Open Invitation
-========================== */
-
-const cover = document.getElementById("cover");
-const openingAnimation = document.getElementById("openingAnimation");
-const openingVideo = document.getElementById("openingVideo");
-const continueButton = document.getElementById("continueButton");
-
-openButton.addEventListener("click", () => {
-
-    cover.style.display = "none";
-
-    openingAnimation.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
-    music.play();
-
-    musicButton.classList.add("show");
-
-    openingVideo.currentTime = 0;
-
-    openingVideo.play();
-
-});
-   /* ==========================
-   Opening Video End
-========================== */
-
-openingVideo.addEventListener("ended", () => {
-
-    continueButton.classList.add("show");
-
-});
-   /* ==========================
-   Continue Button
-========================== */
-
-continueButton.addEventListener("click", () => {
-
-    openingAnimation.style.display = "none";
-
-    document.body.style.overflowY = "auto";
-
-    window.scrollTo({
-
-        top: document.getElementById("opening").offsetTop,
-
-        behavior: "smooth"
+        }, 1200);
 
     });
 
-});
 
-/* ==========================
-   Music Button
-========================== */
+    /* ==========================================
+       GUEST NAME
+    ========================================== */
 
-let playing = true;
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get("to");
 
-musicButton.addEventListener("click",()=>{
+    if (guest) {
 
-    if(playing){
-
-        music.pause();
-
-        musicButton.innerHTML="🔇";
-
-    }else{
-
-        music.play();
-
-        musicButton.innerHTML="🎵";
+        guestName.innerHTML = guest.replace(/\+/g, " ");
 
     }
 
-    playing=!playing;
 
-});
+    /* ==========================================
+       OPEN INVITATION
+    ========================================== */
+
+    openButton.addEventListener("click", () => {
+
+        cover.classList.add("fade-out");
+
+        setTimeout(() => {
+
+            cover.style.display = "none";
+
+            openingAnimation.classList.add("active");
+            openingAnimation.classList.add("fade-in");
+
+            document.body.style.overflow = "hidden";
+
+            music.play();
+
+            musicButton.classList.add("show");
+
+            openingVideo.currentTime = 0;
+
+            openingVideo.play();
+
+        }, 800);
+
+    });
 
 
-/* ==========================
-   Reveal Animation
-========================== */
+    /* ==========================================
+       VIDEO SELESAI
+    ========================================== */
 
-const observer = new IntersectionObserver(entries=>{
+    openingVideo.addEventListener("ended", () => {
 
-entries.forEach(entry=>{
+        continueButton.classList.add("show");
 
-if(entry.isIntersecting){
+    });
 
-entry.target.classList.add("show");
 
-}
+    /* ==========================================
+       LANJUT
+    ========================================== */
 
-});
+    continueButton.addEventListener("click", () => {
 
-},{
-threshold:.15
-});
+        openingAnimation.classList.remove("fade-in");
+        openingAnimation.classList.add("fade-out");
 
-document.querySelectorAll("section").forEach(sec=>{
+        setTimeout(() => {
 
-observer.observe(sec);
+            openingAnimation.style.display = "none";
 
-});
+            document.body.style.overflowY = "auto";
 
+            document.getElementById("opening").scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }, 800);
+
+    });
+
+
+    /* ==========================================
+       MUSIC
+    ========================================== */
+
+    let playing = true;
+
+    musicButton.addEventListener("click", () => {
+
+        if (playing) {
+
+            music.pause();
+
+            musicButton.innerHTML =
+                '<i class="fa-solid fa-volume-xmark"></i>';
+
+        } else {
+
+            music.play();
+
+            musicButton.innerHTML =
+                '<i class="fa-solid fa-music"></i>';
+
+        }
+
+        playing = !playing;
+
+    });
+
+
+    /* ==========================================
+       SCROLL ANIMATION
+    ========================================== */
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.15
+
+    });
+
+    document.querySelectorAll("section").forEach((section) => {
+
+        observer.observe(section);
+
+    });
 
 });
