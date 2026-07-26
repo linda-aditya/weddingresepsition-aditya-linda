@@ -1,175 +1,135 @@
-/* ==========================================================
-   Wedding Reception
-   Main Javascript
-========================================================== */
+"use strict";
+
+/* =========================================================
+   WEDDING RECEPTION
+   Aditya & Linda
+   Main.js
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ======================================================
-       ELEMENT
-    ====================================================== */
+    /* ==========================================
+       DOM ELEMENTS
+    ========================================== */
 
-    const loader =
-        document.getElementById("loader");
+    const loader = document.getElementById("loader");
 
-    const cover =
-        document.getElementById("cover");
+    const cover = document.getElementById("cover");
 
-    const openButton =
+    const openInvitation =
         document.getElementById("openInvitation");
-
-    const openingAnimation =
-        document.getElementById("openingAnimation");
-
-    const openingVideo =
-        document.getElementById("openingVideo");
-
-    const continueButton =
-        document.getElementById("continueButton");
 
     const guestName =
         document.getElementById("guestName");
 
-    /* ======================================================
+    const music =
+        document.getElementById("music");
+
+    const musicButton =
+        document.getElementById("musicButton");
+
+    const openingVideo =
+        document.getElementById("openingVideo");
+
+    const videoSection =
+        document.getElementById("videoOpening");
+
+    const coverScroll =
+        document.querySelector(".cover-scroll");
+
+    /* ==========================================
+       APPLICATION STATE
+    ========================================== */
+
+    let musicPlaying = false;
+
+    let invitationOpened = false;
+
+    let videoFinished = false;
+
+    /* ==========================================
        LOADER
-    ====================================================== */
+    ========================================== */
 
     window.addEventListener("load", () => {
 
         setTimeout(() => {
 
-            if(loader){
+            loader.style.opacity = "0";
 
-                loader.classList.add("fade-out");
+            loader.style.visibility = "hidden";
 
-                setTimeout(() => {
+            loader.style.pointerEvents = "none";
 
-                    loader.remove();
-
-                },800);
-
-            }
-
-        },1200);
+        }, 800);
 
     });
-       /* ======================================================
-       GUEST NAME
-    ====================================================== */
 
-    const params =
-        new URLSearchParams(window.location.search);
+    /* ==========================================
+       GUEST NAME FROM URL
+       ?to=Nama Tamu
+    ========================================== */
 
-    const guest =
-        params.get("to");
+    function setGuestName() {
 
-    if(guest && guestName){
+        const params =
+            new URLSearchParams(window.location.search);
 
-        guestName.textContent =
-            decodeURIComponent(guest.replace(/\+/g," "));
+        const guest =
+            params.get("to");
 
-    }
+        if (!guestName) return;
 
-    /* ======================================================
-       OPEN INVITATION
-    ====================================================== */
+        if (guest && guest.trim() !== "") {
 
-    if(openButton){
+            guestName.textContent =
+                decodeURIComponent(guest);
 
-        openButton.addEventListener("click", () => {
+        } else {
 
-            openButton.disabled = true;
+            guestName.textContent =
+                "Bapak / Ibu / Saudara / i";
 
-            cover.classList.add("fade-out");
-
-            setTimeout(() => {
-
-                cover.style.display = "none";
-
-                document.body.style.overflowY = "hidden";
-
-                openingAnimation.classList.add("active");
-
-                openingAnimation.classList.add("fade-in");
-
-                openingVideo.currentTime = 0;
-
-                openingVideo.play().catch(()=>{});
-
-            },700);
-
-        });
-
-    }
-       /* ======================================================
-       VIDEO END
-    ====================================================== */
-
-    if(openingVideo){
-
-        openingVideo.addEventListener("ended", () => {
-
-            continueButton.classList.add("show");
-
-        });
-
-        openingVideo.addEventListener("error", () => {
-
-            continueButton.classList.add("show");
-
-        });
+        }
 
     }
 
-    /* ======================================================
-       CONTINUE
-    ====================================================== */
+    setGuestName();
 
-    if(continueButton){
+    /* ==========================================
+       REVEAL ANIMATION
+    ========================================== */
 
-        continueButton.addEventListener("click", () => {
+    const revealElements = document.querySelectorAll(
 
-            openingAnimation.classList.remove("fade-in");
+        "#opening .container",
+        "#couple .container",
+        "#saveDate .container",
+        "#countdownSection .container",
+        "#location .container",
+        "#rsvp .container",
+        "#gift .container",
+        "#closing .closing-content"
 
-            openingAnimation.classList.add("fade-out");
+    );
 
-            setTimeout(() => {
+    revealElements.forEach((element) => {
 
-                openingAnimation.classList.remove("active");
+        element.classList.add("reveal");
 
-                openingAnimation.style.display="none";
+    });
 
-                openingVideo.pause();
+    const revealObserver = new IntersectionObserver(
 
-                openingVideo.currentTime=0;
+        (entries) => {
 
-                document.body.style.overflowY="auto";
+            entries.forEach((entry) => {
 
-                document.getElementById("opening")
-                    .scrollIntoView({
+                if (entry.isIntersecting) {
 
-                        behavior:"smooth"
+                    entry.target.classList.add("active");
 
-                    });
-
-            },700);
-
-        });
-
-    }
-       /* ======================================================
-       SCROLL REVEAL
-    ====================================================== */
-
-    const observer = new IntersectionObserver(
-
-        (entries)=>{
-
-            entries.forEach((entry)=>{
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add("show");
+                    revealObserver.unobserve(entry.target);
 
                 }
 
@@ -179,350 +139,631 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
 
-            threshold:.15
+            threshold: 0.15
 
         }
 
     );
 
-    document
+    revealElements.forEach((element) => {
 
-        .querySelectorAll(".reveal")
-
-        .forEach((section)=>{
-
-            observer.observe(section);
-
-        });
-
-});
-/* =========================================================
-   WEDDING RECEPTION
-   MAIN.JS
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* ==========================================
-       ELEMENT
-    ========================================== */
-
-    const loader = document.getElementById("loader");
-
-    const cover = document.getElementById("cover");
-
-    const openBtn = document.getElementById("openInvitation");
-
-    const openingAnimation =
-        document.getElementById("openingAnimation");
-
-    const openingVideo =
-        document.getElementById("openingVideo");
-
-    const continueButton =
-        document.getElementById("continueButton");
-
-    const music =
-        document.getElementById("music");
-
-    const musicButton =
-        document.getElementById("musicButton");
-
-
-    /* ==========================================
-       LOADER
-    ========================================== */
-
-    window.addEventListener("load", () => {
-
-        if(loader){
-
-            setTimeout(()=>{
-
-                loader.style.opacity="0";
-
-                loader.style.pointerEvents="none";
-
-                setTimeout(()=>{
-
-                    loader.remove();
-
-                },500);
-
-            },1200);
-
-        }
+        revealObserver.observe(element);
 
     });
 
-
     /* ==========================================
-       ENABLE OPEN BUTTON
+       SCROLL HINT
     ========================================== */
 
-    if(openBtn){
+    function hideCoverHint() {
 
-        openBtn.disabled=false;
+        if (!coverScroll) return;
+
+        coverScroll.style.opacity = "0";
+
+        coverScroll.style.transform =
+            "translateY(15px)";
 
     }
 
+    /* ==========================================
+       NEXT PART
+       (Cover -> Music -> Video)
+    ========================================== */
+                              /* ==========================================
+       MUSIC
+    ========================================== */
+
+    function playMusic() {
+
+        if (!music) return;
+
+        music.play()
+            .then(() => {
+
+                musicPlaying = true;
+
+                if (musicButton) {
+
+                    musicButton.classList.add("playing");
+
+                }
+
+            })
+            .catch(() => {});
+
+    }
+
+    function pauseMusic() {
+
+        if (!music) return;
+
+        music.pause();
+
+        musicPlaying = false;
+
+        if (musicButton) {
+
+            musicButton.classList.remove("playing");
+
+        }
+
+    }
+
+    /* ==========================================
+       MUSIC BUTTON
+    ========================================== */
+
+    if (musicButton) {
+
+        musicButton.addEventListener("click", () => {
+
+            if (musicPlaying) {
+
+                pauseMusic();
+
+            } else {
+
+                playMusic();
+
+            }
+
+        });
+
+    }
+
+    /* ==========================================
+       VIDEO
+    ========================================== */
+
+    function showVideo() {
+
+        if (!videoSection || !openingVideo) return;
+
+        videoSection.classList.add("active");
+
+        openingVideo.currentTime = 0;
+
+        openingVideo.play().catch(() => {});
+
+    }
+
+    function hideVideo() {
+
+        if (!videoSection || !openingVideo) return;
+
+        videoSection.classList.remove("active");
+
+        openingVideo.pause();
+
+        videoFinished = true;
+
+    }
 
     /* ==========================================
        OPEN INVITATION
     ========================================== */
 
-    if(openBtn){
+    if (openInvitation) {
 
-        openBtn.addEventListener("click",()=>{
+        openInvitation.addEventListener("click", () => {
 
-            if(openingAnimation){
+            if (invitationOpened) return;
 
-                openingAnimation.classList.add("active");
+            invitationOpened = true;
 
-            }
+            hideCoverHint();
 
-            if(openingVideo){
+            playMusic();
 
-                openingVideo.currentTime=0;
+            setTimeout(() => {
 
-                openingVideo.play();
+                showVideo();
 
-            }
+                videoSection.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+            }, 350);
 
         });
 
     }
-
 
     /* ==========================================
-       VIDEO FINISHED
+       VIDEO END
     ========================================== */
 
-    if(openingVideo){
+    if (openingVideo) {
 
-        openingVideo.addEventListener("ended",()=>{
+        openingVideo.addEventListener("ended", () => {
 
-            continueButton.classList.add("show");
+            hideVideo();
+
+            document
+                .getElementById("opening")
+                ?.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
 
         });
 
     }
-/* ==========================================
-   CONTINUE
-========================================== */
 
-if (continueButton) {
+    /* ==========================================
+       USER CAN SCROLL ANYTIME
+    ========================================== */
 
-    continueButton.addEventListener("click", () => {
+    let scrollLocked = false;
 
-        openingAnimation.classList.remove("active");
+    window.addEventListener("scroll", () => {
 
-        if (music) {
+        if (scrollLocked) return;
 
-            music.play().catch(() => {});
+        if (!invitationOpened) return;
+
+        const trigger = window.innerHeight * 0.45;
+
+        if (
+            window.scrollY >
+            (videoSection.offsetTop + trigger)
+        ) {
+
+            scrollLocked = true;
+
+            hideVideo();
 
         }
 
+    });
+
+    /* ==========================================
+       SCROLL INDICATOR
+    ========================================== */
+
+    const scrollIndicator =
+
+        document.querySelector(".scrollIndicator");
+
+    if (scrollIndicator) {
+
+        setInterval(() => {
+
+            scrollIndicator.classList.toggle("pulse");
+
+        }, 1200);
+
+    }
+
+    /* ==========================================
+       NEXT PART
+       RSVP + COPY BUTTON
+    ========================================== */
+                              /* ==========================================
+       RSVP ELEMENTS
+    ========================================== */
+
+    const rsvpForm =
+        document.getElementById("rsvpForm");
+
+    const guestInput =
+        document.getElementById("guestInput");
+
+    const guestStatus =
+        document.getElementById("guestStatus");
+
+    const guestMessage =
+        document.getElementById("guestMessage");
+
+    const guestMessages =
+        document.getElementById("guestMessages");
+
+    /* ==========================================
+       LOCAL STORAGE KEY
+    ========================================== */
+
+    const STORAGE_KEY = "wedding_guestbook";
+
+    /* ==========================================
+       LOAD MESSAGES
+    ========================================== */
+
+    function loadMessages() {
+
+        if (!guestMessages) return;
+
+        guestMessages.innerHTML = "";
+
+        const data = JSON.parse(
+
+            localStorage.getItem(STORAGE_KEY)
+
+            || "[]"
+
+        );
+
+        if (data.length === 0) {
+
+            guestMessages.innerHTML = `
+
+                <div class="empty-message">
+
+                    Belum ada ucapan.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        data.reverse().forEach((item) => {
+
+            const card = document.createElement("div");
+
+            card.className = "guest-card";
+
+            card.innerHTML = `
+
+                <div class="guest-card-header">
+
+                    <strong>${item.name}</strong>
+
+                    <span>${item.status}</span>
+
+                </div>
+
+                <p>
+
+                    ${item.message}
+
+                </p>
+
+            `;
+
+            guestMessages.appendChild(card);
+
+        });
+
+    }
+
+    /* ==========================================
+       SAVE MESSAGE
+    ========================================== */
+
+    function saveMessage(data) {
+
+        const messages = JSON.parse(
+
+            localStorage.getItem(STORAGE_KEY)
+
+            || "[]"
+
+        );
+
+        messages.push(data);
+
+        localStorage.setItem(
+
+            STORAGE_KEY,
+
+            JSON.stringify(messages)
+
+        );
+
+    }
+
+    /* ==========================================
+       RSVP SUBMIT
+    ========================================== */
+
+    if (rsvpForm) {
+
+        rsvpForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const name =
+                guestInput.value.trim();
+
+            const status =
+                guestStatus.value;
+
+            const message =
+                guestMessage.value.trim();
+
+            if (
+
+                name === "" ||
+
+                status === ""
+
+            ) {
+
+                alert(
+
+                    "Silakan lengkapi data terlebih dahulu."
+
+                );
+
+                return;
+
+            }
+
+            saveMessage({
+
+                name,
+
+                status,
+
+                message
+
+            });
+
+            rsvpForm.reset();
+
+            loadMessages();
+
+            alert(
+
+                "Terima kasih atas doa dan ucapan Anda."
+
+            );
+
+        });
+
+    }
+
+    loadMessages();
+
+    /* ==========================================
+       COPY REKENING
+    ========================================== */
+
+    const copyButtons =
+
+        document.querySelectorAll(
+
+            ".copyButton"
+
+        );
+
+    copyButtons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+            const value =
+
+                button.dataset.copy;
+
+            navigator.clipboard
+
+                .writeText(value)
+
+                .then(() => {
+
+                    const oldText =
+
+                        button.innerHTML;
+
+                    button.innerHTML =
+
+                        "✓ Berhasil Disalin";
+
+                    setTimeout(() => {
+
+                        button.innerHTML =
+
+                            oldText;
+
+                    }, 2000);
+
+                });
+
+        });
+
+    });
+
+    /* ==========================================
+       UTILITY
+    ========================================== */
+
+    function smoothScroll(id) {
+
         document
-            .getElementById("opening")
+
+            .getElementById(id)
+
             ?.scrollIntoView({
 
                 behavior: "smooth"
 
             });
 
-    });
+    }
 
-}
+    /* ==========================================
+       NEXT PART
+       INITIALIZATION
+    ========================================== */
+                              /* ==========================================
+       INITIALIZATION
+    ========================================== */
 
+    function initializeApplication() {
 
-/* ==========================================
-   REVEAL ANIMATION
-========================================== */
+        console.log(
+            "%cWedding Reception",
+            "color:#D4AF37;font-size:16px;font-weight:bold;"
+        );
 
-const revealElements = document.querySelectorAll(
-
-    "section, .gift-card, .location-card, .save-card, .person, .count-item"
-
-);
-
-revealElements.forEach((el) => {
-
-    el.classList.add("reveal");
-
-});
-
-function revealOnScroll() {
-
-    const trigger = window.innerHeight * 0.88;
-
-    revealElements.forEach((el) => {
-
-        const top = el.getBoundingClientRect().top;
-
-        if (top < trigger) {
-
-            el.classList.add("active");
-
-        }
-
-    });
-
-}
-
-revealOnScroll();
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-/* ==========================================
-   MUSIC BUTTON
-========================================== */
-
-if (musicButton && music) {
-
-    musicButton.addEventListener("click", () => {
-
-        if (music.paused) {
-
-            music.play();
-
-            musicButton.classList.add("playing");
-
-        } else {
-
-            music.pause();
-
-            musicButton.classList.remove("playing");
-
-        }
-
-    });
-
-}
-
-
-/* ==========================================
-   COPY REKENING
-========================================== */
-
-const copyButton = document.querySelector(".copyButton");
-
-if (copyButton) {
-
-    copyButton.addEventListener("click", async () => {
-
-        const rekening = "1234567890";
-
-        try {
-
-            await navigator.clipboard.writeText(rekening);
-
-            showToast("Nomor rekening berhasil disalin");
-
-        } catch {
-
-            showToast("Gagal menyalin rekening");
-
-        }
-
-    });
-
-}
-
-
-/* ==========================================
-   TOAST
-========================================== */
-
-function showToast(text) {
-
-    let toast = document.querySelector(".copy-toast");
-
-    if (!toast) {
-
-        toast = document.createElement("div");
-
-        toast.className = "copy-toast";
-
-        document.body.appendChild(toast);
+        console.log(
+            "Application initialized successfully."
+        );
 
     }
 
-    toast.textContent = text;
+    initializeApplication();
 
-    toast.classList.add("show");
+    /* ==========================================
+       PREVENT DOUBLE CLICK
+    ========================================== */
 
-    setTimeout(() => {
+    if (openInvitation) {
 
-        toast.classList.remove("show");
+        openInvitation.addEventListener("dblclick", (event) => {
 
-    }, 2500);
+            event.preventDefault();
 
-}
+        });
 
+    }
 
-/* ==========================================
-   SMOOTH SCROLL
-========================================== */
+    /* ==========================================
+       PRELOAD VIDEO
+    ========================================== */
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    if (openingVideo) {
 
-    link.addEventListener("click", function (e) {
+        openingVideo.load();
 
-        e.preventDefault();
+    }
 
-        const target = document.querySelector(
+    /* ==========================================
+       ESC KEY
+       Close video if still open
+    ========================================== */
 
-            this.getAttribute("href")
+    document.addEventListener("keydown", (event) => {
 
-        );
+        if (event.key === "Escape") {
 
-        if (target) {
+            if (!videoFinished) {
 
-            target.scrollIntoView({
+                hideVideo();
 
-                behavior: "smooth"
+            }
+
+        }
+
+    });
+
+    /* ==========================================
+       WINDOW RESIZE
+    ========================================== */
+
+    window.addEventListener("resize", () => {
+
+        // Reserved for future responsive logic
+
+    });
+
+    /* ==========================================
+       PAGE VISIBILITY
+       Pause music when tab inactive
+    ========================================== */
+
+    document.addEventListener(
+
+        "visibilitychange",
+
+        () => {
+
+            if (document.hidden) {
+
+                if (musicPlaying) {
+
+                    music.pause();
+
+                }
+
+            } else {
+
+                if (
+
+                    invitationOpened &&
+
+                    musicPlaying
+
+                ) {
+
+                    music.play().catch(() => {});
+
+                }
+
+            }
+
+        }
+
+    );
+
+    /* ==========================================
+       SMOOTH INTERNAL LINKS
+    ========================================== */
+
+    document
+
+        .querySelectorAll('a[href^="#"]')
+
+        .forEach((link) => {
+
+            link.addEventListener("click", (event) => {
+
+                const target =
+
+                    document.querySelector(
+
+                        link.getAttribute("href")
+
+                    );
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
 
             });
 
-        }
+        });
 
-    });
+    /* ==========================================
+       FINISHED
+    ========================================== */
 
-});
+    console.log(
 
+        "Wedding Invitation Ready."
 
-/* ==========================================
-   FIRST INTERACTION MUSIC
-========================================== */
-
-let started = false;
-
-function startMusic() {
-
-    if (started) return;
-
-    started = true;
-
-    if (music) {
-
-        music.play().catch(() => {});
-
-    }
-
-    if (musicButton) {
-
-        musicButton.classList.add("playing");
-
-    }
-
-}
-
-window.addEventListener("click", startMusic, {
-
-    once: true
-
-});
+    );
 
 });
