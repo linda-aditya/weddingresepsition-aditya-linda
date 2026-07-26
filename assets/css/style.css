@@ -456,3 +456,52 @@ h5{
     transform:translateY(-3px);
 
 }
+/* ===========================================
+   PREMIUM TRANSITION
+=========================================== */
+
+.fade-out{
+
+    animation:fadeOut .8s ease forwards;
+
+}
+
+.fade-in{
+
+    animation:fadeIn .8s ease forwards;
+
+}
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+        visibility:hidden;
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
