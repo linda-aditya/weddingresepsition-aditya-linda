@@ -1,194 +1,11 @@
-/* ==========================
-   PREMIUM SECTION ANIMATION
-========================== */
-
-/* Cover selalu tampil */
-
-#cover{
-
-    opacity:1;
-
-    transform:none;
-
-    animation:coverZoom 12s ease-in-out infinite alternate;
-
-}
-
-/* Reveal section */
-
-#opening,
-#couple,
-#event,
-#rsvp,
-#gift,
-#closing{
-
-    opacity:0;
-
-    transform:translateY(80px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-
-}
-
-#opening.show,
-#couple.show,
-#event.show,
-#rsvp.show,
-#gift.show,
-#closing.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-/* ==========================
-   COVER ZOOM
-========================== */
-
-@keyframes coverZoom{
-
-    from{
-
-        background-size:100%;
-
-    }
-
-    to{
-
-        background-size:110%;
-
-    }
-
-}
-
-/* ==========================
-   COVER CONTENT
-========================== */
-
-.cover-content{
-
-    animation:
-        coverUp 1.2s ease,
-        floatCard 4s ease-in-out 1.2s infinite;
-
-}
-
-/* ==========================
-   FLOAT CARD
-========================== */
-
-@keyframes floatCard{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/* ==========================
-   COVER UP
-========================== */
-
-@keyframes coverUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/* ==========================
-   GOLD GLOW
-========================== */
-
-.cover-content h1{
-
-    animation:goldGlow 3s ease-in-out infinite;
-
-}
-
-@keyframes goldGlow{
-
-    0%{
-
-        text-shadow:0 0 10px #D4AF37;
-
-    }
-
-    50%{
-
-        text-shadow:
-            0 0 35px #FFD700,
-            0 0 60px #FFD700;
-
-    }
-
-    100%{
-
-        text-shadow:0 0 10px #D4AF37;
-
-    }
-
-}
-
-/* ==========================
-   REVEAL ANIMATION
-========================== */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
-
-}
-
-.reveal.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-/* ==========================
-   PREMIUM TRANSITION
-========================== */
+/* =========================================================
+   ANIMATION.CSS
+   Wedding Reception
+========================================================= */
+
+/* =========================================================
+   FADE
+========================================================= */
 
 .fade-in{
 
@@ -234,13 +51,166 @@
 
 }
 
-/* ==========================
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader-content{
+
+    animation:loaderZoom 1.5s ease infinite alternate;
+
+}
+
+@keyframes loaderZoom{
+
+    from{
+
+        transform:scale(.95);
+
+        opacity:.7;
+
+    }
+
+    to{
+
+        transform:scale(1.05);
+
+        opacity:1;
+
+    }
+
+}
+
+/* =========================================================
+   COVER IMAGE
+========================================================= */
+
+.cover-image{
+
+    animation:coverZoom 18s linear infinite alternate;
+
+}
+
+@keyframes coverZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.10);
+
+    }
+
+}
+
+/* =========================================================
+   COVER CONTENT
+========================================================= */
+
+.cover-content{
+
+    animation:coverUp 1.2s ease;
+
+}
+
+@keyframes coverUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* =========================================================
+   FLOATING CARD
+========================================================= */
+
+.guest-box{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =========================================================
+   GOLD GLOW
+========================================================= */
+
+.cover-name{
+
+    animation:goldGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes goldGlow{
+
+    0%{
+
+        text-shadow:
+            0 0 10px rgba(212,175,55,.3);
+
+    }
+
+    50%{
+
+        text-shadow:
+            0 0 18px rgba(255,215,0,.7),
+            0 0 35px rgba(255,215,0,.5);
+
+    }
+
+    100%{
+
+        text-shadow:
+            0 0 10px rgba(212,175,55,.3);
+
+    }
+
+}
+
+/* =========================================================
    BUTTON PULSE
-========================== */
+========================================================= */
 
 #openInvitation{
 
-    animation:pulseButton 2s infinite;
+    animation:pulseButton 2.8s infinite;
 
 }
 
@@ -265,28 +235,228 @@
     }
 
 }
+/* =========================================================
+   SECTION REVEAL
+========================================================= */
 
-/* ==========================
-   IMAGE SLOW ZOOM
-========================== */
+.reveal{
 
-.cover-image{
+    opacity:0;
 
-    animation:slowZoom 18s linear infinite alternate;
+    transform:translateY(80px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
 
 }
 
-@keyframes slowZoom{
+.reveal.show{
 
-    from{
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo{
+
+    transition:.5s;
+
+}
+
+.photo:hover{
+
+    transform:
+
+        translateY(-8px)
+
+        scale(1.02);
+
+}
+
+/* =========================================================
+   LOVE
+========================================================= */
+
+.love{
+
+    animation:heartbeat 2s infinite;
+
+}
+
+@keyframes heartbeat{
+
+    0%{
 
         transform:scale(1);
 
     }
 
-    to{
+    20%{
 
-        transform:scale(1.08);
+        transform:scale(1.15);
+
+    }
+
+    40%{
+
+        transform:scale(1);
+
+    }
+
+    60%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.count-item{
+
+    transition:.35s;
+
+}
+
+.count-item:hover{
+
+    transform:
+
+        translateY(-6px);
+
+}
+
+/* =========================================================
+   MAP BUTTON
+========================================================= */
+
+.mapsButton,
+
+.copyButton{
+
+    transition:.35s;
+
+}
+
+.mapsButton:hover,
+
+.copyButton:hover{
+
+    transform:
+
+        translateY(-4px);
+
+}
+
+/* =========================================================
+   FLOATING DECORATION
+========================================================= */
+
+.float-item{
+
+    animation:floatDown linear forwards;
+
+}
+
+@keyframes floatDown{
+
+    from{
+
+        transform:
+
+            translateY(-120px)
+
+            rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:
+
+            translateY(120vh)
+
+            rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================================================
+   SPARKLE
+========================================================= */
+
+.sparkle{
+
+    position:fixed;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#FFD700;
+
+    pointer-events:none;
+
+    animation:sparkle 3s linear forwards;
+
+}
+
+@keyframes sparkle{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(0);
+
+    }
+
+    25%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+
+            scale(0)
+
+            translateY(-50px);
 
     }
 
