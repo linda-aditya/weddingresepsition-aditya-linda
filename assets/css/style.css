@@ -158,24 +158,22 @@ h2,h3,h4,h5{
 
 }
 
+.loader-text{
+    text-align:center;
+}
+
 .loader-text h1{
-
     font-size:80px;
-
     color:var(--gold);
-
     animation:pulse 2s infinite;
-
+    margin-bottom:15px;
 }
 
 .loader-text p{
-
-    margin-top:15px;
-
     color:var(--cream);
-
     letter-spacing:4px;
-
+    font-size:18px;
+    text-align:center;
 }
 
 /* =============================
