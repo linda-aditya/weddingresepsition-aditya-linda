@@ -196,3 +196,144 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 });
+/* =========================================================
+   WEDDING RECEPTION
+   MAIN.JS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================================
+       ELEMENT
+    ========================================== */
+
+    const loader = document.getElementById("loader");
+
+    const cover = document.getElementById("cover");
+
+    const openBtn = document.getElementById("openInvitation");
+
+    const openingAnimation =
+        document.getElementById("openingAnimation");
+
+    const openingVideo =
+        document.getElementById("openingVideo");
+
+    const continueButton =
+        document.getElementById("continueButton");
+
+    const music =
+        document.getElementById("music");
+
+    const musicButton =
+        document.getElementById("musicButton");
+
+
+    /* ==========================================
+       LOADER
+    ========================================== */
+
+    window.addEventListener("load", () => {
+
+        if(loader){
+
+            setTimeout(()=>{
+
+                loader.style.opacity="0";
+
+                loader.style.pointerEvents="none";
+
+                setTimeout(()=>{
+
+                    loader.remove();
+
+                },500);
+
+            },1200);
+
+        }
+
+    });
+
+
+    /* ==========================================
+       ENABLE OPEN BUTTON
+    ========================================== */
+
+    if(openBtn){
+
+        openBtn.disabled=false;
+
+    }
+
+
+    /* ==========================================
+       OPEN INVITATION
+    ========================================== */
+
+    if(openBtn){
+
+        openBtn.addEventListener("click",()=>{
+
+            if(openingAnimation){
+
+                openingAnimation.classList.add("active");
+
+            }
+
+            if(openingVideo){
+
+                openingVideo.currentTime=0;
+
+                openingVideo.play();
+
+            }
+
+        });
+
+    }
+
+
+    /* ==========================================
+       VIDEO FINISHED
+    ========================================== */
+
+    if(openingVideo){
+
+        openingVideo.addEventListener("ended",()=>{
+
+            continueButton.classList.add("show");
+
+        });
+
+    }
+
+
+    /* ==========================================
+       CONTINUE
+    ========================================== */
+
+    if(continueButton){
+
+        continueButton.addEventListener("click",()=>{
+
+            openingAnimation.classList.remove("active");
+
+            if(music){
+
+                music.play().catch(()=>{});
+
+            }
+
+            document.getElementById("opening")
+                ?.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+        });
+
+    }
+
+});
