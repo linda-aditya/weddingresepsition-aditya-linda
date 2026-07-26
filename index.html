@@ -10,757 +10,651 @@
 
     <meta name="theme-color" content="#2A1B12">
 
-    <meta name="description" content="Wedding Reception Aditya & Linda">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Amiri&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
     <link rel="stylesheet" href="assets/css/animation.css">
-
     <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
 <body>
 
-    <!-- ======================================================
-        LOADER
-    ======================================================= -->
+<!-- ======================================================
+     LOADER
+====================================================== -->
 
-    <div id="loader">
+<div id="loader">
 
-        <div class="loader-content">
+    <div class="loader-content">
 
-            <h1>A & L</h1>
+        <h1>A & L</h1>
 
-            <p>The Wedding Reception</p>
+        <p>Wedding Reception</p>
+
+    </div>
+
+</div>
+
+<!-- ======================================================
+     FLOATING DECORATIONS
+====================================================== -->
+
+<div id="floatingDecorations"></div>
+
+<!-- ======================================================
+     MUSIC
+====================================================== -->
+
+<audio id="music" loop>
+
+    <source src="assets/audio/music.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- ======================================================
+     COVER
+====================================================== -->
+
+<section id="cover">
+
+    <!-- Background -->
+
+    <img
+        src="assets/images/Cover-jawa.png"
+        alt="Wedding Cover"
+        class="cover-image"
+    >
+
+    <!-- Overlay -->
+
+    <div class="cover-overlay"></div>
+
+    <!-- Content -->
+
+    <div class="cover-content">
+
+        <p class="cover-title">
+
+            THE WEDDING RECEPTION
+
+        </p>
+
+        <h1 class="cover-name">
+
+            Aditya
+
+            <span>&</span>
+
+            Linda
+
+        </h1>
+
+        <div class="gold-line"></div>
+
+        <h4 class="cover-date">
+
+            Rabu
+
+            <br>
+
+            05 Agustus 2026
+
+        </h4>
+
+        <!-- Guest -->
+
+        <div class="guest-box">
+
+            <p>
+
+                Kepada Yth.
+
+            </p>
+
+            <h3 id="guestName">
+
+                Bapak / Ibu / Saudara / i
+
+            </h3>
+
+            <small>
+
+                Mohon maaf apabila terdapat
+                kesalahan penulisan nama.
+
+            </small>
+
+        </div>
+
+        <!-- Open Invitation -->
+
+        <button id="openInvitation">
+
+            <i class="fa-solid fa-envelope-open"></i>
+
+            Buka Undangan
+
+        </button>
+
+        <!-- Scroll Hint -->
+
+        <div class="cover-scroll">
+
+            Klik tombol untuk membuka undangan
 
         </div>
 
     </div>
 
-    <!-- ======================================================
-        FLOATING DECORATIONS
-    ======================================================= -->
+</section>
+<!-- ======================================================
+     VIDEO OPENING
+====================================================== -->
 
-    <div id="floatingDecorations"></div>
+<section id="videoOpening">
 
-    <!-- ======================================================
-        BACKGROUND MUSIC
-    ======================================================= -->
+    <video
+        id="openingVideo"
+        playsinline
+        preload="auto"
+        muted
+    >
 
-    <audio id="music" preload="auto" loop>
+        <source
+            src="assets/video/opening.mp4"
+            type="video/mp4"
+        >
 
-        <source src="assets/audio/music.mp3" type="audio/mpeg">
+    </video>
 
-        Browser Anda tidak mendukung audio.
+    <div class="videoOverlay">
 
-    </audio>
+        <div class="scrollIndicator">
 
-    <!-- ======================================================
-        COVER
-    ======================================================= -->
+            <i class="fa-solid fa-angles-down"></i>
 
-    <section id="cover">
-
-        <!-- Background -->
-
-        <div class="cover-background">
-
-            <img
-                src="assets/images/Cover-jawa.png"
-                alt="Wedding Cover">
+            <span>Scroll untuk melanjutkan</span>
 
         </div>
 
-        <!-- Overlay -->
+    </div>
 
-        <div class="cover-overlay"></div>
+</section>
 
-        <!-- Content -->
+<!-- ======================================================
+     OPENING
+====================================================== -->
 
-        <div class="cover-content">
+<section id="opening">
 
-            <p class="cover-subtitle">
+    <div class="container">
 
-                THE WEDDING RECEPTION
+        <p class="section-subtitle">
+
+            Assalamu'alaikum
+            Warahmatullahi
+            Wabarakatuh
+
+        </p>
+
+        <h2 class="bismillah">
+
+            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+
+        </h2>
+
+        <p class="opening-text">
+
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami bermaksud mengundang
+            Bapak/Ibu/Saudara/i
+            untuk menghadiri acara resepsi
+            pernikahan kami.
+
+        </p>
+
+        <p class="opening-text">
+
+            Merupakan suatu kehormatan
+            dan kebahagiaan bagi kami
+            apabila Bapak/Ibu/Saudara/i
+            berkenan hadir
+            serta memberikan doa restu.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     BRIDE & GROOM
+====================================================== -->
+
+<section id="couple">
+
+    <div class="container">
+
+        <p class="section-subtitle">
+
+            THE BRIDE & GROOM
+
+        </p>
+
+        <h2 class="section-title">
+
+            Mempelai
+
+        </h2>
+
+        <p class="section-description">
+
+            Allah SWT telah menciptakan
+            makhluk-Nya berpasang-pasangan.
+            Dengan memohon rahmat dan ridho-Nya,
+            kami bermaksud menyelenggarakan
+            resepsi pernikahan kami.
+
+        </p>
+
+        <div class="couple-wrapper">
+
+            <div class="person">
+
+                <div class="photo">
+
+                    <img
+                        src="assets/images/groom.jpeg"
+                        alt="Aditya"
+                    >
+
+                </div>
+
+                <h2>
+
+                    Aditya
+
+                </h2>
+
+                <p>
+
+                    Putra dari
+
+                </p>
+
+                <h4>
+
+                    Bapak Adi Rahman
+
+                    <br>
+
+                    &
+
+                    <br>
+
+                    Ibu Nurhasanah
+
+                </h4>
+
+            </div>
+
+            <div class="love">
+
+                ❤
+
+            </div>
+
+            <div class="person">
+
+                <div class="photo">
+
+                    <img
+                        src="assets/images/bride.jpeg"
+                        alt="Linda"
+                    >
+
+                </div>
+
+                <h2>
+
+                    Linda
+
+                </h2>
+
+                <p>
+
+                    Putri dari
+
+                </p>
+
+                <h4>
+
+                    Bapak Ali
+
+                    <br>
+
+                    &
+
+                    <br>
+
+                    Ibu Atmani
+
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ======================================================
+     SAVE THE DATE
+====================================================== -->
+
+<section id="saveDate">
+
+    <div class="container">
+
+        <p class="section-subtitle">
+
+            WEDDING RECEPTION
+
+        </p>
+
+        <h2 class="section-title">
+
+            Save The Date
+
+        </h2>
+
+        <p class="section-description">
+
+            Dengan penuh rasa syukur,
+            kami mengundang
+            Bapak/Ibu/Saudara/i
+            untuk hadir
+            dan memberikan doa restu
+            pada acara resepsi
+            pernikahan kami.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     COUNTDOWN
+====================================================== -->
+
+<section id="countdownSection">
+
+    <div class="container">
+
+        <div id="countdown">
+
+            <div class="count-item">
+
+                <span id="days">00</span>
+
+                <small>Hari</small>
+
+            </div>
+
+            <div class="count-item">
+
+                <span id="hours">00</span>
+
+                <small>Jam</small>
+
+            </div>
+
+            <div class="count-item">
+
+                <span id="minutes">00</span>
+
+                <small>Menit</small>
+
+            </div>
+
+            <div class="count-item">
+
+                <span id="seconds">00</span>
+
+                <small>Detik</small>
+
+            </div>
+
+        </div>
+
+        <div class="location-card">
+
+            <h3>
+
+                📅 Hari & Tanggal
+
+            </h3>
+
+            <p>
+
+                <strong>
+
+                    Rabu,
+                    05 Agustus 2026
+
+                </strong>
 
             </p>
 
-            <h1 class="cover-title">
+            <h3>
 
-                Aditya
+                🕒 Waktu
 
-                <span>&</span>
+            </h3>
 
-                Linda
+            <p>
 
-            </h1>
+                15.00 WIB — Selesai
 
-            <div class="cover-divider"></div>
+            </p>
 
-            <h2 class="cover-date">
+        </div>
 
-                Rabu
+    </div>
+
+</section>
+
+<!-- ======================================================
+     LOCATION
+====================================================== -->
+
+<section id="location">
+
+    <div class="container">
+
+        <p class="section-subtitle">
+
+            LOCATION
+
+        </p>
+
+        <h2 class="section-title">
+
+            Lokasi Acara
+
+        </h2>
+
+        <div class="location-card">
+
+            <h3>
+
+                📍 Tempat
+
+            </h3>
+
+            <p>
+
+                Kediaman
+                Bapak Adi Rahman
+                Sekeluarga
+
+                <br><br>
+
+                Dusun Karpenang
 
                 <br>
 
-                05 Agustus 2026
+                Desa Manding Laok
 
-            </h2>
+                <br>
 
-            <div class="guest-box">
+                Kecamatan Manding
 
-                <p>
+            </p>
 
-                    Kepada Yth.
+            <a
+                href="https://maps.app.goo.gl/vndBkkZpiZJaGiJa6"
+                target="_blank"
+                class="mapsButton"
+            >
 
-                </p>
+                📍 LIHAT LOKASI
 
-                <h3 id="guestName">
-
-                    Bapak / Ibu / Saudara / i
-
-                </h3>
-
-                <small>
-
-                    Mohon maaf apabila terdapat kesalahan
-                    penulisan nama.
-
-                </small>
-
-            </div>
-
-            <button id="openInvitation">
-
-                <i class="fa-solid fa-envelope-open"></i>
-
-                <span>
-
-                    Buka Undangan
-
-                </span>
-
-            </button>
+            </a>
 
         </div>
 
-        <!-- Scroll Indicator -->
+    </div>
 
-        <div class="scroll-indicator">
+</section>
+<!-- ======================================================
+     RSVP
+====================================================== -->
 
-            <span>
+<section id="rsvp">
 
-                Scroll
+    <div class="container">
 
-            </span>
+        <p class="section-subtitle">
 
-            <i class="fa-solid fa-chevron-down"></i>
+            RSVP
 
-        </div>
+        </p>
 
-    </section>
-        <!-- ======================================================
-        OPENING VIDEO
-    ======================================================= -->
+        <h2 class="section-title">
 
-    <section id="openingVideo">
+            Konfirmasi Kehadiran
 
-        <video
-            id="openingAnimation"
-            playsinline
-            preload="auto"
-            muted>
+        </h2>
 
-            <source
-                src="assets/video/opening.mp4"
-                type="video/mp4">
+        <p class="section-description">
 
-            Browser Anda tidak mendukung video.
+            Kehadiran serta doa restu dari
+            Bapak / Ibu / Saudara / i merupakan
+            kebahagiaan yang sangat berarti bagi kami.
 
-        </video>
+        </p>
 
-        <div class="opening-overlay"></div>
+        <form id="rsvpForm">
 
-        <div class="opening-content">
+            <input
+                type="text"
+                placeholder="Nama Lengkap"
+                required
+            >
 
-            <button id="continueButton">
+            <select required>
 
-                <i class="fa-solid fa-arrow-right"></i>
-
-                <span>
-
-                    Lanjutkan
-
-                </span>
-
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- ======================================================
-        OPENING
-    ======================================================= -->
-
-    <section id="opening">
-
-        <div class="container">
-
-            <div class="opening-header">
-
-                <p class="section-subtitle">
-
-                    Assalamu'alaikum
-                    Warahmatullahi
-                    Wabarakatuh
-
-                </p>
-
-                <h2 class="bismillah">
-
-                    بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
-
-                </h2>
-
-            </div>
-
-            <div class="opening-body">
-
-                <p>
-
-                    Dengan memohon rahmat dan ridho Allah SWT,
-                    kami bermaksud mengundang
-                    Bapak/Ibu/Saudara/i
-                    untuk menghadiri acara resepsi
-                    pernikahan kami.
-
-                </p>
-
-            </div>
-
-            <div class="opening-divider"></div>
-
-            <div class="opening-footer">
-
-                <p>
-
-                    Merupakan suatu kehormatan
-                    dan kebahagiaan bagi kami
-                    apabila Bapak/Ibu/Saudara/i
-                    berkenan hadir serta
-                    memberikan doa restu.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- ======================================================
-        BRIDE & GROOM
-    ======================================================= -->
-
-    <section id="couple">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h5 class="section-subtitle">
-
-                    THE BRIDE & GROOM
-
-                </h5>
-
-                <h2 class="section-title">
-
-                    Mempelai
-
-                </h2>
-
-                <p class="section-description">
-
-                    Allah SWT telah menciptakan makhluk-Nya
-                    berpasang-pasangan. Dengan memohon rahmat
-                    dan ridho-Nya, kami bermaksud
-                    menyelenggarakan resepsi pernikahan kami.
-
-                </p>
-
-            </div>
-
-            <div class="couple-wrapper">
-
-                <!-- Groom -->
-
-                <article class="person-card groom">
-
-                    <div class="frame">
-
-                        <div class="frame-decoration top"></div>
-
-                        <div class="photo">
-
-                            <img
-                                src="assets/images/groom.jpeg"
-                                alt="Aditya">
-
-                        </div>
-
-                        <div class="frame-decoration bottom"></div>
-
-                    </div>
-
-                    <div class="person-content">
-
-                        <h2>
-
-                            Aditya
-
-                        </h2>
-
-                        <p>
-
-                            Putra dari
-
-                        </p>
-
-                        <h4>
-
-                            Bapak Adi Rahman
-
-                        </h4>
-
-                        <span>&</span>
-
-                        <h4>
-
-                            Ibu Nurhasanah
-
-                        </h4>
-
-                    </div>
-
-                </article>
-
-                <!-- Ornament -->
-
-                <div class="love-icon">
-
-                    <i class="fa-solid fa-heart"></i>
-
-                </div>
-
-                <!-- Bride -->
-
-                <article class="person-card bride">
-
-                    <div class="frame">
-
-                        <div class="frame-decoration top"></div>
-
-                        <div class="photo">
-
-                            <img
-                                src="assets/images/bride.jpeg"
-                                alt="Linda">
-
-                        </div>
-
-                        <div class="frame-decoration bottom"></div>
-
-                    </div>
-
-                    <div class="person-content">
-
-                        <h2>
-
-                            Linda
-
-                        </h2>
-
-                        <p>
-
-                            Putri dari
-
-                        </p>
-
-                        <h4>
-
-                            Bapak Ali
-
-                        </h4>
-
-                        <span>&</span>
-
-                        <h4>
-
-                            Ibu Atmani
-
-                        </h4>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- ======================================================
-        SAVE THE DATE
-    ======================================================= -->
-
-    <section id="saveDate">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h5 class="section-subtitle">
-
-                    WEDDING RECEPTION
-
-                </h5>
-
-                <h2 class="section-title">
-
-                    Save The Date
-
-                </h2>
-
-                <p class="section-description">
-
-                    Dengan penuh rasa syukur,
-                    kami mengundang
-                    Bapak/Ibu/Saudara/i
-                    untuk hadir dan memberikan
-                    doa restu pada acara
-                    resepsi pernikahan kami.
-
-                </p>
-
-            </div>
-
-            <!-- Countdown -->
-
-            <div id="countdown">
-
-                <div class="count-item">
-
-                    <span id="days">
-
-                        00
-
-                    </span>
-
-                    <small>
-
-                        Hari
-
-                    </small>
-
-                </div>
-
-                <div class="count-item">
-
-                    <span id="hours">
-
-                        00
-
-                    </span>
-
-                    <small>
-
-                        Jam
-
-                    </small>
-
-                </div>
-
-                <div class="count-item">
-
-                    <span id="minutes">
-
-                        00
-
-                    </span>
-
-                    <small>
-
-                        Menit
-
-                    </small>
-
-                </div>
-
-                <div class="count-item">
-
-                    <span id="seconds">
-
-                        00
-
-                    </span>
-
-                    <small>
-
-                        Detik
-
-                    </small>
-
-                </div>
-
-            </div>
-
-            <!-- Event Card -->
-
-            <div class="event-card">
-
-                <div class="event-item">
-
-                    <h3>
-
-                        📅 Hari & Tanggal
-
-                    </h3>
-
-                    <p>
-
-                        Rabu,
-                        05 Agustus 2026
-
-                    </p>
-
-                </div>
-
-                <div class="event-item">
-
-                    <h3>
-
-                        🕒 Waktu
-
-                    </h3>
-
-                    <p>
-
-                        15.00 WIB
-                        — Selesai
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- ======================================================
-        LOCATION
-    ======================================================= -->
-
-    <section id="location">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h5 class="section-subtitle">
-
-                    LOCATION
-
-                </h5>
-
-                <h2 class="section-title">
-
-                    Lokasi Acara
-
-                </h2>
-
-            </div>
-
-            <div class="location-card">
-
-                <h3>
-
-                    📍 Tempat
-
-                </h3>
-
-                <p>
-
-                    Kediaman
-                    Bapak Adi Rahman Sekeluarga
-
-                </p>
-
-                <p>
-
-                    Dusun Karpenang
-
-                    <br>
-
-                    Desa Manding Laok
-
-                    <br>
-
-                    Kecamatan Manding
-
-                </p>
-
-                <a
-                    href="https://maps.app.goo.gl/vndBkkZpiZJaGiJa6"
-                    target="_blank"
-                    class="maps-button">
-
-                    📍 LIHAT LOKASI
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- ======================================================
-        RSVP
-    ======================================================= -->
-
-    <section id="rsvp">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h5 class="section-subtitle">
-
-                    RSVP
-
-                </h5>
-
-                <h2 class="section-title">
+                <option value="">
 
                     Konfirmasi Kehadiran
 
-                </h2>
+                </option>
 
-                <p class="section-description">
+                <option value="Hadir">
 
-                    Kehadiran serta doa restu
-                    dari Bapak/Ibu/Saudara/i
-                    merupakan kebahagiaan
-                    yang sangat berarti
-                    bagi kami.
+                    Hadir
 
-                </p>
+                </option>
 
-            </div>
+                <option value="Tidak Hadir">
 
-            <form id="rsvpForm">
+                    Tidak Hadir
 
-                <input
-                    type="text"
-                    placeholder="Nama Lengkap"
-                    required>
+                </option>
 
-                <select required>
+            </select>
 
-                    <option value="">
+            <textarea
+                placeholder="Tuliskan doa dan ucapan..."
+                rows="6"
+            ></textarea>
 
-                        Konfirmasi Kehadiran
+            <button type="submit">
 
-                    </option>
+                Kirim Ucapan
 
-                    <option value="hadir">
+            </button>
 
-                        Hadir
+        </form>
 
-                    </option>
+        <p class="public-note">
 
-                    <option value="tidak">
+            Ucapan akan ditampilkan untuk publik.
 
-                        Tidak Hadir
+        </p>
 
-                    </option>
+        <div id="guestMessages"></div>
 
-                </select>
+    </div>
 
-                <textarea
-                    rows="6"
-                    placeholder="Tuliskan doa dan ucapan..."></textarea>
+</section>
 
-                <button type="submit">
+<!-- ======================================================
+     WEDDING GIFT
+====================================================== -->
 
-                    Kirim Ucapan
+<section id="gift">
 
-                </button>
+    <div class="container">
 
-            </form>
+        <p class="section-subtitle">
 
-            <div id="guestbook"></div>
+            WEDDING GIFT
 
-        </div>
+        </p>
 
-    </section>
-        <!-- ======================================================
-        WEDDING GIFT
-    ======================================================= -->
+        <h2 class="section-title">
 
-    <section id="gift">
+            Tanda Kasih
 
-        <div class="container">
+        </h2>
 
-            <div class="section-header">
+        <p class="section-description">
 
-                <h5 class="section-subtitle">
+            Doa restu Anda merupakan hadiah
+            terindah bagi kami.
+            Namun apabila ingin memberikan
+            tanda kasih,
+            dapat melalui media berikut.
 
-                    WEDDING GIFT
+        </p>
 
-                </h5>
-
-                <h2 class="section-title">
-
-                    Tanda Kasih
-
-                </h2>
-
-                <p class="section-description">
-
-                    Doa restu Anda merupakan hadiah
-                    terindah bagi kami.
-                    Namun apabila ingin memberikan
-                    tanda kasih,
-                    dapat melalui media berikut.
-
-                </p>
-
-            </div>
+        <div class="gift-wrapper">
 
             <!-- DANA -->
 
             <div class="gift-card">
-
-                <div class="gift-icon">
-
-                    <i class="fa-solid fa-wallet"></i>
-
-                </div>
 
                 <h3>
 
@@ -768,9 +662,9 @@
 
                 </h3>
 
-                <h2>
+                <h2 id="rekeningNumber">
 
-                    08xxxxxxxxxx
+                    081234567890
 
                 </h2>
 
@@ -781,8 +675,9 @@
                 </p>
 
                 <button
-                    type="button"
-                    id="copyDana">
+                    class="copyButton"
+                    data-copy="081234567890"
+                >
 
                     Copy Nomor
 
@@ -794,12 +689,6 @@
 
             <div class="gift-card">
 
-                <div class="gift-icon">
-
-                    <i class="fa-solid fa-qrcode"></i>
-
-                </div>
-
                 <h3>
 
                     QRIS
@@ -808,27 +697,14 @@
 
                 <img
                     src="assets/images/qris.png"
-                    alt="QRIS Wedding Gift">
-
-                <button
-                    type="button"
-                    id="downloadQris">
-
-                    Download QRIS
-
-                </button>
+                    alt="QRIS"
+                >
 
             </div>
 
             <!-- Tunai -->
 
             <div class="gift-card">
-
-                <div class="gift-icon">
-
-                    <i class="fa-solid fa-gift"></i>
-
-                </div>
 
                 <h3>
 
@@ -838,11 +714,10 @@
 
                 <p>
 
-                    Kehadiran dan doa restu
+                    Kehadiran serta doa restu
                     Bapak / Ibu / Saudara / i
-                    merupakan hadiah
-                    yang sangat berarti
-                    bagi kami.
+                    merupakan hadiah yang
+                    sangat berarti bagi kami.
 
                 </p>
 
@@ -850,541 +725,83 @@
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- ======================================================
-        CLOSING
-    ======================================================= -->
+</section>
 
-    <section id="closing">
+<!-- ======================================================
+     CLOSING
+====================================================== -->
 
-        <div class="closing-overlay"></div>
+<section id="closing">
 
-        <div class="container">
+    <div class="closing-content">
 
-            <div class="closing-content">
+        <h5>
 
-                <h5>
+            Terima Kasih
 
-                    Terima Kasih
+        </h5>
 
-                </h5>
+        <h1>
 
-                <h1>
+            Aditya
 
-                    Aditya
+            <span>&</span>
 
-                    <span>&</span>
+            Linda
 
-                    Linda
+        </h1>
 
-                </h1>
+        <p>
 
-                <div class="closing-divider"></div>
+            Merupakan suatu kehormatan
+            dan kebahagiaan bagi kami
+            apabila Bapak / Ibu / Saudara / i
+            dapat hadir
+            serta memberikan doa restu.
 
-                <p>
+        </p>
 
-                    Merupakan suatu kehormatan
-                    dan kebahagiaan bagi kami
-                    apabila
-                    Bapak / Ibu / Saudara / i
-                    dapat hadir
-                    serta memberikan
-                    doa restu.
+        <h4>
 
-                </p>
+            Rabu
 
-                <h3>
+            <br>
 
-                    Rabu
+            05 Agustus 2026
 
-                    <br>
+        </h4>
 
-                    05 Agustus 2026
+        <div class="closing-prayer">
 
-                </h3>
-
-            </div>
+            وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- ======================================================
-        FOOTER
-    ======================================================= -->
+</section>
 
-    <footer id="footer">
+<!-- ======================================================
+     MUSIC BUTTON
+====================================================== -->
 
-        <div class="container">
+<button id="musicButton">
 
-            <p>
+    <i class="fa-solid fa-music"></i>
 
-                Made with
-                <i class="fa-solid fa-heart"></i>
+</button>
 
-                for
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
 
-                Aditya & Linda
-
-            </p>
-
-        </div>
-
-    </footer>
-
-    <!-- ======================================================
-        MUSIC BUTTON
-    ======================================================= -->
-
-    <button
-        id="musicButton"
-        aria-label="Music Controller">
-
-        <i class="fa-solid fa-music"></i>
-
-    </button>
-
-    <!-- ======================================================
-        JAVASCRIPT
-    ======================================================= -->
-
-    <script src="assets/js/main.js"></script>
-
-    <script src="assets/js/music.js"></script>
-
-    <script src="assets/js/countdown.js"></script>
-
-    <script src="assets/js/flowers.js"></script>
-
-    <script src="assets/js/sparkle.js"></script>
-
-    <script src="assets/js/rsvp.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/music.js"></script>
+<script src="assets/js/countdown.js"></script>
+<script src="assets/js/flowers.js"></script>
+<script src="assets/js/sparkle.js"></script>
 
 </body>
-
-</html>
-    <!-- =======================================
-         SAVE THE DATE
-    ======================================== -->
-    <section id="save-date">
-
-        <div class="container">
-
-            <p class="section-subtitle">
-                WEDDING RECEPTION
-            </p>
-
-            <h2 class="section-title">
-                Save The Date
-            </h2>
-
-            <p class="section-description">
-                Dengan penuh rasa syukur,
-                kami mengundang Bapak/Ibu/Saudara/i
-                untuk hadir dan memberikan doa restu
-                pada acara resepsi pernikahan kami.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-         RSVP
-    ======================================== -->
-    <section id="rsvp">
-
-        <div class="container">
-
-            <p class="section-subtitle">
-                RSVP
-            </p>
-
-            <h2 class="section-title">
-                Konfirmasi Kehadiran
-            </h2>
-
-            <p class="section-description">
-                Kehadiran serta doa restu dari
-                Bapak/Ibu/Saudara/i merupakan
-                kebahagiaan yang sangat berarti
-                bagi kami.
-            </p>
-
-            <form id="rsvpForm">
-
-                <div class="form-group">
-
-                    <input
-                        type="text"
-                        id="guest"
-                        placeholder="Nama Lengkap"
-                        required>
-
-                </div>
-
-                <div class="form-group">
-
-                    <select
-                        id="attendance"
-                        required>
-
-                        <option value="">
-                            Konfirmasi Kehadiran
-                        </option>
-
-                        <option value="Hadir">
-                            Hadir
-                        </option>
-
-                        <option value="Tidak Hadir">
-                            Tidak Hadir
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <div class="form-group">
-
-                    <textarea
-                        id="message"
-                        rows="5"
-                        placeholder="Tuliskan doa dan ucapan..."></textarea>
-
-                </div>
-
-                <button
-                    type="submit"
-                    class="btn-primary">
-
-                    Kirim Ucapan
-
-                </button>
-
-            </form>
-
-            <small class="rsvp-note">
-                Ucapan akan ditampilkan untuk publik.
-            </small>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-         COUNTDOWN
-    ======================================== -->
-    <section id="countdown">
-
-        <div class="container">
-
-            <div class="countdown-wrapper">
-
-                <div class="count-box">
-
-                    <span id="days">
-                        00
-                    </span>
-
-                    <small>
-                        Hari
-                    </small>
-
-                </div>
-
-                <div class="count-box">
-
-                    <span id="hours">
-                        00
-                    </span>
-
-                    <small>
-                        Jam
-                    </small>
-
-                </div>
-
-                <div class="count-box">
-
-                    <span id="minutes">
-                        00
-                    </span>
-
-                    <small>
-                        Menit
-                    </small>
-
-                </div>
-
-                <div class="count-box">
-
-                    <span id="seconds">
-                        00
-                    </span>
-
-                    <small>
-                        Detik
-                    </small>
-
-                </div>
-
-            </div>
-
-            <div class="event-card">
-
-                <h3>
-                    📅 Hari & Tanggal
-                </h3>
-
-                <p>
-                    Rabu, 05 Agustus 2026
-                </p>
-
-                <h3>
-                    🕒 Waktu
-                </h3>
-
-                <p>
-                    15.00 WIB – Selesai
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-         LOKASI
-    ======================================== -->
-    <section id="location">
-
-        <div class="container">
-
-            <p class="section-subtitle">
-                Wedding Venue
-            </p>
-
-            <h2 class="section-title">
-                Lokasi Acara
-            </h2>
-
-            <div class="location-card">
-
-                <h3>
-                    📍 Tempat
-                </h3>
-
-                <p>
-
-                    Kediaman Bapak Adi Rahman Sekeluarga
-
-                    <br><br>
-
-                    Dusun Karpenang
-
-                    <br>
-
-                    Desa Manding Laok
-
-                    <br>
-
-                    Kecamatan Manding
-
-                </p>
-
-                <a
-                    href="https://maps.app.goo.gl/vndBkkZpiZJaGiJa6"
-                    target="_blank"
-                    class="btn-primary">
-
-                    📍 LIHAT LOKASI
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-        <!-- =======================================
-         WEDDING GIFT
-    ======================================== -->
-    <section id="gift">
-
-        <div class="container">
-
-            <p class="section-subtitle">
-                Wedding Gift
-            </p>
-
-            <h2 class="section-title">
-                Tanda Kasih
-            </h2>
-
-            <p class="section-description">
-
-                Doa restu Anda merupakan hadiah terindah bagi kami.
-                Namun apabila ingin memberikan tanda kasih,
-                dapat melalui rekening berikut.
-
-            </p>
-
-            <!-- DANA -->
-
-            <div class="gift-card">
-
-                <h3>
-                    DANA
-                </h3>
-
-                <h4 id="danaNumber">
-                    081234567890
-                </h4>
-
-                <p>
-                    a.n. Aditya
-                </p>
-
-                <button
-                    class="copy-button"
-                    data-copy="081234567890">
-
-                    Salin Nomor
-
-                </button>
-
-            </div>
-
-            <!-- QRIS -->
-
-            <div class="gift-card">
-
-                <h3>
-                    QRIS
-                </h3>
-
-                <img
-                    src="assets/images/qris.png"
-                    alt="QRIS Wedding"
-                    class="qris-image">
-
-            </div>
-
-            <!-- Tunai -->
-
-            <div class="gift-card">
-
-                <h3>
-                    Hadiah Tunai
-                </h3>
-
-                <p>
-
-                    Kediaman
-                    Bapak Adi Rahman Sekeluarga
-
-                    <br><br>
-
-                    Dusun Karpenang
-
-                    <br>
-
-                    Desa Manding Laok
-
-                    <br>
-
-                    Kecamatan Manding
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-         PENUTUP
-    ======================================== -->
-    <section id="closing">
-
-        <div class="closing-overlay"></div>
-
-        <div class="container">
-
-            <p class="section-subtitle">
-
-                Terima Kasih
-
-            </p>
-
-            <h2 class="closing-title">
-
-                Aditya
-                <span>&</span>
-                Linda
-
-            </h2>
-
-            <p class="closing-text">
-
-                Merupakan suatu kehormatan
-                dan kebahagiaan bagi kami
-                apabila Bapak/Ibu/Saudara/i
-                berkenan hadir serta memberikan
-                doa restu kepada kami.
-
-            </p>
-
-            <h4>
-
-                Rabu
-
-                <br>
-
-                05 Agustus 2026
-
-            </h4>
-
-            <p class="closing-prayer">
-
-                وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- =======================================
-         MUSIC BUTTON
-    ======================================== -->
-
-    <button
-        id="musicButton"
-        aria-label="Music">
-
-        <i class="fa-solid fa-music"></i>
-
-    </button>
-
-    <!-- =======================================
-         JAVASCRIPT
-    ======================================== -->
-
-    <script src="assets/js/main.js"></script>
-
-    <script src="assets/js/music.js"></script>
-
-    <script src="assets/js/countdown.js"></script>
-
-    <script src="assets/js/flowers.js"></script>
-
-    <script src="assets/js/sparkle.js"></script>
-
-</body>
-
 </html>
