@@ -849,20 +849,9 @@ button{
 
     overflow:hidden;
 
-    background:
-        radial-gradient(circle at top,
-            rgba(212,175,55,.12),
-            transparent 40%),
-        linear-gradient(
-            180deg,
-            #1b120d 0%,
-            #24160f 35%,
-            #2b1b13 65%,
-            #1b120d 100%
-        );
+    background:none;
 
 }
-
 /* =========================================================
    BACKGROUND GLOW
 ========================================================= */
