@@ -1,83 +1,112 @@
-/* ==========================================
-   CURTAIN OPEN
-========================================== */
+/* ==========================
+   PREMIUM SECTION ANIMATION
+========================== */
+
+section{
+
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1.2s ease;
+
+}
+
+section.show{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+/* ==========================
+   COVER ZOOM
+========================== */
 
 #cover{
-    transition: opacity 1.5s ease, transform 1.5s ease;
+
+    animation:coverZoom 12s ease-in-out infinite alternate;
+
 }
 
-.curtain-open{
-    animation: openCurtain 1.5s forwards;
+@keyframes coverZoom{
+
+    from{
+
+        background-size:100%;
+
+    }
+
+    to{
+
+        background-size:110%;
+
+    }
+
 }
 
-@keyframes openCurtain{
+/* ==========================
+   FLOAT TITLE
+========================== */
+
+.cover-content{
+
+    animation:floatCard 4s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
     0%{
-        opacity:1;
-        transform:scale(1);
-    }
 
-    100%{
-        opacity:0;
-        transform:scale(1.1);
-    }
-}
+        transform:translateY(0);
 
-/* ==========================================
-   FLOATING FLOWERS
-========================================== */
-
-.flower{
-    position:fixed;
-    top:-50px;
-    z-index:999;
-    pointer-events:none;
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
-    0%{
-        transform:translateY(-50px) rotate(0deg);
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(120vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-/* ==========================================
-   GOLD SPARKLE
-========================================== */
-
-.sparkle{
-    position:fixed;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:#D4AF37;
-    box-shadow:
-        0 0 10px #D4AF37,
-        0 0 20px #D4AF37,
-        0 0 30px #D4AF37;
-    pointer-events:none;
-    animation:sparkle 3s linear forwards;
-    z-index:999;
-}
-
-@keyframes sparkle{
-    0%{
-        transform:scale(0);
-        opacity:1;
     }
 
     50%{
-        transform:scale(1.4);
-        opacity:1;
+
+        transform:translateY(-10px);
+
     }
 
     100%{
-        transform:scale(0);
-        opacity:0;
+
+        transform:translateY(0);
+
     }
+
+}
+
+/* ==========================
+   GOLD GLOW
+========================== */
+
+.cover-content h1{
+
+    animation:goldGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes goldGlow{
+
+    0%{
+
+        text-shadow:
+        0 0 10px #D4AF37;
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 35px #FFD700,
+        0 0 60px #FFD700;
+
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 10px #D4AF37;
+
+    }
+
 }
