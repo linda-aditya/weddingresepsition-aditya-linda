@@ -697,3 +697,85 @@ animatedSections.forEach(section=>{
     observer.observe(section);
 
 });
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const cover = document.getElementById("cover");
+const openBtn = document.getElementById("openInvitation");
+const video = document.getElementById("videoOpening");
+
+
+/* LOCK SCROLL SAAT COVER */
+
+document.body.style.overflow = "hidden";
+
+/* BUTTON OPEN INVITATION */
+
+if(openBtn){
+
+openBtn.addEventListener("click",()=>{
+
+
+    // buka scroll sementara
+
+    document.body.style.overflow = "hidden";
+
+
+    // sembunyikan cover
+
+    cover.classList.add("hide");
+
+
+
+    // tampilkan video
+
+    setTimeout(()=>{
+
+        video.classList.add("active");
+
+    },700);
+
+
+
+});
+
+}
+
+
+/* VIDEO SELESAI */
+
+
+const openingVideo = document.getElementById("openingVideo");
+
+
+if(openingVideo){
+
+
+openingVideo.addEventListener("ended",()=>{
+
+
+    video.classList.remove("active");
+
+
+    setTimeout(()=>{
+
+
+        document.body.style.overflow = "auto";
+
+
+        document.getElementById("opening")
+        ?.scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    },1000);
+
+
+
+});
+
+}
+
+
+});
