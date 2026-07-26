@@ -1,271 +1,198 @@
-/* ==========================================
-   Wedding Aditya & Linda
+/* ==========================================================
+   Wedding Reception
    Main Javascript
-========================================== */
+========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ==========================================
+    /* ======================================================
        ELEMENT
-    ========================================== */
+    ====================================================== */
 
-    const loader = document.getElementById("loader");
-    const cover = document.getElementById("cover");
-    const openButton = document.getElementById("openInvitation");
+    const loader =
+        document.getElementById("loader");
 
-    const openingAnimation = document.getElementById("openingAnimation");
-    const openingVideo = document.getElementById("openingVideo");
-    const continueButton = document.getElementById("continueButton");
+    const cover =
+        document.getElementById("cover");
 
-    const musicButton =
-       document.getElementById("musicButton");
+    const openButton =
+        document.getElementById("openInvitation");
 
-    const guestName = document.getElementById("guestName");
+    const openingAnimation =
+        document.getElementById("openingAnimation");
 
-    const floatingContainer =
-        document.getElementById("floatingDecorations");
+    const openingVideo =
+        document.getElementById("openingVideo");
 
-    /* ==========================================
+    const continueButton =
+        document.getElementById("continueButton");
+
+    const guestName =
+        document.getElementById("guestName");
+
+    /* ======================================================
        LOADER
-    ========================================== */
+    ====================================================== */
 
     window.addEventListener("load", () => {
 
         setTimeout(() => {
 
-            loader.classList.add("fade-out");
+            if(loader){
 
-            loader.addEventListener("animationend", () => {
+                loader.classList.add("fade-out");
 
-                loader.remove();
+                setTimeout(() => {
 
-            }, { once: true });
+                    loader.remove();
 
-        }, 1200);
+                },800);
+
+            }
+
+        },1200);
 
     });
-
-    /* ==========================================
+       /* ======================================================
        GUEST NAME
-    ========================================== */
+    ====================================================== */
 
-    const params = new URLSearchParams(window.location.search);
+    const params =
+        new URLSearchParams(window.location.search);
 
-    const guest = params.get("to");
+    const guest =
+        params.get("to");
 
-    if (guest && guestName) {
+    if(guest && guestName){
 
-        guestName.innerHTML =
-            guest.replace(/\+/g, " ");
+        guestName.textContent =
+            decodeURIComponent(guest.replace(/\+/g," "));
 
     }
 
-/* ==========================================
-   OPEN INVITATION
-========================================== */
+    /* ======================================================
+       OPEN INVITATION
+    ====================================================== */
 
-openButton.addEventListener("click", () => {
+    if(openButton){
 
-    openButton.disabled = true;
+        openButton.addEventListener("click", () => {
 
-    cover.classList.add("fade-out");
+            openButton.disabled = true;
 
-    cover.addEventListener("animationend", () => {
+            cover.classList.add("fade-out");
 
-        cover.style.display = "none";
+            setTimeout(() => {
 
-        openingAnimation.classList.add("active");
-        openingAnimation.classList.add("fade-in");
+                cover.style.display = "none";
 
-        document.body.style.overflow = "hidden";
+                document.body.style.overflowY = "hidden";
 
-        openingVideo.currentTime = 0;
+                openingAnimation.classList.add("active");
 
-        openingVideo.play().catch((err) => {
+                openingAnimation.classList.add("fade-in");
 
-            console.log(err);
+                openingVideo.currentTime = 0;
+
+                openingVideo.play().catch(()=>{});
+
+            },700);
 
         });
 
-        console.log("Klik Open");
+    }
+       /* ======================================================
+       VIDEO END
+    ====================================================== */
 
-console.log("playMusic =", typeof playMusic);
+    if(openingVideo){
 
-console.log("=== OPEN INVITATION DIKLIK ===");
+        openingVideo.addEventListener("ended", () => {
 
-console.log("Status fungsi playMusic:", typeof playMusic);
+            continueButton.classList.add("show");
 
-if (typeof playMusic === "function") {
+        });
 
-    console.log("✅ Fungsi playMusic ditemukan, mencoba memutar musik...");
+        openingVideo.addEventListener("error", () => {
 
-    playMusic();
+            continueButton.classList.add("show");
 
-} else {
+        });
 
-    console.error("❌ Fungsi playMusic TIDAK ditemukan.");
+    }
 
-}
-        musicButton.classList.add("show");
-
-    }, { once: true });
-
-});
-    /* ==========================================
-       VIDEO FINISHED
-    ========================================== */
-
-    openingVideo.addEventListener("ended", () => {
-
-        continueButton.classList.add("show");
-
-        continueButton.focus();
-
-    });
-   
-    /* ==========================================
-       VIDEO ERROR
-    ========================================== */
-
-    openingVideo.addEventListener("error", () => {
-
-        continueButton.classList.add("show");
-
-    });
-
-    /* ==========================================
+    /* ======================================================
        CONTINUE
-    ========================================== */
+    ====================================================== */
 
-    continueButton.addEventListener("click", () => {
+    if(continueButton){
 
-        openingAnimation.classList.remove("fade-in");
+        continueButton.addEventListener("click", () => {
 
-        openingAnimation.classList.add("fade-out");
+            openingAnimation.classList.remove("fade-in");
 
-        setTimeout(() => {
+            openingAnimation.classList.add("fade-out");
 
-            openingAnimation.classList.remove("active");
+            setTimeout(() => {
 
-            openingAnimation.style.display = "none";
+                openingAnimation.classList.remove("active");
 
-            continueButton.classList.remove("show");
+                openingAnimation.style.display="none";
 
-            openingVideo.pause();
+                openingVideo.pause();
 
-            openingVideo.currentTime = 0;
+                openingVideo.currentTime=0;
 
-            document.body.style.overflowY = "auto";
+                document.body.style.overflowY="auto";
 
-            document.getElementById("opening").scrollIntoView({
+                document.getElementById("opening")
+                    .scrollIntoView({
 
-                behavior: "smooth"
+                        behavior:"smooth"
 
-            });
+                    });
 
-        }, 800);
-
-    });
-
-    /* ==========================================
-       SCROLL ANIMATION
-    ========================================== */
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
+            },700);
 
         });
 
-    }, {
+    }
+       /* ======================================================
+       SCROLL REVEAL
+    ====================================================== */
 
-        threshold: 0.15
+    const observer = new IntersectionObserver(
 
-    });
+        (entries)=>{
 
-    document.querySelectorAll("section").forEach((section) => {
+            entries.forEach((entry)=>{
 
-        observer.observe(section);
+                if(entry.isIntersecting){
 
-    });
+                    entry.target.classList.add("show");
 
-    /* ==========================================
-       FLOATING DECORATIONS
-    ========================================== */
-
-    if (floatingContainer) {
-
-        const icons = [
-
-            {
-                class: "gold",
-                icon: "✦"
-            },
-
-            {
-                class: "gold",
-                icon: "✧"
-            },
-
-            {
-                class: "flower",
-                icon: "🌸"
-            },
-
-            {
-                class: "leaf",
-                icon: "🍃"
-            }
-
-        ];
-
-        function createFloatingItem() {
-
-            const data =
-                icons[Math.floor(Math.random() * icons.length)];
-
-            const item =
-                document.createElement("span");
-
-            item.className =
-                `float-item ${data.class}`;
-
-            item.innerHTML =
-                data.icon;
-
-            item.style.left =
-                Math.random() * 100 + "%";
-
-            item.style.animationDuration =
-                (8 + Math.random() * 6) + "s";
-
-            item.style.animationDelay =
-                Math.random() * 2 + "s";
-
-            item.style.opacity =
-                0.3 + Math.random() * 0.5;
-
-            item.style.fontSize =
-                (14 + Math.random() * 18) + "px";
-
-            floatingContainer.appendChild(item);
-
-            item.addEventListener("animationend", () => {
-
-                item.remove();
+                }
 
             });
+
+        },
+
+        {
+
+            threshold:.15
 
         }
 
-        setInterval(createFloatingItem, 600);
+    );
 
-    }
+    document
+
+        .querySelectorAll(".reveal")
+
+        .forEach((section)=>{
+
+            observer.observe(section);
+
+        });
 
 });
