@@ -404,7 +404,7 @@ h2,h3,h4,h5{
 
     object-fit:cover;
 
-    object-position:center;
+    object-position:center top;
 
     border-radius:50%;
 
