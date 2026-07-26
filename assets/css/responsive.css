@@ -9,334 +9,275 @@
 
 @media (max-width:1024px){
 
-.container{
+    .container{
+        width:min(92%,900px);
+    }
 
-    width:min(92%,900px);
+    .cover-name{
+        font-size:56px;
+    }
 
-}
+    .section-title{
+        font-size:38px;
+    }
 
-.cover-name{
+    .photo{
+        width:250px;
+        height:320px;
+    }
 
-    font-size:56px;
+    .person{
+        width:320px;
+    }
 
-}
+    .couple-wrapper{
+        gap:50px;
+    }
 
-.section-title{
-
-    font-size:38px;
-
-}
-
-.photo{
-
-    width:250px;
-
-    height:320px;
-
-}
-
-.person{
-
-    width:320px;
-
-}
-
-.couple-wrapper{
-
-    gap:50px;
+    .save-card,
+    .location-card,
+    .gift-card{
+        padding:40px;
+    }
 
 }
 
-.save-card,
-
-.location-card{
-
-    padding:40px;
-
-}
-
-}
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width:768px){
 
-.container{
+    .container{
+        width:92%;
+    }
 
-    width:92%;
+    /* ================= COVER ================= */
+
+    .cover-content{
+        padding:40px 20px;
+    }
+
+    .cover-title{
+        font-size:12px;
+        letter-spacing:4px;
+    }
+
+    .cover-name{
+        font-size:42px;
+    }
+
+    .cover-name span{
+        font-size:26px;
+    }
+
+    .gold-line{
+        width:90px;
+    }
+
+    .cover-date{
+        font-size:18px;
+    }
+
+    .guest-box{
+        padding:20px;
+    }
+
+    .guest-box h3{
+        font-size:22px;
+    }
+
+    #openInvitation{
+        width:100%;
+        max-width:280px;
+    }
+
+    /* ================= OPENING ================= */
+
+    .opening-ornament{
+        width:90px;
+        height:90px;
+    }
+
+    .bismillah{
+        font-size:40px;
+    }
+
+    .opening-text{
+        font-size:15px;
+        line-height:2;
+    }
+
+    .divider{
+        width:140px;
+    }
+
+    /* ================= GENERAL ================= */
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .section-description{
+        font-size:15px;
+        line-height:2;
+    }
+
+    /* ================= COUPLE ================= */
+
+    .couple-wrapper{
+        flex-direction:column;
+        gap:70px;
+    }
+
+    .person{
+        width:100%;
+    }
+
+    .photo{
+        width:220px;
+        height:290px;
+    }
+
+    .person h2{
+        font-size:48px;
+    }
+
+    .love{
+        margin:0;
+        font-size:36px;
+    }
+
+    /* ================= COUNTDOWN ================= */
+
+    #countdown{
+        gap:15px;
+    }
+
+    .count-item{
+        width:80px;
+        height:80px;
+    }
+
+    .count-item span{
+        font-size:28px;
+    }
+
+    /* ================= RSVP ================= */
+
+    #rsvpForm{
+        gap:18px;
+    }
+
+    #rsvpForm input,
+    #rsvpForm select,
+    #rsvpForm textarea{
+        padding:16px;
+        font-size:15px;
+    }
+
+    /* ================= BUTTON ================= */
+
+    .mapsButton,
+    .copyButton{
+        width:100%;
+    }
+
+    /* ================= GIFT ================= */
+
+    .gift-card img{
+        width:180px;
+    }
 
 }
 
-.cover-content{
-
-    padding:40px 20px;
-
-}
-
-.cover-title{
-
-    letter-spacing:4px;
-
-    font-size:12px;
-
-}
-
-.cover-name{
-
-    font-size:42px;
-
-}
-
-.cover-name span{
-
-    font-size:26px;
-
-}
-
-.gold-line{
-
-    width:90px;
-
-}
-
-.cover-date{
-
-    font-size:18px;
-
-}
-
-.guest-box{
-
-    padding:20px;
-
-}
-
-.guest-box h3{
-
-    font-size:22px;
-
-}
-
-#openInvitation{
-
-    width:100%;
-
-    max-width:280px;
-
-}
-
-.section-title{
-
-    font-size:32px;
-
-}
-
-.section-description{
-
-    font-size:15px;
-
-}
-
-.bismillah{
-
-    font-size:34px;
-
-}
-
-.opening-text{
-
-    font-size:15px;
-
-}
-
-}
-@media (max-width:768px){
-
-.couple-wrapper{
-
-    flex-direction:column;
-
-    gap:70px;
-
-}
-
-.person{
-
-    width:100%;
-
-}
-
-.photo{
-
-    width:220px;
-
-    height:290px;
-
-}
-
-.person h2{
-
-    font-size:48px;
-
-}
-
-.love{
-
-    margin:0;
-
-    font-size:36px;
-
-}
-
-#countdown{
-
-    gap:15px;
-
-}
-
-.count-item{
-
-    width:80px;
-
-    height:80px;
-
-}
-
-.count-item span{
-
-    font-size:28px;
-
-}
-
-#rsvpForm{
-
-    gap:18px;
-
-}
-
-#rsvpForm input,
-
-#rsvpForm select,
-
-#rsvpForm textarea{
-
-    padding:16px;
-
-    font-size:15px;
-
-}
-
-.mapsButton,
-
-.copyButton{
-
-    width:100%;
-
-}
-
-.gift-card img{
-
-    width:180px;
-
-}
-
-}
 /* =========================================================
    SMALL MOBILE
 ========================================================= */
 
 @media (max-width:480px){
 
-.cover-name{
+    .cover-name{
+        font-size:34px;
+    }
 
-    font-size:34px;
+    .cover-date{
+        font-size:16px;
+    }
 
-}
+    .section-subtitle{
+        font-size:15px;
+        letter-spacing:1px;
+        line-height:1.8;
+    }
 
-.cover-date{
+    .section-title{
+        font-size:28px;
+    }
 
-    font-size:16px;
+    /* ================= OPENING ================= */
 
-}
+    .opening-ornament{
+        display:none;
+    }
 
-.section-subtitle{
+    .bismillah{
+        font-size:32px;
+    }
 
-    font-size:15px;
+    .opening-text{
+        font-size:14px;
+        line-height:2;
+    }
 
-    letter-spacing:1px;
+    .divider{
+        width:110px;
+    }
 
-    line-height:1.8;
+    /* ================= COUPLE ================= */
 
-}
-.section-title{
+    .photo{
+        width:190px;
+        height:250px;
+    }
 
-    font-size:28px;
+    .person h2{
+        font-size:42px;
+    }
 
-}
+    /* ================= COUNTDOWN ================= */
 
-.bismillah{
+    .count-item{
+        width:70px;
+        height:70px;
+    }
 
-    font-size:28px;
+    .count-item span{
+        font-size:22px;
+    }
 
-}
+    /* ================= CARD ================= */
 
-.photo{
+    .location-card,
+    .save-card,
+    .gift-card{
+        padding:25px;
+    }
 
-    width:190px;
+    /* ================= CLOSING ================= */
 
-    height:250px;
+    .closing-content h1{
+        font-size:52px;
+    }
 
-}
+    /* ================= MUSIC ================= */
 
-.person h2{
-
-    font-size:42px;
-
-}
-
-.count-item{
-
-    width:70px;
-
-    height:70px;
-
-}
-
-.count-item span{
-
-    font-size:22px;
-
-}
-
-.location-card,
-
-.save-card,
-
-.gift-card{
-
-    padding:25px;
-
-}
-
-.closing-content h1{
-
-    font-size:52px;
-
-}
-
-#musicButton{
-
-    width:52px;
-
-    height:52px;
-
-    right:18px;
-
-    bottom:18px;
-
-    font-size:18px;
-
-}
+    #musicButton{
+        width:52px;
+        height:52px;
+        right:18px;
+        bottom:18px;
+        font-size:18px;
+    }
 
 }
