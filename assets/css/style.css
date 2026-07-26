@@ -872,17 +872,22 @@ button{
 /* Container */
 
 #opening .container{
-
     position:relative;
     z-index:2;
 
-    width:min(92%,760px);
+    width:100%;
+    max-width:760px;
 
-    margin:auto;
+    margin:0 auto;
 
-    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
     text-align:center;
+
+    padding:0 20px;
 }
 /* Salam */
 
@@ -919,10 +924,12 @@ button{
 /* Paragraf */
 
 .opening-text{
-
+    width:100%;
     max-width:650px;
 
-    margin:0 auto 22px;
+    margin:0 auto 30px;
+
+    text-align:center;
 
     color:#F2E8D8;
 
@@ -931,7 +938,6 @@ button{
     line-height:2;
 
     font-weight:300;
-
 }
 .opening-text:last-child{
 
