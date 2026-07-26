@@ -1,78 +1,120 @@
 /* ==========================================
+   Wedding Invitation
    Floating Decorations
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
 
     const container = document.getElementById("floatingDecorations");
 
     if (!container) return;
 
-    const icons = [
+    /* ==========================================
+       Decoration List
+    ========================================== */
+
+    const decorations = [
 
         {
-            class: "gold",
-            icon: "✦"
+            icon: "✦",
+            className: "gold"
         },
 
         {
-            class: "gold",
-            icon: "✧"
+            icon: "✧",
+            className: "gold"
         },
 
         {
-            class: "flower",
-            icon: "❀"
+            icon: "❀",
+            className: "flower"
         },
 
         {
-            class: "flower",
-            icon: "✿"
+            icon: "✿",
+            className: "flower"
         },
 
         {
-            class: "leaf",
-            icon: "❃"
+            icon: "❃",
+            className: "leaf"
         }
 
     ];
 
-    function createItem() {
+    /* ==========================================
+       Create Item
+    ========================================== */
 
-        const data = icons[
-            Math.floor(Math.random() * icons.length)
-        ];
+    function createDecoration() {
 
-        const item = document.createElement("span");
+        const data =
+            decorations[
+                Math.floor(
+                    Math.random() * decorations.length
+                )
+            ];
 
-        item.className = `float-item ${data.class}`;
+        const item =
+            document.createElement("span");
 
-        item.innerHTML = data.icon;
+        item.className =
+            `float-item ${data.className}`;
 
-        item.style.left = Math.random() * 100 + "%";
+        item.textContent =
+            data.icon;
+
+        item.style.left =
+            Math.random() * 100 + "%";
 
         item.style.animationDuration =
-            (8 + Math.random() * 6) + "s";
+            (8 + Math.random() * 8) + "s";
 
         item.style.animationDelay =
             Math.random() * 2 + "s";
 
         item.style.fontSize =
-            (12 + Math.random() * 14) + "px";
+            (12 + Math.random() * 16) + "px";
 
         item.style.opacity =
-            (0.3 + Math.random() * 0.5);
+            (0.35 + Math.random() * 0.45);
 
         container.appendChild(item);
 
-        item.addEventListener("animationend", () => {
+        item.addEventListener(
+            "animationend",
+            () => {
 
-            item.remove();
+                item.remove();
 
-        });
+            },
+            {
+                once: true
+            }
+        );
 
     }
 
-    setInterval(createItem, 600);
+    /* ==========================================
+       Initial Decorations
+    ========================================== */
 
-});
+    for (let i = 0; i < 12; i++) {
+
+        setTimeout(
+            createDecoration,
+            i * 250
+        );
+
+    }
+
+    /* ==========================================
+       Continuous Decorations
+    ========================================== */
+
+    setInterval(
+        createDecoration,
+        800
+    );
+
+})();
