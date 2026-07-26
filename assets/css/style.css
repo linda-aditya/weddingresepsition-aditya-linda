@@ -831,13 +831,12 @@ button{
 
 #opening{
     position:relative;
+
     min-height:100vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
-
-    padding:80px 20px;
 
     background:
         linear-gradient(
@@ -846,8 +845,9 @@ button{
             #271A13 50%,
             #20140D 100%
         );
-}
 
+    overflow:hidden;
+}
 /* Ornamen background */
 
 #opening::before{
@@ -872,17 +872,17 @@ button{
 /* Container */
 
 #opening .container{
+
     position:relative;
     z-index:2;
 
-    width:100%;
-    max-width:760px;
+    width:min(92%,760px);
 
-    margin:0 auto;
-
-    text-align:center;
+    margin:auto;
 
     padding:0 20px;
+
+    text-align:center;
 }
 /* Salam */
 
@@ -908,15 +908,11 @@ button{
 
     font-size:56px;
 
+    line-height:1.5;
+
+    margin-bottom:35px;
+
     color:var(--gold-light);
-
-    line-height:1.8;
-
-    margin-bottom:45px;
-
-    text-shadow:
-
-        0 8px 24px rgba(0,0,0,.35);
 
 }
 
@@ -924,17 +920,15 @@ button{
 
 .opening-text{
 
-    max-width:680px;
+    max-width:650px;
 
-    margin:0 auto 28px;
-
-    padding:0 10px;
+    margin:0 auto 22px;
 
     color:#F2E8D8;
 
     font-size:17px;
 
-    line-height:2.2;
+    line-height:2;
 
     font-weight:300;
 
