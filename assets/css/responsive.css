@@ -1,181 +1,341 @@
-/* ==========================================
-   RESPONSIVE
-========================================== */
+/* =========================================================
+   RESPONSIVE.CSS
+   Wedding Reception
+========================================================= */
 
-/* ==========================
-   Laptop
-========================== */
-@media (max-width:1200px){
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:1024px){
 
 .container{
-    width:90%;
-}
+
+    width:min(92%,900px);
 
 }
 
-/* ==========================
-   Tablet
-========================== */
-@media (max-width:992px){
+.cover-name{
 
-.cover-content{
-    width:90%;
-    padding:40px 25px;
-}
+    font-size:56px;
 
-.couple-wrapper{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:40px;
-}
-
-.person{
-    width:100%;
-}
-
-.event-card,
-.gift-card{
-    width:100%;
-}
-
-#countdown{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.photo{
-    width:250px;
-    height:250px;
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
-}
-
-}
-
-/* ==========================
-   Mobile
-========================== */
-@media (max-width:768px){
-
-body{
-    font-size:15px;
-}
-
-h1{
-    font-size:42px;
-}
-
-h2{
-    font-size:30px;
-}
-
-.section-heading{
-    font-size:30px;
-}
-
-.cover-content{
-    padding:30px 20px;
-}
-
-.cover-content h1{
-    font-size:48px;
-}
-
-.count-item{
-    width:70px;
-    height:70px;
-}
-
-.count-item span{
-    font-size:24px;
-}
-
-.maps-button,
-button{
-    width:100%;
-    display:block;
-    text-align:center;
-}
-
-/* FOTO PENGANTIN */
-.photo{
-    width:220px;
-    height:220px;
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
-}
-
-}
-
-/* ==========================
-   Small Mobile
-========================== */
-@media (max-width:480px){
-
-.cover-content h1{
-    font-size:38px;
-}
-
-.cover-content h4{
-    font-size:18px;
-}
-
-.section-heading{
-    font-size:26px;
 }
 
 .section-title{
-    font-size:14px;
-}
 
-.person h2{
-    font-size:42px;
+    font-size:38px;
+
 }
 
 .photo{
-    width:200px;
-    height:200px;
+
+    width:250px;
+
+    height:320px;
+
 }
 
-.photo img{
+.person{
+
+    width:320px;
+
+}
+
+.couple-wrapper{
+
+    gap:50px;
+
+}
+
+.save-card,
+
+.location-card{
+
+    padding:40px;
+
+}
+
+}
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:768px){
+
+.container{
+
+    width:92%;
+
+}
+
+.cover-content{
+
+    padding:40px 20px;
+
+}
+
+.cover-title{
+
+    letter-spacing:4px;
+
+    font-size:12px;
+
+}
+
+.cover-name{
+
+    font-size:42px;
+
+}
+
+.cover-name span{
+
+    font-size:26px;
+
+}
+
+.gold-line{
+
+    width:90px;
+
+}
+
+.cover-date{
+
+    font-size:18px;
+
+}
+
+.guest-box{
+
+    padding:20px;
+
+}
+
+.guest-box h3{
+
+    font-size:22px;
+
+}
+
+#openInvitation{
+
     width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
+
+    max-width:280px;
+
+}
+
+.section-title{
+
+    font-size:32px;
+
+}
+
+.section-description{
+
+    font-size:15px;
+
+}
+
+.bismillah{
+
+    font-size:34px;
+
+}
+
+.opening-text{
+
+    font-size:15px;
+
+}
+
+}
+@media (max-width:768px){
+
+.couple-wrapper{
+
+    flex-direction:column;
+
+    gap:70px;
+
+}
+
+.person{
+
+    width:100%;
+
+}
+
+.photo{
+
+    width:220px;
+
+    height:290px;
+
+}
+
+.person h2{
+
+    font-size:48px;
+
+}
+
+.love{
+
+    margin:0;
+
+    font-size:36px;
+
 }
 
 #countdown{
-    gap:10px;
+
+    gap:15px;
+
 }
 
 .count-item{
-    width:60px;
-    height:60px;
+
+    width:80px;
+
+    height:80px;
+
 }
 
 .count-item span{
-    font-size:20px;
+
+    font-size:28px;
+
+}
+
+#rsvpForm{
+
+    gap:18px;
+
+}
+
+#rsvpForm input,
+
+#rsvpForm select,
+
+#rsvpForm textarea{
+
+    padding:16px;
+
+    font-size:15px;
+
+}
+
+.mapsButton,
+
+.copyButton{
+
+    width:100%;
+
+}
+
+.gift-card img{
+
+    width:180px;
+
+}
+
+}
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+.cover-name{
+
+    font-size:34px;
+
+}
+
+.cover-date{
+
+    font-size:16px;
+
+}
+
+.section-subtitle{
+
+    letter-spacing:3px;
+
+    font-size:11px;
+
+}
+
+.section-title{
+
+    font-size:28px;
+
+}
+
+.bismillah{
+
+    font-size:28px;
+
+}
+
+.photo{
+
+    width:190px;
+
+    height:250px;
+
+}
+
+.person h2{
+
+    font-size:42px;
+
+}
+
+.count-item{
+
+    width:70px;
+
+    height:70px;
+
+}
+
+.count-item span{
+
+    font-size:22px;
+
+}
+
+.location-card,
+
+.save-card,
+
+.gift-card{
+
+    padding:25px;
+
+}
+
+.closing-content h1{
+
+    font-size:52px;
+
 }
 
 #musicButton{
-    width:50px;
-    height:50px;
-    right:15px;
-    bottom:15px;
+
+    width:52px;
+
+    height:52px;
+
+    right:18px;
+
+    bottom:18px;
+
+    font-size:18px;
+
 }
 
 }
