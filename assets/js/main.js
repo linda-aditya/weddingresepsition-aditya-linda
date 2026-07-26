@@ -89,16 +89,25 @@ window.addEventListener("load", () => {
 
 });
     /* ==========================================
-       VIDEO SELESAI
-    ========================================== */
+   VIDEO FINISHED
+========================================== */
 
-    openingVideo.addEventListener("ended", () => {
+openingVideo.addEventListener("ended", () => {
 
-        continueButton.classList.add("show");
+    continueButton.classList.add("show");
 
-    });
+    continueButton.focus();
 
+});
+   /* ==========================================
+   VIDEO ERROR
+========================================== */
 
+openingVideo.addEventListener("error", () => {
+
+    continueButton.classList.add("show");
+
+});
     /* ==========================================
        LANJUT
     ========================================== */
