@@ -68,18 +68,6 @@ section{
     overflow:hidden;
     display:block;
 }
-#opening .container{
-
-    position:relative;
-
-    z-index:2;
-
-    width:min(92%,760px);
-
-    margin:auto;
-
-    text-align:center;
-}
 
 /* =========================================================
    IMAGE
@@ -831,20 +819,20 @@ button{
 
 #opening{
     position:relative;
-
     min-height:100vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    background:
-        linear-gradient(
-            180deg,
-            #22150F 0%,
-            #271A13 50%,
-            #20140D 100%
-        );
+    padding:100px 20px;
+
+    background:linear-gradient(
+        180deg,
+        #22150F 0%,
+        #271A13 50%,
+        #20140D 100%
+    );
 
     overflow:hidden;
 }
