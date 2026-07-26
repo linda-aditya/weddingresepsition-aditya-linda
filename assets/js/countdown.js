@@ -1,58 +1,105 @@
 /* ==========================================
-   COUNTDOWN
+   Wedding Invitation
+   Countdown Timer
 ========================================== */
 
-const targetDate = new Date("August 05, 2026 15:00:00").getTime();
+(() => {
 
-function updateCountdown() {
+    /* ==========================================
+       Target Date
+    ========================================== */
 
-    const now = new Date().getTime();
+    const targetDate = new Date(
+        "2026-08-05T15:00:00+07:00"
+    ).getTime();
 
-    const distance = targetDate - now;
+    /* ==========================================
+       Elements
+    ========================================== */
 
-    if (distance <= 0) {
+    const days = document.getElementById("days");
+    const hours = document.getElementById("hours");
+    const minutes = document.getElementById("minutes");
+    const seconds = document.getElementById("seconds");
 
-        document.getElementById("days").innerHTML = "00";
-        document.getElementById("hours").innerHTML = "00";
-        document.getElementById("minutes").innerHTML = "00";
-        document.getElementById("seconds").innerHTML = "00";
+    if (
+        !days ||
+        !hours ||
+        !minutes ||
+        !seconds
+    ) return;
 
-        clearInterval(timer);
+    /* ==========================================
+       Format Number
+    ========================================== */
 
-        return;
+    function format(value) {
+
+        return String(value).padStart(2, "0");
+
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    /* ==========================================
+       Update Countdown
+    ========================================== */
 
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+    function updateCountdown() {
+
+        const now = Date.now();
+
+        let distance = targetDate - now;
+
+        if (distance <= 0) {
+
+            days.textContent = "00";
+            hours.textContent = "00";
+            minutes.textContent = "00";
+            seconds.textContent = "00";
+
+            clearInterval(timer);
+
+            return;
+
+        }
+
+        const dayValue = Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
+
+        distance %= (1000 * 60 * 60 * 24);
+
+        const hourValue = Math.floor(
+            distance / (1000 * 60 * 60)
+        );
+
+        distance %= (1000 * 60 * 60);
+
+        const minuteValue = Math.floor(
+            distance / (1000 * 60)
+        );
+
+        distance %= (1000 * 60);
+
+        const secondValue = Math.floor(
+            distance / 1000
+        );
+
+        days.textContent = format(dayValue);
+        hours.textContent = format(hourValue);
+        minutes.textContent = format(minuteValue);
+        seconds.textContent = format(secondValue);
+
+    }
+
+    /* ==========================================
+       Start Countdown
+    ========================================== */
+
+    updateCountdown();
+
+    const timer = setInterval(
+        updateCountdown,
+        1000
     );
 
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
-
-    document.getElementById("days").innerHTML =
-        String(days).padStart(2, "0");
-
-    document.getElementById("hours").innerHTML =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").innerHTML =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").innerHTML =
-        String(seconds).padStart(2, "0");
-
-}
-
-updateCountdown();
-
-const timer = setInterval(updateCountdown,1000);
+})();
