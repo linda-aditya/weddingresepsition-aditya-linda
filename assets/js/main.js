@@ -307,33 +307,222 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+/* ==========================================
+   CONTINUE
+========================================== */
+
+if (continueButton) {
+
+    continueButton.addEventListener("click", () => {
+
+        openingAnimation.classList.remove("active");
+
+        if (music) {
+
+            music.play().catch(() => {});
+
+        }
+
+        document
+            .getElementById("opening")
+            ?.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+    });
+
+}
 
 
-    /* ==========================================
-       CONTINUE
-    ========================================== */
+/* ==========================================
+   REVEAL ANIMATION
+========================================== */
 
-    if(continueButton){
+const revealElements = document.querySelectorAll(
 
-        continueButton.addEventListener("click",()=>{
+    "section, .gift-card, .location-card, .save-card, .person, .count-item"
 
-            openingAnimation.classList.remove("active");
+);
 
-            if(music){
+revealElements.forEach((el) => {
 
-                music.play().catch(()=>{});
+    el.classList.add("reveal");
 
-            }
+});
 
-            document.getElementById("opening")
-                ?.scrollIntoView({
+function revealOnScroll() {
 
-                    behavior:"smooth"
+    const trigger = window.innerHeight * 0.88;
 
-                });
+    revealElements.forEach((el) => {
 
-        });
+        const top = el.getBoundingClientRect().top;
+
+        if (top < trigger) {
+
+            el.classList.add("active");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll", revealOnScroll);
+
+
+/* ==========================================
+   MUSIC BUTTON
+========================================== */
+
+if (musicButton && music) {
+
+    musicButton.addEventListener("click", () => {
+
+        if (music.paused) {
+
+            music.play();
+
+            musicButton.classList.add("playing");
+
+        } else {
+
+            music.pause();
+
+            musicButton.classList.remove("playing");
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   COPY REKENING
+========================================== */
+
+const copyButton = document.querySelector(".copyButton");
+
+if (copyButton) {
+
+    copyButton.addEventListener("click", async () => {
+
+        const rekening = "1234567890";
+
+        try {
+
+            await navigator.clipboard.writeText(rekening);
+
+            showToast("Nomor rekening berhasil disalin");
+
+        } catch {
+
+            showToast("Gagal menyalin rekening");
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+function showToast(text) {
+
+    let toast = document.querySelector(".copy-toast");
+
+    if (!toast) {
+
+        toast = document.createElement("div");
+
+        toast.className = "copy-toast";
+
+        document.body.appendChild(toast);
 
     }
+
+    toast.textContent = text;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+/* ==========================================
+   SMOOTH SCROLL
+========================================== */
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        if (target) {
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+
+/* ==========================================
+   FIRST INTERACTION MUSIC
+========================================== */
+
+let started = false;
+
+function startMusic() {
+
+    if (started) return;
+
+    started = true;
+
+    if (music) {
+
+        music.play().catch(() => {});
+
+    }
+
+    if (musicButton) {
+
+        musicButton.classList.add("playing");
+
+    }
+
+}
+
+window.addEventListener("click", startMusic, {
+
+    once: true
+
+});
 
 });
