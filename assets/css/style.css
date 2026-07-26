@@ -1,16 +1,14 @@
 /* ===========================================
    WEDDING ADITYA & LINDA
-   Royal Brown Gold Theme
+   Mobile First
 =========================================== */
 
 :root{
 
     --bg:#2A1B12;
-    --card:#3A261A;
     --gold:#D4AF37;
     --cream:#F5E8D3;
-    --accent:#8C6239;
-    --shadow:rgba(0,0,0,.45);
+    --card:#3A261A;
 
 }
 
@@ -31,7 +29,6 @@ html{
 body{
 
     background:var(--bg);
-
     color:var(--cream);
 
     font-family:'Poppins',sans-serif;
@@ -42,29 +39,10 @@ body{
 
 }
 
-section{
-
-    position:relative;
-
-    padding:100px 25px;
-
-}
-
-.container{
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
-
 img{
 
-    width:100%;
-
     display:block;
+    width:100%;
 
 }
 
@@ -76,11 +54,27 @@ a{
 
 button{
 
-    cursor:pointer;
-
-    transition:.4s;
-
     font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    transition:.35s;
+
+}
+
+section{
+
+    position:relative;
+
+    width:100%;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:420px;
+
+    margin:auto;
 
 }
 
@@ -90,53 +84,17 @@ h1{
 
 }
 
-h2,h3,h4,h5{
+h2,
+h3,
+h4,
+h5{
 
     font-family:'Cinzel',serif;
 
 }
-
-.section-title{
-
-    color:var(--gold);
-
-    text-transform:uppercase;
-
-    letter-spacing:3px;
-
-    margin-bottom:10px;
-
-    text-align:center;
-
-}
-
-.section-heading{
-
-    font-size:46px;
-
-    color:var(--cream);
-
-    margin-bottom:25px;
-
-    text-align:center;
-
-}
-
-.section-description{
-
-    max-width:700px;
-
-    margin:auto;
-
-    text-align:center;
-
-    color:#d9c7ad;
-
-}
-
-/* =============================
-   Loader
-============================= */
+/* ===========================================
+   LOADER
+=========================================== */
 
 #loader{
 
@@ -152,1088 +110,226 @@ h2,h3,h4,h5{
 
     align-items:center;
 
-    flex-direction:column;
-
-    z-index:99999;
+    z-index:999999;
 
 }
 
 .loader-text{
+
     text-align:center;
+
 }
 
 .loader-text h1{
-    font-size:80px;
+
+    font-size:72px;
+
     color:var(--gold);
-    animation:pulse 2s infinite;
-    margin-bottom:15px;
+
+    margin-bottom:10px;
+
 }
 
 .loader-text p{
-    color:var(--cream);
-    letter-spacing:4px;
-    font-size:18px;
-    text-align:center;
-}
 
-/* =============================
-   Cover
-============================= */
+    letter-spacing:4px;
+
+    color:white;
+
+}
+/* ===========================================
+   COVER
+=========================================== */
 
 #cover{
 
-    height:100vh;
+    position:relative;
 
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../images/cover.jpg");
+    width:100%;
 
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-}
-
-.cover-content{
-
-    background:rgba(58,38,26,.55);
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(212,175,55,.25);
-
-    padding:55px;
-
-    border-radius:20px;
-
-    width:min(90%,700px);
-
-    box-shadow:0 25px 50px rgba(0,0,0,.4);
-
-}
-
-.cover-content h5{
-
-    color:var(--gold);
-
-    letter-spacing:5px;
-
-    margin:15px 0;
-
-}
-
-.cover-content h1{
-
-    font-size:82px;
-
-    color:var(--gold);
-
-    line-height:1;
-
-    text-shadow:0 0 25px rgba(212,175,55,.3);
-
-}
-
-.cover-content span{
-
-    font-size:45px;
-
-    color:white;
-
-}
-
-.cover-content h4{
-
-    margin-top:25px;
-
-    color:#f2e2c5;
-
-}
-
-#guestName{
-
-    margin:15px 0;
-
-    font-size:26px;
-
-    color:white;
-
-}
-
-.note{
-
-    font-size:14px;
-
-    opacity:.85;
-
-}
-
-#openInvitation{
-
-    margin-top:40px;
-
-    background:linear-gradient(135deg,#D4AF37,#B88A22);
-
-    color:#2A1B12;
-
-    border:none;
-
-    padding:18px 45px;
-
-    border-radius:60px;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    box-shadow:0 10px 25px rgba(212,175,55,.35);
-
-}
-
-#openInvitation:hover{
-
-    transform:translateY(-3px);
-
-}
-/* ===========================================
-   OPENING
-=========================================== */
-
-#opening{
-
-    background:linear-gradient(180deg,#2A1B12,#342116);
-
-    text-align:center;
-
-}
-
-#opening .bismillah{
-
-    font-family:'Amiri',serif;
-
-    font-size:42px;
-
-    color:var(--gold);
-
-    margin-bottom:30px;
-
-    line-height:1.8;
-
-}
-
-#opening .opening-text{
-
-    max-width:750px;
-
-    margin:auto;
-
-    color:#F5E8D3;
-
-    font-size:18px;
-
-}
-
-
-/* ===========================================
-   COUPLE
-=========================================== */
-
-#couple{
-
-    background:#24160F;
-
-}
-
-.couple-wrapper{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:70px;
-
-    flex-wrap:wrap;
-
-    margin-top:70px;
-
-}
-
-.person{
-
-    width:360px;
-
-    text-align:center;
-
-}
-
-.photo{
-
-    width:280px;
-    height:280px;
-
-    margin:auto;
-
-    border-radius:50%;
+    height:100dvh;
 
     overflow:hidden;
 
-    border:5px solid var(--gold);
-
-    background:#3A261A;
-
-    box-shadow:0 0 35px rgba(212,175,55,.25);
+    background:#000;
 
 }
 
-.photo img{
+.cover-image{
+
+    position:absolute;
+
+    inset:0;
 
     width:100%;
+
     height:100%;
+
     object-fit:cover;
-    object-position:center 20%;
-    border-radius:50%;
 
-}
-.person h2{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:58px;
-
-    color:var(--gold);
-
-    margin-top:30px;
-
-    text-shadow:0 0 18px rgba(212,175,55,.25);
+    object-position:center;
 
 }
 
-.person p{
-
-    margin-top:10px;
-
-    color:#F5E8D3;
-
-}
-
-.person h4{
-
-    margin-top:15px;
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    color:#fff;
-
-}
-
-.love{
-
-    font-size:70px;
-
-    color:var(--gold);
-
-    animation:pulse 2s infinite;
-
-}
-
-
-/* ===========================================
-   CARD
-=========================================== */
-
-.event-card,
-.gift-card{
-
-    width:min(700px,100%);
-
-    margin:40px auto;
-
-    padding:45px;
-
-    border-radius:25px;
-
-    background:rgba(58,38,26,.82);
-
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(212,175,55,.25);
-
-    box-shadow:0 25px 40px rgba(0,0,0,.35);
-
-}
-
-.event-card h3,
-.gift-card h3{
-
-    color:var(--gold);
-
-    margin-bottom:15px;
-
-}
-
-.event-card p,
-.gift-card p{
-
-    margin-bottom:25px;
-
-    color:#F5E8D3;
-
-}
-
-
-/* ===========================================
-   BUTTON
-=========================================== */
-
-.maps-button,
-#rsvp button,
-.gift-card button{
-
-    display:inline-block;
-
-    margin-top:25px;
-
-    padding:16px 40px;
-
-    border-radius:60px;
-
-    background:linear-gradient(135deg,#D4AF37,#B88A22);
-
-    color:#2A1B12;
-
-    font-weight:700;
-
-    border:none;
-
-    transition:.35s;
-
-}
-
-.maps-button:hover,
-#rsvp button:hover,
-.gift-card button:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 12px 25px rgba(212,175,55,.35);
-
-}
-
-
-/* ===========================================
-   GLOW
-=========================================== */
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.05);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-/* ===========================================
-   EVENT
-=========================================== */
-
-#event{
-
-    background:linear-gradient(180deg,#24160F,#2A1B12);
-
-    text-align:center;
-
-}
-
-.event-desc{
-
-    max-width:760px;
-
-    margin:0 auto 60px;
-
-    color:#e8d9c3;
-
-    font-size:17px;
-
-}
-
-/* ===========================================
-   COUNTDOWN
-=========================================== */
-
-#countdown{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:25px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:60px;
-
-}
-
-.count-item{
-
-    width:130px;
-
-    height:130px;
-
-    background:rgba(58,38,26,.85);
-
-    border:1px solid rgba(212,175,55,.3);
-
-    border-radius:20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.35);
-
-    backdrop-filter:blur(10px);
-
-}
-
-.count-item span{
-
-    font-size:48px;
-
-    font-weight:bold;
-
-    color:var(--gold);
-
-    line-height:1;
-
-}
-
-.count-item small{
-
-    margin-top:12px;
-
-    color:#F5E8D3;
-
-    letter-spacing:2px;
-
-}
-
-/* ===========================================
-   RSVP
-=========================================== */
-
-#rsvp{
-
-    background:#2A1B12;
-
-}
-
-#rsvpForm{
-
-    width:min(700px,100%);
-
-    margin:auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-#rsvpForm input,
-#rsvpForm select,
-#rsvpForm textarea{
-
-    width:100%;
-
-    padding:18px;
-
-    border-radius:15px;
-
-    border:1px solid rgba(212,175,55,.2);
-
-    background:#3A261A;
-
-    color:#fff;
-
-    outline:none;
-
-    font-size:15px;
-
-}
-
-#rsvpForm textarea{
-
-    resize:none;
-
-}
-
-/* ===========================================
-   GIFT
-=========================================== */
-
-#gift{
-
-    background:#24160F;
-
-    text-align:center;
-
-}
-
-.gift-card img{
-
-    width:220px;
-
-    margin:25px auto;
-
-    border-radius:12px;
-
-}
-
-/* ===========================================
-   CLOSING
-=========================================== */
-
-#closing{
-
-    position:relative;
-
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    background:
-
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-    url("../images/closing.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
-}
-
-.closing-content{
-
-    width:min(800px,90%);
-
-    background:rgba(58,38,26,.55);
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(212,175,55,.25);
-
-    padding:60px;
-
-    border-radius:25px;
-
-}
-
-.closing-content h5{
-
-    color:var(--gold);
-
-    letter-spacing:4px;
-
-    margin-bottom:20px;
-
-}
-
-.closing-content h1{
-
-    font-size:80px;
-
-    color:var(--gold);
-
-    line-height:1.1;
-
-    margin-bottom:30px;
-
-}
-
-.closing-content p{
-
-    color:#F5E8D3;
-
-    margin-bottom:30px;
-
-}
-
-/* ===========================================
-   MUSIC BUTTON
-=========================================== */
-
-#musicButton{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-    width:60px;
-
-    height:60px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:linear-gradient(135deg,#D4AF37,#B88A22);
-
-    color:#2A1B12;
-
-    font-size:22px;
-
-    box-shadow:0 10px 25px rgba(212,175,55,.35);
-
-    z-index:999;
-
-}
-
-#musicButton:hover{
-
-    transform:scale(1.1);
-
-}
-
-/* ===========================================
-   FOOTER
-=========================================== */
-
-footer{
-
-    background:#1d120c;
-
-    padding:30px;
-
-    text-align:center;
-
-    color:#bda98a;
-
-    font-size:14px;
-
-}
-/* ===========================================
-   PREMIUM EFFECT
-=========================================== */
-
-.overlay{
+.cover-overlay{
 
     position:absolute;
 
     inset:0;
 
     background:linear-gradient(
-    rgba(20,12,8,.35),
-    rgba(20,12,8,.65)
+
+        rgba(0,0,0,.10),
+
+        rgba(0,0,0,.40),
+
+        rgba(0,0,0,.70)
+
     );
 
 }
 
-.container{
-
-    position:relative;
-    z-index:2;
-
-}
-
-/* ===========================================
-   GOLD ORNAMENT
-=========================================== */
-
-section::before{
-
-    content:"";
+.cover-content{
 
     position:absolute;
-
-    width:220px;
-
-    height:220px;
-
-    border:1px solid rgba(212,175,55,.08);
-
-    border-radius:50%;
-
-    top:40px;
-
-    left:-100px;
-
-}
-
-section::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    border:1px solid rgba(212,175,55,.08);
-
-    border-radius:50%;
-
-    right:-70px;
-
-    bottom:40px;
-
-}
-
-/* ===========================================
-   GLASS EFFECT
-=========================================== */
-
-.cover-content,
-.event-card,
-.gift-card,
-.closing-content{
-
-    background:rgba(58,38,26,.55);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-}
-
-/* ===========================================
-   GOLD BORDER ANIMATION
-=========================================== */
-
-.cover-content,
-.event-card,
-.gift-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.cover-content::before,
-.event-card::before,
-.gift-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-100%;
-
-    left:-100%;
-
-    width:250%;
-
-    height:250%;
-
-    background:
-
-    linear-gradient(
-        transparent,
-        rgba(212,175,55,.18),
-        transparent
-    );
-
-    transform:rotate(35deg);
-
-    animation:shine 8s linear infinite;
-
-}
-
-@keyframes shine{
-
-    from{
-
-        transform:
-        translateX(-60%)
-        rotate(35deg);
-
-    }
-
-    to{
-
-        transform:
-        translateX(60%)
-        rotate(35deg);
-
-    }
-
-}
-
-/* ===========================================
-   GOLD GLOW
-=========================================== */
-
-.cover-content h1,
-.person h2,
-.closing-content h1{
-
-    text-shadow:
-
-    0 0 8px rgba(212,175,55,.25),
-
-    0 0 18px rgba(212,175,55,.20),
-
-    0 0 35px rgba(212,175,55,.18);
-
-}
-
-/* ===========================================
-   FLOATING
-=========================================== */
-
-.photo{
-
-    animation:floating 5s ease-in-out infinite;
-
-}
-
-@keyframes floating{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/* ===========================================
-   BUTTON SHINE
-=========================================== */
-
-button{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-button::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    background:
-
-    linear-gradient(
-
-        rgba(255,255,255,0),
-
-        rgba(255,255,255,.35),
-
-        rgba(255,255,255,0)
-
-    );
-
-    transform:skewX(-25deg);
-
-}
-
-button:hover::after{
-
-    animation:btnshine .9s;
-
-}
-
-@keyframes btnshine{
-
-    from{
-
-        left:-120%;
-
-    }
-
-    to{
-
-        left:180%;
-
-    }
-
-}
-
-/* ===========================================
-   SCROLLBAR
-=========================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#24160F;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#D4AF37;
-
-    border-radius:20px;
-
-}
-
-/* ===========================================
-   TEXT SELECTION
-=========================================== */
-
-::selection{
-
-    background:#D4AF37;
-
-    color:#2A1B12;
-
-}
-/* ===========================================
-   OPENING ANIMATION
-=========================================== */
-
-#openingAnimation{
-
-    position:fixed;
 
     inset:0;
 
-    width:100%;
+    display:flex;
 
-    height:100vh;
-
-    background:#000;
-
-    display:none;
+    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
 
-    z-index:99999;
+    text-align:center;
 
-    overflow:hidden;
+    padding:24px;
+
+    z-index:10;
+
+}
+.cover-title{
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
 
 }
 
-#openingAnimation.active{
+.cover-name{
 
-    display:flex;
+    font-family:'Cinzel',serif;
 
-}
+    font-size:52px;
 
-#openingVideo{
+    color:#FFE8A6;
 
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
+    line-height:1.2;
 
 }
 
-#continueButton{
+.cover-name span{
 
-    position:absolute;
+    display:block;
 
-    bottom:40px;
+    color:white;
 
-    left:50%;
+    font-size:30px;
 
-    transform:translateX(-50%);
+    margin:10px 0;
 
-    padding:16px 40px;
+}
+
+.gold-line{
+
+    width:120px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    margin:25px auto;
+
+}
+
+.cover-date{
+
+    color:white;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+.guest-box{
+
+    margin-bottom:35px;
+
+}
+
+.guest-box p{
+
+    margin-bottom:10px;
+
+}
+
+.guest-box h3{
+
+    font-size:20px;
+
+    color:white;
+
+}
+
+.guest-box small{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-size:12px;
+
+    opacity:.8;
+
+}
+#openInvitation{
+
+    width:180px;
+
+    height:54px;
 
     border:none;
 
     border-radius:50px;
 
-    background:linear-gradient(135deg,#D4AF37,#B88A22);
+    background:linear-gradient(
+
+        135deg,
+
+        #D4AF37,
+
+        #B88A22
+
+    );
 
     color:#2A1B12;
 
     font-weight:bold;
 
-    font-size:18px;
+    letter-spacing:2px;
 
-    display:none;
-
-    cursor:pointer;
-
-    z-index:10;
-
-    box-shadow:0 0 20px rgba(212,175,55,.4);
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
 
-#continueButton:hover{
+#openInvitation:hover{
 
-    transform:translateX(-50%) scale(1.05);
+    transform:translateY(-3px);
 
 }
