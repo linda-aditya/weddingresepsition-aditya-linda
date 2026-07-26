@@ -327,7 +327,130 @@ h5{
     box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
+/* ===========================================
+   OPENING ANIMATION
+=========================================== */
 
+#openingAnimation{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100dvh;
+
+    background:#000;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    z-index:999999;
+
+}
+
+#openingAnimation.active{
+
+    display:flex;
+
+}
+
+#openingVideo{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+}
+
+#continueButton{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:190px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #B88A22
+    );
+
+    color:#2A1B12;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    display:none;
+
+    z-index:20;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.45);
+
+    animation:fadeUp .8s ease;
+
+}
+
+#continueButton.show{
+
+    display:block;
+
+}
+
+#continueButton:hover{
+
+    transform:translateX(-50%) translateY(-4px);
+
+}
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translate(-50%,30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translate(-50%,0);
+
+    }
+
+}
 #openInvitation:hover{
 
     transform:translateY(-3px);
