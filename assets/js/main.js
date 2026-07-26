@@ -587,3 +587,66 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     });
+/* ==========================================
+   SMOOTH SCROLL
+========================================== */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach((link) => {
+
+        link.addEventListener("click", (event) => {
+
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+/* ==========================================
+   INITIALIZATION
+========================================== */
+
+function initializeApplication() {
+
+    console.log(
+        "%cWedding Reception",
+        "color:#D4AF37;font-size:16px;font-weight:bold;"
+    );
+
+    console.log(
+        "Application initialized successfully."
+    );
+
+}
+
+initializeApplication();
+
+/* ==========================================
+   WINDOW RESIZE
+========================================== */
+
+window.addEventListener("resize", () => {
+
+});
+
+/* ==========================================
+   FINISHED
+========================================== */
+
+console.log(
+    "Wedding Invitation Ready."
+);
+
+}); // <-- PENUTUP document.addEventListener("DOMContentLoaded", ...)
