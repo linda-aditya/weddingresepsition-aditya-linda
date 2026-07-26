@@ -138,6 +138,27 @@ h5{
 
 }
 /* ===========================================
+   LOADER TRANSITION
+=========================================== */
+
+#loader{
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+#loader.fade-out{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+/* ===========================================
    COVER
 =========================================== */
 
