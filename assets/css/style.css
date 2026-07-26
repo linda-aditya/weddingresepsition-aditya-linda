@@ -381,7 +381,6 @@ h2,h3,h4,h5{
 .photo{
 
     width:280px;
-
     height:280px;
 
     margin:auto;
@@ -390,9 +389,7 @@ h2,h3,h4,h5{
 
     overflow:hidden;
 
-    border:4px solid var(--gold);
-
-    padding:8px;
+    border:5px solid var(--gold);
 
     background:#3A261A;
 
@@ -403,12 +400,15 @@ h2,h3,h4,h5{
 .photo img{
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
 
+    object-position:center;
+
     border-radius:50%;
+
+    display:block;
 
 }
 
