@@ -661,3 +661,47 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* ==========================================
+   OPEN INVITATION FLOW
+========================================== */
+
+const openButton = document.getElementById("openInvitation");
+const cover = document.getElementById("cover");
+const videoOpening = document.getElementById("videoOpening");
+const openingVideo = document.getElementById("openingVideo");
+
+
+openButton.addEventListener("click",()=>{
+
+
+    // sembunyikan cover
+    cover.classList.add("hide");
+
+
+    // tampilkan video
+    videoOpening.classList.add("active");
+
+
+    // jalankan video
+    openingVideo.play();
+
+
+    // setelah video selesai
+    openingVideo.addEventListener("ended",()=>{
+
+
+        videoOpening.classList.remove("active");
+
+
+        // scroll ke halaman pertama undangan
+        document
+        .getElementById("opening")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    });
+
+
+});
