@@ -1,29 +1,78 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* ==========================================
+   Floating Decorations
+========================================== */
 
-    function createFlower() {
+document.addEventListener("DOMContentLoaded", () => {
 
-        const flower = document.createElement("div");
+    const container = document.getElementById("floatingDecorations");
 
-        flower.className = "flower";
+    if (!container) return;
 
-        flower.innerHTML = "🌸";
+    const icons = [
 
-        flower.style.left = Math.random() * window.innerWidth + "px";
+        {
+            class: "gold",
+            icon: "✦"
+        },
 
-        flower.style.fontSize = (Math.random() * 15 + 18) + "px";
+        {
+            class: "gold",
+            icon: "✧"
+        },
 
-        flower.style.animationDuration = (Math.random() * 4 + 8) + "s";
+        {
+            class: "flower",
+            icon: "❀"
+        },
 
-        document.body.appendChild(flower);
+        {
+            class: "flower",
+            icon: "✿"
+        },
 
-        setTimeout(() => {
+        {
+            class: "leaf",
+            icon: "❃"
+        }
 
-            flower.remove();
+    ];
 
-        },12000);
+    function createItem() {
+
+        const data = icons[
+            Math.floor(Math.random() * icons.length)
+        ];
+
+        const item = document.createElement("span");
+
+        item.className = `float-item ${data.class}`;
+
+        item.innerHTML = data.icon;
+
+        item.style.left = Math.random() * 100 + "%";
+
+        item.style.animationDuration =
+            (8 + Math.random() * 6) + "s";
+
+        item.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        item.style.fontSize =
+            (12 + Math.random() * 14) + "px";
+
+        item.style.opacity =
+            (0.3 + Math.random() * 0.5);
+
+        container.appendChild(item);
+
+        item.addEventListener("animationend", () => {
+
+            item.remove();
+
+        });
 
     }
 
-    setInterval(createFlower,700);
+    setInterval(createItem, 600);
 
 });
