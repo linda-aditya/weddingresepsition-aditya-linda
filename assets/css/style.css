@@ -838,8 +838,6 @@ button{
 
     position:relative;
 
-    padding:140px 0;
-
     overflow:hidden;
 
     background:
@@ -882,6 +880,8 @@ button{
     z-index:2;
 
     max-width:760px;
+
+    width:100%;
 
     text-align:center;
 
