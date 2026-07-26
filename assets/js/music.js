@@ -1,58 +1,84 @@
 /* ==========================================
-   MUSIC CONTROLLER
+   Wedding Invitation
+   Music Controller
 ========================================== */
 
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
+(() => {
 
-let isPlaying = false;
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicButton");
 
-// Putar musik
-function playMusic() {
+    if (!music || !button) return;
 
-    if (!music) return;
+    let playing = false;
 
-    music.play().then(() => {
+    /* ==========================================
+       Update Button
+    ========================================== */
 
-        isPlaying = true;
+    function updateButton() {
 
-        if (musicButton) {
+        if (playing) {
 
-            musicButton.innerHTML = "🎵";
+            button.classList.add("playing");
+
+            button.innerHTML =
+                '<i class="fa-solid fa-pause"></i>';
+
+        } else {
+
+            button.classList.remove("playing");
+
+            button.innerHTML =
+                '<i class="fa-solid fa-music"></i>';
 
         }
 
-    }).catch(err => {
+    }
 
-        console.log(err);
+    /* ==========================================
+       Play Music
+    ========================================== */
 
-    });
+    async function playMusic() {
 
-}
+        try {
 
-// Pause musik
-function pauseMusic() {
+            await music.play();
 
-    if (!music) return;
+            playing = true;
 
-    music.pause();
+            updateButton();
 
-    isPlaying = false;
+        } catch (error) {
 
-    if (musicButton) {
+            console.warn("Music blocked:", error);
 
-        musicButton.innerHTML = "🔇";
+        }
 
     }
 
-}
+    /* ==========================================
+       Pause Music
+    ========================================== */
 
-// Toggle musik
-if (musicButton) {
+    function pauseMusic() {
 
-    musicButton.addEventListener("click", () => {
+        music.pause();
 
-        if (isPlaying) {
+        playing = false;
+
+        updateButton();
+
+    }
+
+    /* ==========================================
+       Toggle
+    ========================================== */
+
+    function toggleMusic() {
+
+        if (playing) {
 
             pauseMusic();
 
@@ -62,8 +88,50 @@ if (musicButton) {
 
         }
 
+    }
+
+    /* ==========================================
+       Button Click
+    ========================================== */
+
+    button.addEventListener("click", toggleMusic);
+
+    /* ==========================================
+       Sync State
+    ========================================== */
+
+    music.addEventListener("play", () => {
+
+        playing = true;
+
+        updateButton();
+
     });
 
-}
-window.playMusic = playMusic;
-window.pauseMusic = pauseMusic;
+    music.addEventListener("pause", () => {
+
+        playing = false;
+
+        updateButton();
+
+    });
+
+    music.addEventListener("ended", () => {
+
+        playing = false;
+
+        updateButton();
+
+    });
+
+    /* ==========================================
+       Global Function
+    ========================================== */
+
+    window.playMusic = playMusic;
+    window.pauseMusic = pauseMusic;
+    window.toggleMusic = toggleMusic;
+
+    updateButton();
+
+})();
