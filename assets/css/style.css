@@ -37,9 +37,12 @@
 }
 
 html{
-    scroll-behavior:smooth;
-}
 
+    scroll-behavior:smooth;
+
+    scroll-snap-type:y mandatory;
+
+}
 body{
 
     background:
@@ -62,11 +65,23 @@ body{
 ========================================================= */
 
 section{
+
     position:relative;
+
     width:100%;
+
     min-height:100vh;
+
     overflow:hidden;
-    display:block;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    scroll-snap-align:start;
+
 }
 
 /* =========================================================
