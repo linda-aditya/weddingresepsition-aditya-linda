@@ -1967,3 +1967,16 @@ button{
     opacity:.75;
 
 }
+#opening{
+    min-height:100vh !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+}
+
+#opening .container{
+    margin:0 auto !important;
+    padding:0 20px !important;
+    transform:none !important;
+    position:relative !important;
+}
