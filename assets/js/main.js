@@ -17,15 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const openingVideo = document.getElementById("openingVideo");
     const continueButton = document.getElementById("continueButton");
 
-    const music = document.getElementById("music");
-    const musicButton = document.getElementById("musicButton");
+    const musicButton =
+       document.getElementById("musicButton");
 
     const guestName = document.getElementById("guestName");
 
     const floatingContainer =
         document.getElementById("floatingDecorations");
-
-
 
     /* ==========================================
        LOADER
@@ -47,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-
     /* ==========================================
        GUEST NAME
     ========================================== */
@@ -64,41 +60,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+/* ==========================================
+   OPEN INVITATION
+========================================== */
 
+openButton.addEventListener("click", () => {
 
-    /* ==========================================
-       OPEN INVITATION
-    ========================================== */
+    openButton.disabled = true;
 
-    openButton.addEventListener("click", () => {
+    cover.classList.add("fade-out");
 
-        openButton.disabled = true;
+    cover.addEventListener("animationend", () => {
 
-        cover.classList.add("fade-out");
+        cover.style.display = "none";
 
-        cover.addEventListener("animationend", () => {
+        openingAnimation.classList.add("active");
+        openingAnimation.classList.add("fade-in");
 
-            cover.style.display = "none";
+        document.body.style.overflow = "hidden";
 
-            openingAnimation.classList.add("active");
-            openingAnimation.classList.add("fade-in");
+        openingVideo.currentTime = 0;
 
-            document.body.style.overflow = "hidden";
+        openingVideo.play().catch((err) => {
 
-            openingVideo.currentTime = 0;
+            console.log(err);
 
-            openingVideo.play();
+        });
 
-            music.play().catch(() => {});
+        if (typeof playMusic === "function") {
 
-            musicButton.classList.add("show");
+            playMusic();
 
-        }, { once: true });
+        }
 
-    });
+        musicButton.classList.add("show");
 
+    }, { once: true });
 
-
+});
     /* ==========================================
        VIDEO FINISHED
     ========================================== */
@@ -110,9 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         continueButton.focus();
 
     });
-
-
-
+   
     /* ==========================================
        VIDEO ERROR
     ========================================== */
@@ -122,8 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
         continueButton.classList.add("show");
 
     });
-
-
 
     /* ==========================================
        CONTINUE
@@ -159,38 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-
-    /* ==========================================
-       MUSIC
-    ========================================== */
-
-    let playing = true;
-
-    musicButton.addEventListener("click", () => {
-
-        if (playing) {
-
-            music.pause();
-
-            musicButton.innerHTML =
-                '<i class="fa-solid fa-volume-xmark"></i>';
-
-        } else {
-
-            music.play();
-
-            musicButton.innerHTML =
-                '<i class="fa-solid fa-music"></i>';
-
-        }
-
-        playing = !playing;
-
-    });
-
-
-
     /* ==========================================
        SCROLL ANIMATION
     ========================================== */
@@ -218,8 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(section);
 
     });
-
-
 
     /* ==========================================
        FLOATING DECORATIONS
