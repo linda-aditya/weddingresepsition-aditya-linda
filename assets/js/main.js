@@ -33,11 +33,11 @@ window.addEventListener("load", () => {
 
         loader.classList.add("fade-out");
 
-        setTimeout(() => {
+        loader.addEventListener("animationend", () => {
 
             loader.remove();
 
-        }, 800);
+        }, { once: true });
 
     }, 1200);
 
@@ -63,30 +63,31 @@ window.addEventListener("load", () => {
 
     openButton.addEventListener("click", () => {
 
-        cover.classList.add("fade-out");
+    /* disable double click */
+    openButton.disabled = true;
 
-        setTimeout(() => {
+    /* fade cover */
+    cover.classList.add("fade-out");
 
-            cover.style.display = "none";
+    cover.addEventListener("animationend", () => {
 
-            openingAnimation.classList.add("active");
-            openingAnimation.classList.add("fade-in");
+        cover.style.display = "none";
 
-            document.body.style.overflow = "hidden";
+        openingAnimation.classList.add("active");
+        openingAnimation.classList.add("fade-in");
 
-            music.play();
+        document.body.style.overflow = "hidden";
 
-            musicButton.classList.add("show");
+        openingVideo.currentTime = 0;
+        openingVideo.play();
 
-            openingVideo.currentTime = 0;
+        music.play().catch(() => {});
 
-            openingVideo.play();
+        musicButton.classList.add("show");
 
-        }, 800);
+    }, { once: true });
 
-    });
-
-
+});
     /* ==========================================
        VIDEO SELESAI
     ========================================== */
