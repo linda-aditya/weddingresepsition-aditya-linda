@@ -87,12 +87,25 @@ openButton.addEventListener("click", () => {
 
         });
 
-        if (typeof playMusic === "function") {
+        console.log("Klik Open");
 
-            playMusic();
+console.log("playMusic =", typeof playMusic);
 
-        }
+console.log("=== OPEN INVITATION DIKLIK ===");
 
+console.log("Status fungsi playMusic:", typeof playMusic);
+
+if (typeof playMusic === "function") {
+
+    console.log("✅ Fungsi playMusic ditemukan, mencoba memutar musik...");
+
+    playMusic();
+
+} else {
+
+    console.error("❌ Fungsi playMusic TIDAK ditemukan.");
+
+}
         musicButton.classList.add("show");
 
     }, { once: true });
