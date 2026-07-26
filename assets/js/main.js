@@ -108,32 +108,36 @@ openingVideo.addEventListener("error", () => {
     continueButton.classList.add("show");
 
 });
-    /* ==========================================
-       LANJUT
-    ========================================== */
+  /* ==========================================
+   CONTINUE TO INVITATION
+========================================== */
 
-    continueButton.addEventListener("click", () => {
+continueButton.addEventListener("click", () => {
 
-        openingAnimation.classList.remove("fade-in");
-        openingAnimation.classList.add("fade-out");
+    openingAnimation.classList.remove("fade-in");
+    openingAnimation.classList.add("fade-out");
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            openingAnimation.style.display = "none";
+        openingAnimation.classList.remove("active");
+        openingAnimation.style.display = "none";
 
-            document.body.style.overflowY = "auto";
+        continueButton.classList.remove("show");
 
-            document.getElementById("opening").scrollIntoView({
+        openingVideo.pause();
+        openingVideo.currentTime = 0;
 
-                behavior: "smooth"
+        document.body.style.overflowY = "auto";
 
-            });
+        document.getElementById("opening").scrollIntoView({
 
-        }, 800);
+            behavior: "smooth"
 
-    });
+        });
 
+    }, 800);
 
+});
     /* ==========================================
        MUSIC
     ========================================== */
@@ -190,5 +194,92 @@ openingVideo.addEventListener("error", () => {
         observer.observe(section);
 
     });
+
+});
+/* ==========================================
+   SCROLL ANIMATION
+========================================== */
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll("section").forEach((section) => {
+
+    observer.observe(section);
+
+});
+
+
+/* ==========================================
+   FLOATING DECORATIONS
+========================================== */
+
+const floatingContainer =
+    document.getElementById("floatingDecorations");
+
+if (floatingContainer) {
+
+    const icons = [
+
+        { class: "gold", icon: "✦" },
+        { class: "gold", icon: "✧" },
+        { class: "flower", icon: "🌸" },
+        { class: "leaf", icon: "🍃" }
+
+    ];
+
+    function createFloatingItem() {
+
+        const data =
+            icons[Math.floor(Math.random() * icons.length)];
+
+        const item = document.createElement("span");
+
+        item.className =
+            `float-item ${data.class}`;
+
+        item.innerHTML = data.icon;
+
+        item.style.left =
+            Math.random() * 100 + "%";
+
+        item.style.animationDuration =
+            (8 + Math.random() * 6) + "s";
+
+        item.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        item.style.opacity =
+            0.3 + Math.random() * 0.5;
+
+        item.style.fontSize =
+            (14 + Math.random() * 18) + "px";
+
+        floatingContainer.appendChild(item);
+
+        item.addEventListener("animationend", () => {
+
+            item.remove();
+
+        });
+
+    }
+
+    setInterval(createFloatingItem, 600);
+
+}
 
 });
