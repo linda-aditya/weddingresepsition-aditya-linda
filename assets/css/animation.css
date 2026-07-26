@@ -2,14 +2,41 @@
    PREMIUM SECTION ANIMATION
 ========================== */
 
-section{
+/* COVER selalu tampil */
+
+#cover{
+    opacity:1;
+    transform:none;
+}
+
+/* section setelah cover */
+
+#opening,
+#couple,
+#event,
+#rsvp,
+#gift,
+#closing{
 
     opacity:0;
     transform:translateY(80px);
-    transition:all 1.2s ease;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 
 }
 
+#opening.show,
+#couple.show,
+#event.show,
+#rsvp.show,
+#gift.show,
+#closing.show{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
 section.show{
 
     opacity:1;
