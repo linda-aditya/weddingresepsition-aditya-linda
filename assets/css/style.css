@@ -1,14 +1,28 @@
-/* ===========================================
-   WEDDING ADITYA & LINDA
-   Mobile First
-=========================================== */
+/* =========================================================
+   WEDDING RECEPTION
+   Aditya & Linda
+   Style.css
+========================================================= */
 
 :root{
 
-    --bg:#2A1B12;
+    --bg:#20140D;
+    --bg2:#2A1B12;
+
     --gold:#D4AF37;
-    --cream:#F5E8D3;
-    --card:#3A261A;
+    --gold-light:#F7D979;
+    --gold-dark:#A97911;
+
+    --white:#FFFFFF;
+    --cream:#F8F3EB;
+
+    --text:#EEE5D7;
+
+    --card:#2E1E14;
+
+    --shadow:0 18px 40px rgba(0,0,0,.30);
+
+    --radius:24px;
 
 }
 
@@ -29,9 +43,10 @@ html{
 body{
 
     background:var(--bg);
-    color:var(--cream);
 
-    font-family:'Poppins',sans-serif;
+    color:var(--text);
+
+    font-family:"Poppins",sans-serif;
 
     overflow-x:hidden;
 
@@ -42,6 +57,7 @@ body{
 img{
 
     display:block;
+
     width:100%;
 
 }
@@ -54,9 +70,13 @@ a{
 
 button{
 
-    font-family:'Poppins',sans-serif;
+    border:none;
+
+    outline:none;
+
     cursor:pointer;
-    transition:.35s;
+
+    font-family:"Poppins",sans-serif;
 
 }
 
@@ -70,31 +90,61 @@ section{
 
 .container{
 
-    width:90%;
-
-    max-width:420px;
+    width:min(92%,1100px);
 
     margin:auto;
 
 }
 
-h1{
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
-    font-family:'Great Vibes',cursive;
+.section-subtitle{
+
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:var(--gold);
+
+    text-align:center;
+
+    margin-bottom:12px;
 
 }
 
-h2,
-h3,
-h4,
-h5{
+.section-title{
 
-    font-family:'Cinzel',serif;
+    font-family:"Cinzel",serif;
+
+    font-size:42px;
+
+    color:var(--cream);
+
+    text-align:center;
+
+    margin-bottom:20px;
 
 }
-/* ===========================================
+
+.section-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+    opacity:.9;
+
+}
+
+/* =========================================================
    LOADER
-=========================================== */
+========================================================= */
 
 #loader{
 
@@ -102,7 +152,7 @@ h5{
 
     inset:0;
 
-    background:#2A1B12;
+    background:var(--bg);
 
     display:flex;
 
@@ -110,57 +160,124 @@ h5{
 
     align-items:center;
 
-    z-index:999999;
+    z-index:99999;
 
 }
 
-.loader-text{
+.loader-content{
 
     text-align:center;
 
 }
 
-.loader-text h1{
+.loader-content h1{
 
-    font-size:72px;
+    font-family:"Cinzel",serif;
 
     color:var(--gold);
 
-    margin-bottom:10px;
+    font-size:70px;
+
+    letter-spacing:8px;
 
 }
 
-.loader-text p{
+.loader-content p{
+
+    margin-top:15px;
 
     letter-spacing:4px;
 
-    color:white;
-
-}
-/* ===========================================
-   LOADER TRANSITION
-=========================================== */
-
-#loader{
-
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+    color:#fff;
 
 }
 
-#loader.fade-out{
+/* =========================================================
+   FLOATING DECORATION
+========================================================= */
 
-    opacity:0;
+#floatingDecorations{
 
-    visibility:hidden;
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
 
     pointer-events:none;
 
+    z-index:3;
+
 }
-/* ===========================================
+
+.float-item{
+
+    position:absolute;
+
+    top:-100px;
+
+}
+
+.float-item.gold{
+
+    color:var(--gold);
+
+}
+
+.float-item.flower{
+
+    color:#FFEBC4;
+
+}
+
+.float-item.leaf{
+
+    color:#D5B26A;
+
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+#musicButton{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+    );
+
+    color:#2A1B12;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    z-index:999;
+
+    box-shadow:var(--shadow);
+
+}
+/* =========================================================
    COVER
-=========================================== */
+========================================================= */
 
 #cover{
 
@@ -168,11 +285,9 @@ h5{
 
     width:100%;
 
-    height:100dvh;
+    min-height:100vh;
 
     overflow:hidden;
-
-    background:#000;
 
 }
 
@@ -198,23 +313,22 @@ h5{
 
     inset:0;
 
-    background:linear-gradient(
-
-        rgba(0,0,0,.10),
-
-        rgba(0,0,0,.40),
-
-        rgba(0,0,0,.70)
-
-    );
+    background:
+        linear-gradient(
+            rgba(0,0,0,.20),
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.78)
+        );
 
 }
 
 .cover-content{
 
-    position:absolute;
+    position:relative;
 
-    inset:0;
+    z-index:10;
+
+    min-height:100vh;
 
     display:flex;
 
@@ -226,32 +340,33 @@ h5{
 
     text-align:center;
 
-    padding:24px;
-
-    z-index:10;
+    padding:60px 20px;
 
 }
+
 .cover-title{
 
     color:var(--gold);
 
-    font-size:12px;
+    letter-spacing:6px;
 
-    letter-spacing:5px;
+    font-size:13px;
 
-    margin-bottom:20px;
+    text-transform:uppercase;
+
+    margin-bottom:18px;
 
 }
 
 .cover-name{
 
-    font-family:'Cinzel',serif;
+    font-family:"Cinzel",serif;
 
-    font-size:52px;
+    font-size:64px;
 
-    color:#FFE8A6;
+    line-height:1.25;
 
-    line-height:1.2;
+    color:#FFF5DD;
 
 }
 
@@ -259,36 +374,56 @@ h5{
 
     display:block;
 
+    margin:12px 0;
+
+    font-size:34px;
+
     color:white;
-
-    font-size:30px;
-
-    margin:10px 0;
 
 }
 
 .gold-line{
 
-    width:120px;
+    width:140px;
 
     height:2px;
 
-    background:var(--gold);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
 
-    margin:25px auto;
+    margin:30px auto;
 
 }
 
 .cover-date{
 
+    font-family:"Cinzel",serif;
+
     color:white;
 
-    line-height:1.8;
+    line-height:2;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 
 }
+
 .guest-box{
+
+    width:min(100%,420px);
+
+    padding:24px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
 
     margin-bottom:35px;
 
@@ -296,15 +431,21 @@ h5{
 
 .guest-box p{
 
+    color:#ddd;
+
     margin-bottom:10px;
 
 }
 
 .guest-box h3{
 
-    font-size:20px;
+    font-family:"Cinzel",serif;
 
-    color:white;
+    color:#fff;
+
+    font-size:26px;
+
+    margin-bottom:12px;
 
 }
 
@@ -312,55 +453,66 @@ h5{
 
     display:block;
 
-    margin-top:15px;
+    color:#ddd;
 
-    font-size:12px;
+    font-size:13px;
 
-    opacity:.8;
+    line-height:1.6;
 
 }
+
 #openInvitation{
 
-    width:180px;
+    width:240px;
 
-    height:54px;
+    height:58px;
 
-    border:none;
+    border-radius:999px;
 
-    border-radius:50px;
-
-    background:linear-gradient(
-
-        135deg,
-
-        #D4AF37,
-
-        #B88A22
-
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold-dark)
+        );
 
     color:#2A1B12;
 
-    font-weight:bold;
+    font-weight:700;
+
+    font-size:15px;
 
     letter-spacing:2px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    box-shadow:var(--shadow);
+
+    transition:.35s;
 
 }
-/* ===========================================
-   OPENING ANIMATION
-=========================================== */
+
+#openInvitation:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 22px 40px rgba(0,0,0,.35);
+
+}
+
+#openInvitation:active{
+
+    transform:scale(.98);
+
+}
+/* =========================================================
+   OPENING VIDEO
+========================================================= */
 
 #openingAnimation{
 
     position:fixed;
 
     inset:0;
-
-    width:100%;
-
-    height:100dvh;
 
     background:#000;
 
@@ -372,7 +524,7 @@ h5{
 
     overflow:hidden;
 
-    z-index:999999;
+    z-index:9999;
 
 }
 
@@ -394,8 +546,6 @@ h5{
 
     object-fit:cover;
 
-    object-position:center;
-
 }
 
 #continueButton{
@@ -408,35 +558,25 @@ h5{
 
     transform:translateX(-50%);
 
-    width:190px;
+    width:220px;
 
-    height:56px;
+    height:58px;
 
-    border:none;
-
-    border-radius:50px;
+    border-radius:999px;
 
     background:linear-gradient(
         135deg,
-        #D4AF37,
-        #B88A22
+        var(--gold-light),
+        var(--gold-dark)
     );
 
     color:#2A1B12;
-
-    font-size:16px;
 
     font-weight:700;
 
     letter-spacing:2px;
 
     display:none;
-
-    z-index:20;
-
-    box-shadow:0 15px 30px rgba(0,0,0,.45);
-
-    animation:fadeUp .8s ease;
 
 }
 
@@ -446,164 +586,594 @@ h5{
 
 }
 
-#continueButton:hover{
+/* =========================================================
+   OPENING
+========================================================= */
 
-    transform:translateX(-50%) translateY(-4px);
+#opening{
 
-}
-@keyframes fadeUp{
+    padding:110px 0;
 
-    from{
-
-        opacity:0;
-
-        transform:
-        translate(-50%,30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translate(-50%,0);
-
-    }
-
-}
-#openInvitation:hover{
-
-    transform:translateY(-3px);
-
-}
-/* ===========================================
-   PREMIUM TRANSITION
-=========================================== */
-
-.fade-out{
-
-    animation:fadeOut .8s ease forwards;
+    text-align:center;
 
 }
 
-.fade-in{
+.bismillah{
 
-    animation:fadeIn .8s ease forwards;
+    font-family:"Amiri",serif;
 
-}
+    font-size:44px;
 
-@keyframes fadeOut{
+    color:var(--gold);
 
-    from{
+    margin-bottom:35px;
 
-        opacity:1;
-
-    }
-
-    to{
-
-        opacity:0;
-
-        visibility:hidden;
-
-    }
+    line-height:1.8;
 
 }
 
-@keyframes fadeIn{
+.opening-text{
 
-    from{
+    max-width:720px;
 
-        opacity:0;
+    margin:auto;
 
-    }
+    font-size:17px;
 
-    to{
-
-        opacity:1;
-
-    }
-
-}
-/* ===========================================
-   FLOATING DECORATIONS
-=========================================== */
-
-#floatingDecorations{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-
-    z-index:5;
+    color:var(--cream);
 
 }
 
-.float-item{
+/* =========================================================
+   BRIDE & GROOM
+========================================================= */
+
+#couple{
+
+    padding:120px 0;
+
+}
+
+.couple-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:70px;
+
+    flex-wrap:wrap;
+
+    margin-top:70px;
+
+}
+
+.person{
+
+    width:360px;
+
+    text-align:center;
+
+}
+
+.photo{
+
+    position:relative;
+
+    width:280px;
+
+    height:360px;
+
+    margin:auto;
+
+    padding:10px;
+
+    border:2px solid rgba(212,175,55,.45);
+
+    border-radius:180px;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.02)
+    );
+
+    box-shadow:var(--shadow);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:180px;
+
+}
+
+/* ruang untuk ornamen jawa */
+
+.photo::before{
+
+    content:"";
 
     position:absolute;
 
-    top:-80px;
+    inset:-18px;
 
-    opacity:.6;
+    border:1px solid rgba(212,175,55,.25);
 
-    animation:floatDown linear forwards;
-
-    will-change:transform;
+    border-radius:190px;
 
 }
 
-.float-item.gold{
+.person h2{
 
-    color:#D4AF37;
+    font-family:"Great Vibes",cursive;
 
-    font-size:10px;
+    font-size:58px;
+
+    color:var(--gold);
+
+    margin-top:30px;
 
 }
 
-.float-item.flower{
+.person p{
+
+    margin:18px 0;
+
+    color:#ddd;
+
+}
+
+.person h4{
+
+    font-family:"Cinzel",serif;
+
+    line-height:2;
+
+    color:var(--cream);
 
     font-size:18px;
 
 }
 
-.float-item.leaf{
+.love{
 
-    font-size:16px;
+    font-size:48px;
+
+    color:var(--gold);
+
+    margin-top:-50px;
+
+}
+/* =========================================================
+   SAVE THE DATE
+========================================================= */
+
+#saveDate{
+
+    padding:120px 0;
 
 }
 
-@keyframes floatDown{
+.save-card{
 
-    from{
+    max-width:900px;
 
-        transform:
-        translateY(-100px)
-        rotate(0deg);
+    margin:60px auto 0;
 
-        opacity:0;
+    padding:50px;
 
-    }
+    background:rgba(255,255,255,.04);
 
-    10%{
+    border:1px solid rgba(212,175,55,.20);
 
-        opacity:.7;
+    border-radius:var(--radius);
 
-    }
+    backdrop-filter:blur(12px);
 
-    100%{
+    text-align:center;
 
-        transform:
-        translateY(120vh)
-        rotate(360deg);
+}
 
-        opacity:0;
+.save-card p{
 
-    }
+    margin-top:20px;
+
+    color:#DDD;
+
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+#rsvp{
+
+    padding:120px 0;
+
+}
+
+#rsvpForm{
+
+    width:min(100%,650px);
+
+    margin:50px auto 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    background:#2B1C13;
+
+    color:white;
+
+    font-size:15px;
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+#rsvpForm textarea{
+
+    resize:vertical;
+
+    min-height:180px;
+
+}
+
+#rsvpForm button{
+
+    height:58px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+    );
+
+    color:#2A1B12;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+.public-note{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    opacity:.75;
+
+}
+
+#guestMessages{
+
+    margin-top:50px;
+
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+#countdownSection{
+
+    padding:120px 0;
+
+}
+
+#countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-top:60px;
+
+}
+
+.count-item{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.count-item span{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:var(--gold);
+
+}
+
+.count-item small{
+
+    margin-top:8px;
+
+    letter-spacing:2px;
+
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+#location{
+
+    padding:120px 0;
+
+}
+
+.location-card{
+
+    width:min(100%,720px);
+
+    margin:60px auto 0;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    text-align:center;
+
+}
+
+.location-card h3{
+
+    color:var(--gold);
+
+    margin-top:25px;
+
+}
+
+.location-card p{
+
+    margin-top:12px;
+
+    line-height:2;
+
+}
+
+.mapsButton{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:240px;
+
+    height:56px;
+
+    margin-top:40px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+    );
+
+    color:#2A1B12;
+
+    font-weight:700;
+
+}
+
+/* =========================================================
+   WEDDING GIFT
+========================================================= */
+
+#gift{
+
+    padding:120px 0;
+
+}
+
+.gift-wrapper{
+
+    display:grid;
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.gift-card{
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(212,175,55,.20);
+
+    text-align:center;
+
+}
+
+.gift-card h3{
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+.gift-card h2{
+
+    margin-bottom:12px;
+
+}
+
+.gift-card img{
+
+    width:230px;
+
+    margin:25px auto;
+
+}
+
+.copyButton{
+
+    margin-top:20px;
+
+    width:220px;
+
+    height:52px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+    );
+
+    color:#2A1B12;
+
+    font-weight:700;
+
+}
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+#closing{
+
+    position:relative;
+
+    padding:180px 0;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+#closing::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.70),
+        rgba(0,0,0,.82)
+    );
+
+}
+
+.closing-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+.closing-content h5{
+
+    color:var(--gold);
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+
+}
+
+.closing-content h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:74px;
+
+    color:white;
+
+    line-height:1.3;
+
+    margin-bottom:30px;
+
+}
+
+.closing-content p{
+
+    margin-bottom:35px;
+
+    color:#EEE;
+
+}
+
+.closing-content h4{
+
+    color:var(--gold);
+
+    font-family:"Cinzel",serif;
 
 }
