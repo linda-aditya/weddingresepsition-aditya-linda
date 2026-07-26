@@ -1154,3 +1154,86 @@ button:hover::after{
     color:#2A1B12;
 
 }
+/* ===========================================
+   OPENING ANIMATION
+=========================================== */
+
+#openingAnimation{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100vh;
+
+    background:#000;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    overflow:hidden;
+
+}
+
+#openingAnimation.active{
+
+    display:flex;
+
+}
+
+#openingVideo{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+#continueButton{
+
+    position:absolute;
+
+    bottom:40px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#D4AF37,#B88A22);
+
+    color:#2A1B12;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    display:none;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    box-shadow:0 0 20px rgba(212,175,55,.4);
+
+}
+
+#continueButton:hover{
+
+    transform:translateX(-50%) scale(1.05);
+
+}
