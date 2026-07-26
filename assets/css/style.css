@@ -67,10 +67,17 @@ section{
 
     width:100%;
 
-    padding:110px 0;
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px 0;
 
 }
-
 .container{
 
     width:min(92%,1100px);
