@@ -54,6 +54,38 @@ body{
 
 }
 
+/* ==========================================
+   GLOBAL SECTION
+========================================== */
+
+section{
+
+    position:relative;
+
+    width:100%;
+
+    padding:90px 0;
+
+}
+
+.container{
+
+    width:min(92%,480px);
+
+    margin:auto;
+
+}
+
+@media(min-width:992px){
+
+    .container{
+
+        max-width:780px;
+
+    }
+
+}
+
 img{
 
     display:block;
@@ -1175,5 +1207,300 @@ section{
     color:var(--gold);
 
     font-family:"Cinzel",serif;
+
+}
+/* =========================================================
+   FINISHING STYLE
+========================================================= */
+
+/* Background tiap section */
+
+#opening,
+#couple,
+#saveDate,
+#rsvp,
+#countdownSection,
+#location,
+#gift,
+#closing{
+
+    background:
+        radial-gradient(circle at top, rgba(212,175,55,.06), transparent 55%),
+        linear-gradient(180deg,#20140D,#26170F);
+
+}
+
+/* Divider */
+
+section::after{
+
+    content:"";
+
+    display:block;
+
+    width:160px;
+
+    height:1px;
+
+    margin:90px auto 0;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,175,55,.5),
+        transparent
+    );
+
+}
+
+/* Card Effect */
+
+.save-card,
+.location-card,
+.gift-card,
+.count-item{
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
+}
+
+.save-card:hover,
+.location-card:hover,
+.gift-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(212,175,55,.45);
+
+    box-shadow:
+
+        0 25px 45px rgba(0,0,0,.35);
+
+}
+
+/* Couple Ornament */
+
+.photo::after{
+
+    content:"❖";
+
+    position:absolute;
+
+    top:-18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:var(--gold);
+
+    font-size:24px;
+
+}
+
+/* Countdown */
+
+.count-item{
+
+    transition:.3s;
+
+}
+
+.count-item:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(212,175,55,.12);
+
+}
+
+/* Button Animation */
+
+button,
+.mapsButton,
+.copyButton{
+
+    transition:
+
+        .3s ease;
+
+}
+
+button:hover,
+.mapsButton:hover,
+.copyButton:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 18px 35px rgba(212,175,55,.28);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* Floating Glow */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(circle at 20% 20%,
+        rgba(212,175,55,.05),
+        transparent 30%),
+
+        radial-gradient(circle at 80% 70%,
+        rgba(255,255,255,.03),
+        transparent 35%);
+
+    z-index:0;
+
+}
+
+/* Scroll Reveal */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* Public Messages */
+
+.message-item{
+
+    padding:22px;
+
+    margin-top:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(212,175,55,.15);
+
+}
+
+.message-item h4{
+
+    color:var(--gold);
+
+    margin-bottom:10px;
+
+}
+
+.message-item p{
+
+    color:#EEE;
+
+}
+
+/* Copy Notification */
+
+.copy-toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    background:#2A1B12;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+    z-index:99999;
+
+}
+
+.copy-toast.show{
+
+    opacity:1;
+
+}
+
+/* Footer */
+
+footer{
+
+    padding:35px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#aaa;
+
+}
+
+footer a{
+
+    color:var(--gold);
+
+}
+
+/* Smooth Image */
+
+img{
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/* Selection */
+
+::selection{
+
+    background:var(--gold);
+
+    color:#2A1B12;
 
 }
