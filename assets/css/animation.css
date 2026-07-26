@@ -1,0 +1,83 @@
+/* ==========================================
+   CURTAIN OPEN
+========================================== */
+
+#cover{
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.curtain-open{
+    animation: openCurtain 1.5s forwards;
+}
+
+@keyframes openCurtain{
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.1);
+    }
+}
+
+/* ==========================================
+   FLOATING FLOWERS
+========================================== */
+
+.flower{
+    position:fixed;
+    top:-50px;
+    z-index:999;
+    pointer-events:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ==========================================
+   GOLD SPARKLE
+========================================== */
+
+.sparkle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#D4AF37;
+    box-shadow:
+        0 0 10px #D4AF37,
+        0 0 20px #D4AF37,
+        0 0 30px #D4AF37;
+    pointer-events:none;
+    animation:sparkle 3s linear forwards;
+    z-index:999;
+}
+
+@keyframes sparkle{
+    0%{
+        transform:scale(0);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.4);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
