@@ -2,14 +2,19 @@
    PREMIUM SECTION ANIMATION
 ========================== */
 
-/* COVER selalu tampil */
+/* Cover selalu tampil */
 
 #cover{
+
     opacity:1;
+
     transform:none;
+
+    animation:coverZoom 12s ease-in-out infinite alternate;
+
 }
 
-/* section setelah cover */
+/* Reveal section */
 
 #opening,
 #couple,
@@ -19,7 +24,9 @@
 #closing{
 
     opacity:0;
+
     transform:translateY(80px);
+
     transition:
         opacity 1s ease,
         transform 1s ease;
@@ -34,12 +41,7 @@
 #closing.show{
 
     opacity:1;
-    transform:translateY(0);
 
-}
-section.show{
-
-    opacity:1;
     transform:translateY(0);
 
 }
@@ -47,12 +49,6 @@ section.show{
 /* ==========================
    COVER ZOOM
 ========================== */
-
-#cover{
-
-    animation:coverZoom 12s ease-in-out infinite alternate;
-
-}
 
 @keyframes coverZoom{
 
@@ -71,14 +67,20 @@ section.show{
 }
 
 /* ==========================
-   FLOAT TITLE
+   COVER CONTENT
 ========================== */
 
 .cover-content{
 
-    animation:floatCard 4s ease-in-out infinite;
+    animation:
+        coverUp 1.2s ease,
+        floatCard 4s ease-in-out 1.2s infinite;
 
 }
+
+/* ==========================
+   FLOAT CARD
+========================== */
 
 @keyframes floatCard{
 
@@ -103,6 +105,30 @@ section.show{
 }
 
 /* ==========================
+   COVER UP
+========================== */
+
+@keyframes coverUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
    GOLD GLOW
 ========================== */
 
@@ -116,30 +142,29 @@ section.show{
 
     0%{
 
-        text-shadow:
-        0 0 10px #D4AF37;
+        text-shadow:0 0 10px #D4AF37;
 
     }
 
     50%{
 
         text-shadow:
-        0 0 35px #FFD700,
-        0 0 60px #FFD700;
+            0 0 35px #FFD700,
+            0 0 60px #FFD700;
 
     }
 
     100%{
 
-        text-shadow:
-        0 0 10px #D4AF37;
+        text-shadow:0 0 10px #D4AF37;
 
     }
 
 }
-/* ==========================================
+
+/* ==========================
    REVEAL ANIMATION
-========================================== */
+========================== */
 
 .reveal{
 
@@ -160,9 +185,10 @@ section.show{
     transform:translateY(0);
 
 }
-/* ===========================================
+
+/* ==========================
    PREMIUM TRANSITION
-=========================================== */
+========================== */
 
 .fade-in{
 
@@ -207,35 +233,11 @@ section.show{
     }
 
 }
-/* ===========================================
-   OPENING CONTENT
-=========================================== */
 
-.cover-content{
+/* ==========================
+   BUTTON PULSE
+========================== */
 
-    animation:coverUp 1.2s ease;
-
-}
-
-@keyframes coverUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
 #openInvitation{
 
     animation:pulseButton 2s infinite;
@@ -263,6 +265,11 @@ section.show{
     }
 
 }
+
+/* ==========================
+   IMAGE SLOW ZOOM
+========================== */
+
 .cover-image{
 
     animation:slowZoom 18s linear infinite alternate;
