@@ -868,6 +868,10 @@ button{
 
     z-index:0;
 
+    opacity:.35;
+
+    pointer-events:none;
+
 }
 /* =========================================================
    BACKGROUND GLOW
@@ -931,7 +935,7 @@ button{
 
     position:relative;
 
-    z-index:5;
+    z-index:2;
 
     width:min(92%,760px);
 
@@ -2163,5 +2167,17 @@ button{
         #2b1b13 65%,
         #1b120d 100%
         );
+
+}
+.cover-content{
+
+    position:relative;
+
+    z-index:10;
+
+}
+.cover-overlay{
+
+    pointer-events:none;
 
 }
