@@ -532,16 +532,6 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .cover-date{
 
-    position:absolute;
-
-    left:50%;
-
-    top:640px; /* nanti kita sesuaikan lagi */
-
-    transform:translateX(-50%);
-
-    width:100%;
-
     text-align:center;
 
     font-family:"Cinzel", serif;
@@ -553,6 +543,10 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
     letter-spacing:2px;
 
     line-height:1.6;
+
+    margin-top:0;
+
+    margin-bottom:35px;
 
 }
 
