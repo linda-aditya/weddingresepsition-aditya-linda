@@ -415,18 +415,18 @@ button{
 
     position:relative;
 
-    z-index:2;
+    z-index:10;
 
     width:100%;
-    max-width:520px;
+    max-width:650px;
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
     text-align:center;
 
@@ -440,20 +440,24 @@ button{
 
 .cover-frame{
 
-    width:min(82vw,520px);
+    width:min(80vw,470px);
 
-    margin:0 auto 0px;
+    margin-bottom:-80px;
+
+    z-index:2;
 
 }
 
 .cover-frame img{
 
     width:100%;
+
     display:block;
-   
-filter:
-drop-shadow(0 0 30px rgba(212,175,55,.25))
-drop-shadow(0 0 80px rgba(212,175,55,.18));
+
+    filter:
+        drop-shadow(0 0 25px rgba(212,175,55,.25))
+        drop-shadow(0 0 80px rgba(212,175,55,.18));
+
 }
 
 /* Small Title */
@@ -462,13 +466,13 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     color:var(--gold);
 
-    font-size:14px;
+    font-size:15px;
 
-    letter-spacing:8px;
+    letter-spacing:10px;
 
     text-transform:uppercase;
 
-    margin-bottom:24px;
+    margin-bottom:35px;
 
 }
 
@@ -476,35 +480,37 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .cover-name{
 
-    font-family:"Alex Brush", cursive;
+    position:relative;
 
-    font-size:82px;
+    z-index:5;
 
-    color:#FFF7E8;
+    font-family:"Alex Brush",cursive;
+
+    font-size:86px;
+
+    font-weight:400;
+
+    color:#FFF8EE;
+
+    line-height:.95;
 
     text-align:center;
 
-    line-height:1;
-
-    margin-top:-180px;
-
-    margin-bottom:20px;
-
     text-shadow:
-        0 0 18px rgba(255,245,220,.45),
-        0 0 35px rgba(212,175,55,.20);
+        0 0 20px rgba(255,255,255,.35),
+        0 0 35px rgba(212,175,55,.18);
+
+    margin-bottom:15px;
 
 }
 
 .cover-name span{
 
-    display:inline;
-
-    margin:0 15px;
-
     color:var(--gold);
 
-    font-size:70px;
+    margin:0 18px;
+
+    font-size:.9em;
 
 }
 
@@ -512,19 +518,18 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .gold-line{
 
-    width:120px;
+    width:140px;
 
     height:2px;
 
-    margin:16px auto 18px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            transparent
-        );
+    margin-bottom:20px;
 
 }
 
@@ -532,21 +537,17 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .cover-date{
 
-    text-align:center;
+    font-family:"Cinzel",serif;
 
-    font-family:"Cinzel", serif;
+    color:white;
 
     font-size:22px;
 
-    color:#FFF7E8;
+    letter-spacing:3px;
 
-    letter-spacing:2px;
+    line-height:1.8;
 
-    line-height:1.6;
-
-    margin-top:0;
-
-    margin-bottom:35px;
+    margin-bottom:45px;
 
 }
 
@@ -555,7 +556,8 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 .guest-box{
 
     width:100%;
-    max-width:420px;
+
+    max-width:430px;   /* sebelumnya 420px */
 
     padding:22px 24px;
 
@@ -572,7 +574,7 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
     box-shadow:
         0 12px 35px rgba(0,0,0,.22);
 
-    margin:0 auto 24px;
+    margin-bottom:35px;   /* ganti ini */
 
 }
 
