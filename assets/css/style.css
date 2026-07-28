@@ -433,6 +433,27 @@ button{
     margin:auto;
 
 }
+
+/* =========================================================
+   COVER FRAME WAYANG
+========================================================= */
+
+.cover-frame{
+
+    width:min(70vw,380px);
+
+    margin:0 auto 30px;
+
+}
+
+.cover-frame img{
+
+    width:100%;
+
+    display:block;
+
+}
+
 /* Small Title */
 
 .cover-title{
