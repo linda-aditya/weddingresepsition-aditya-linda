@@ -318,15 +318,29 @@
 
 .opening-frame-top{
 
-    animation:
-        frameTop 1.5s ease forwards;
+    opacity:0;
+
+    transform:translateY(-40px);
+
+}
+
+#opening.active .opening-frame-top{
+
+    animation:frameTop 1.5s ease forwards;
 
 }
 
 .opening-frame-bottom{
 
-    animation:
-        frameBottom 1.5s ease forwards;
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+#opening.active .opening-frame-bottom{
+
+    animation:frameBottom 1.5s ease forwards;
 
     animation-delay:1.15s;
 
