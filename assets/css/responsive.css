@@ -17,6 +17,11 @@
         font-size:56px;
     }
 
+   .cover-frame{
+
+    width:340px;
+
+}
     .section-title{
         font-size:38px;
     }
@@ -58,6 +63,15 @@
         padding:40px 20px;
     }
 
+   .cover-frame{
+
+    width:78vw;
+
+    max-width:320px;
+
+    margin-bottom:24px;
+
+}
     .cover-title{
         font-size:12px;
         letter-spacing:4px;
