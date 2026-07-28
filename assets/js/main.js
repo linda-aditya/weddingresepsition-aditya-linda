@@ -7,7 +7,15 @@
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+   
+/* ==========================================
+   LOCK COVER
+========================================== */
 
+document.body.classList.add("lock-scroll");
+
+window.scrollTo(0, 0);
+   
     /* ==========================================
        DOM ELEMENTS
     ========================================== */
@@ -186,11 +194,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         openInvitation.addEventListener("click", () => {
 
-            if (invitationOpened) return;
+    if (invitationOpened) return;
 
-            invitationOpened = true;
+    invitationOpened = true;
 
-            hideCoverHint();
+    document.body.classList.remove("lock-scroll");
+    document.body.classList.add("unlock-scroll");
+
+    hideCoverHint();
 
             /* Play Music */
 
@@ -648,5 +659,18 @@ window.addEventListener("resize", () => {
 console.log(
     "Wedding Invitation Ready."
 );
+   
+/* ==========================================
+   PREVENT SCROLL BEFORE OPEN
+========================================== */
 
+window.addEventListener("scroll", () => {
+
+    if (!invitationOpened) {
+
+        window.scrollTo(0, 0);
+
+    }
+
+});
 }); // <-- PENUTUP document.addEventListener("DOMContentLoaded", ...)
