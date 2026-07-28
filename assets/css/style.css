@@ -476,23 +476,23 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .cover-name{
 
-    font-family:"Great Vibes",cursive;
+    font-family:"Alex Brush", cursive;
 
     font-size:82px;
 
-    font-weight:400;
-
     color:#FFF7E8;
+
+    text-align:center;
 
     line-height:1;
 
-    margin-top:-35px;
+    margin-top:-180px;
 
-    margin-bottom:10px;
+    margin-bottom:20px;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.20),
-        0 5px 18px rgba(0,0,0,.40);
+        0 0 18px rgba(255,245,220,.45),
+        0 0 35px rgba(212,175,55,.20);
 
 }
 
@@ -500,11 +500,11 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     display:inline;
 
-    margin:0 12px;
+    margin:0 15px;
 
     color:var(--gold);
 
-    font-size:.55em;
+    font-size:70px;
 
 }
 
