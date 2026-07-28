@@ -940,17 +940,33 @@ button{
    ORNAMENT
 ========================================================= */
 
-.opening-ornament{
+.opening-frame-top,
+.opening-frame-bottom{
 
-    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    width:180px;
+    width:100%;
+}
 
-    height:180px;
+.opening-frame-top{
 
-    opacity:.16;
+    margin-bottom:25px;
 
-    pointer-events:none;
+}
+
+.opening-frame-bottom{
+
+    margin-top:25px;
+
+}
+
+.opening-frame-top img,
+.opening-frame-bottom img{
+
+    width:min(420px,80%);
+    height:auto;
 
 }
 
