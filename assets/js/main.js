@@ -97,16 +97,16 @@ window.scrollTo(0, 0);
 
     const revealElements = document.querySelectorAll(
 
-        "#opening .container," +
-        "#couple .container," +
-        "#saveDate .container," +
-        "#countdownSection .container," +
-        "#location .container," +
-        "#rsvp .container," +
-        "#gift .container," +
-        "#closing .closing-content"
+    "#opening," +
+    "#couple .container," +
+    "#saveDate .container," +
+    "#countdownSection .container," +
+    "#location .container," +
+    "#rsvp .container," +
+    "#gift .container," +
+    "#closing .closing-content"
 
-    );
+);
 
     revealElements.forEach((element) => {
 
