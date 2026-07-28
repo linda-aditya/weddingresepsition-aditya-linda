@@ -446,6 +446,32 @@ button{
 
 }
 
+.cover-hero{
+
+    position:relative;
+
+    display:inline-block;
+
+}
+
+.cover-info{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:160px;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    z-index:20;
+
+}
+
 /* =========================================================
    COVER FRAME WAYANG
 ========================================================= */
@@ -456,7 +482,7 @@ button{
 
     width:min(80vw,470px);
 
-    margin-bottom:-80px;
+    margin-bottom:-0px;
 
     z-index:1;
 
@@ -497,27 +523,21 @@ button{
 
 .cover-name{
 
-    position:relative;
-
-    z-index:30;
-
     font-family:"Alex Brush",cursive;
 
     font-size:86px;
 
-    font-weight:400;
-
     color:#FFF8EE;
 
-    line-height:.95;
+    line-height:1;
+
+    margin:0;
 
     text-align:center;
 
     text-shadow:
         0 0 20px rgba(255,255,255,.35),
         0 0 35px rgba(212,175,55,.18);
-
-    margin-bottom:15px;
 
 }
 
@@ -539,6 +559,8 @@ button{
 
     height:2px;
 
+    margin:18px auto 20px;
+
     background:linear-gradient(
         90deg,
         transparent,
@@ -546,25 +568,21 @@ button{
         transparent
     );
 
-    margin-bottom:20px;
-
 }
 
 /* Date */
 
 .cover-date{
 
-    font-family:"Cinzel",serif;
+    margin-top:12px;
 
-    color:white;
+    font-family:"Cinzel",serif;
 
     font-size:22px;
 
-    letter-spacing:3px;
+    color:white;
 
-    line-height:1.8;
-
-    margin-bottom:45px;
+    letter-spacing:2px;
 
 }
 
