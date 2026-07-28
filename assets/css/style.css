@@ -479,7 +479,7 @@ button{
 .cover-frame{
     width:min(80vw,470px);
 
-    margin-top:-50px;      /* naikkan frame */
+    margin-top:-90px;      /* naikkan frame */
     margin-bottom:-80px;
 
     position:relative;
