@@ -139,7 +139,17 @@
     .divider{
         width:140px;
     }
+#opening::before{
 
+    height:170px;
+
+}
+
+#opening::after{
+
+    height:170px;
+
+}
     /* ================= GENERAL ================= */
 
     .section-title{
