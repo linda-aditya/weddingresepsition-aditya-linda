@@ -304,33 +304,42 @@
 }
 
 /* =========================================================
-   OPENING ANIMATION
+   OPENING PREMIUM ANIMATION
 ========================================================= */
 
 /* Ornament */
 
-.opening-ornament{
+.opening-frame-top,
+.opening-frame-bottom{
 
     opacity:0;
 
-    transform:translateY(40px) scale(.8);
+}
+
+.opening-frame-top{
 
     animation:
-
-        ornamentFade 1.2s ease forwards;
+        frameTop 1.5s ease forwards;
 
 }
 
-@keyframes ornamentFade{
+.opening-frame-bottom{
+
+    animation:
+        frameBottom 1.5s ease forwards;
+
+    animation-delay:1.15s;
+
+}
+
+@keyframes frameTop{
 
     from{
 
         opacity:0;
 
         transform:
-            translateY(40px)
-            scale(.8)
-            rotate(-10deg);
+            translateY(-40px);
 
     }
 
@@ -339,11 +348,44 @@
         opacity:1;
 
         transform:
-            translateY(0)
-            scale(1)
-            rotate(0deg);
+            translateY(0);
 
     }
+
+}
+
+@keyframes frameBottom{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* Subtitle */
+
+#opening .section-subtitle{
+
+    opacity:0;
+
+    animation:
+        fadeDown 1.5s ease forwards;
+
+    animation-delay:.15s;
 
 }
 
@@ -354,80 +396,9 @@
     opacity:0;
 
     animation:
+        bismillahZoom 1.5s ease forwards;
 
-        bismillahFade 1.3s ease forwards;
-
-    animation-delay:.25s;
-
-}
-
-@keyframes bismillahFade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(35px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/* Paragraph */
-
-.opening-text{
-
-    opacity:0;
-
-    animation:
-
-        openingParagraph 1.3s ease forwards;
-
-}
-
-.opening-text:nth-of-type(1){
-
-    animation-delay:.55s;
-
-}
-
-.opening-text:nth-of-type(2){
-
-    animation-delay:.8s;
-
-}
-
-.opening-text:nth-of-type(3){
-
-    animation-delay:1.05s;
-
-}
-
-@keyframes openingParagraph{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(28px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
+    animation-delay:.35s;
 
 }
 
@@ -438,20 +409,58 @@
     opacity:0;
 
     animation:
+        dividerGrow 1.5s ease forwards;
 
-        dividerFade 1.4s ease forwards;
-
-    animation-delay:1.2s;
+    animation-delay:.55s;
 
 }
 
-@keyframes dividerFade{
+/* Text */
+
+.opening-text{
+
+    opacity:0;
+
+    animation:
+        paragraphFade 1.5s ease forwards;
+
+}
+
+.opening-text:nth-of-type(1){
+
+    animation-delay:.75s;
+
+}
+
+.opening-text:nth-of-type(2){
+
+    animation-delay:1.05s;
+
+}
+
+/* Star */
+
+.mini-divider{
+
+    opacity:0;
+
+    animation:
+        starGlow 1.5s ease forwards;
+
+    animation-delay:.95s;
+
+}
+
+/* ========================= */
+
+@keyframes fadeDown{
 
     from{
 
         opacity:0;
 
-        transform:scaleX(.3);
+        transform:
+            translateY(-25px);
 
     }
 
@@ -459,7 +468,100 @@
 
         opacity:1;
 
-        transform:scaleX(1);
+        transform:none;
+
+    }
+
+}
+
+@keyframes bismillahZoom{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.9)
+            translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+@keyframes dividerGrow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scaleX(.3);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scaleX(1);
+
+    }
+
+}
+
+@keyframes paragraphFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+@keyframes starGlow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+        text-shadow:none;
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+        text-shadow:
+            0 0 20px rgba(212,175,55,.8);
 
     }
 
