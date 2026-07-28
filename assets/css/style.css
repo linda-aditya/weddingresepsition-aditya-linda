@@ -982,6 +982,20 @@ button{
 
 }
 
+.opening-frame-top,
+.opening-frame-bottom{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.opening-frame-top img,
+.opening-frame-bottom img{
+    width:min(900px,90%);
+    height:auto;
+    display:block;
+}
+
 /* =========================================================
    CONTAINER
 ========================================================= */
