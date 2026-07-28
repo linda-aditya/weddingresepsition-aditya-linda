@@ -122,13 +122,17 @@ button{
 
     color:var(--gold);
 
-    letter-spacing:6px;
+    letter-spacing:3px;
 
     font-size:14px;
 
     margin-bottom:20px;
 
     text-transform:uppercase;
+
+    white-space:nowrap;
+
+    width:100%;
 
 }
 
