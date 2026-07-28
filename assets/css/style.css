@@ -433,28 +433,19 @@ button{
 
 .cover-name{
 
-    font-family:"Cinzel",serif;
+    font-size:52px;
 
-    font-size:64px;
+    line-height:1.2;
 
-    color:#FFF7E8;
-
-    line-height:1.25;
-
-    text-shadow:
-
-        0 5px 20px rgba(0,0,0,.35);
+    margin:0;
 
 }
+
 .cover-name span{
 
-    display:block;
+    font-size:28px;
 
-    margin:12px 0;
-
-    color:var(--gold);
-
-    font-size:34px;
+    margin:8px 0;
 
 }
 /* Gold Line */
