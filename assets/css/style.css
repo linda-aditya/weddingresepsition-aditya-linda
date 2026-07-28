@@ -519,23 +519,21 @@ button{
 
 /* Couple Name */
 
-.cover-name{
+.cover-info{
 
-    font-family:"Alex Brush",cursive;
+    position:absolute;
 
-    font-size:86px;
+    left:50%;
 
-    color:#FFF8EE;
+    bottom:160px;
 
-    line-height:1;
+    transform:translateX(-50%);
 
-    margin:0;
+    width:100%;
 
     text-align:center;
 
-    text-shadow:
-        0 0 20px rgba(255,255,255,.35),
-        0 0 35px rgba(212,175,55,.18);
+    z-index:20;
 
 }
 
@@ -557,7 +555,7 @@ button{
 
     height:2px;
 
-    margin:18px auto 20px;
+    margin:4px auto 6px;
 
     background:linear-gradient(
         90deg,
@@ -572,7 +570,7 @@ button{
 
 .cover-date{
 
-    margin-top:12px;
+    margin-top:4px;
 
     font-family:"Cinzel",serif;
 
