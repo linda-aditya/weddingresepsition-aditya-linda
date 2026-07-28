@@ -477,15 +477,13 @@ button{
 ========================================================= */
 
 .cover-frame{
-
-    position:relative;
-
     width:min(80vw,470px);
 
-    margin-bottom:-0px;
+    margin-top:-50px;      /* naikkan frame */
+    margin-bottom:-80px;
 
-    z-index:1;
-
+    position:relative;
+    z-index:2;
 }
 
 .cover-frame img{
