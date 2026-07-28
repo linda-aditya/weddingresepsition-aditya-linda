@@ -448,6 +448,7 @@ button{
     margin-bottom:18px;
 
 }
+
 /* Couple Name */
 
 .cover-name{
@@ -503,6 +504,7 @@ button{
         );
 
 }
+
 /* Date */
 
 .cover-date{
@@ -2035,7 +2037,8 @@ button{
 
     text-align:center;
 
-    background:url("../images/Cover-jawa.png") center/cover;
+    background:url("../images/
+-jawa.png") center/cover;
 
 }
 
