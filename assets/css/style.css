@@ -440,15 +440,21 @@ button{
 
 .cover-frame{
 
+    position:relative;
+
     width:min(80vw,470px);
 
     margin-bottom:-80px;
 
-    z-index:2;
+    z-index:1;
 
 }
 
 .cover-frame img{
+
+    position:relative;
+
+    z-index:1;
 
     width:100%;
 
@@ -459,7 +465,6 @@ button{
         drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 }
-
 /* Small Title */
 
 .cover-title{
@@ -482,7 +487,7 @@ button{
 
     position:relative;
 
-    z-index:5;
+    z-index:30;
 
     font-family:"Alex Brush",cursive;
 
