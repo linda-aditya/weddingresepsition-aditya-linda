@@ -442,7 +442,7 @@ button{
 
     width:min(82vw,520px);
 
-    margin:0 auto 10px;
+    margin:0 auto 0px;
 
 }
 
@@ -462,43 +462,49 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     color:var(--gold);
 
-    font-size:13px;
+    font-size:14px;
 
-    letter-spacing:6px;
+    letter-spacing:8px;
 
     text-transform:uppercase;
 
-    margin-top:-10px;
-    margin-bottom:14px;
+    margin-bottom:24px;
 
 }
+
 /* Couple Name */
 
 .cover-name{
 
-    font-family:"Cinzel",serif;
+    font-family:"Great Vibes",cursive;
 
-    font-size:48px;
+    font-size:82px;
+
+    font-weight:400;
 
     color:#FFF7E8;
 
-    line-height:1.25;
+    line-height:1;
+
+    margin-top:-35px;
+
+    margin-bottom:10px;
 
     text-shadow:
-
-        0 5px 20px rgba(0,0,0,.35);
+        0 0 15px rgba(212,175,55,.20),
+        0 5px 18px rgba(0,0,0,.40);
 
 }
 
 .cover-name span{
 
-    display:block;
+    display:inline;
 
-    margin:12px 0;
+    margin:0 12px;
 
     color:var(--gold);
 
-    font-size:34px;
+    font-size:.55em;
 
 }
 
@@ -506,24 +512,18 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .gold-line{
 
-    width:160px;
+    width:120px;
 
     height:2px;
 
-    margin:32px auto;
+    margin:16px auto 18px;
 
     background:
-
         linear-gradient(
-
             90deg,
-
             transparent,
-
             var(--gold),
-
             transparent
-
         );
 
 }
@@ -536,9 +536,9 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     font-family:"Cinzel",serif;
 
-    line-height:2;
+    line-height:1.8;
 
-    margin-bottom:42px;
+    margin-bottom:24px;
 
 }
 
@@ -547,26 +547,24 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 .guest-box{
 
     width:100%;
+    max-width:420px;
 
-    padding:28px;
+    padding:22px 24px;
 
-    border-radius:26px;
+    border-radius:20px;
 
     background:
-
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.08);
 
     backdrop-filter:blur(14px);
 
     border:
-
-        1px solid rgba(212,175,55,.28);
+        1px solid rgba(212,175,55,.30);
 
     box-shadow:
+        0 12px 35px rgba(0,0,0,.22);
 
-        0 18px 45px rgba(0,0,0,.22);
-
-    margin-bottom:36px;
+    margin:0 auto 24px;
 
 }
 
@@ -574,7 +572,11 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     color:#E7E1D6;
 
-    margin-bottom:12px;
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
 
 }
 
@@ -586,9 +588,9 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
     font-size:28px;
 
-    line-height:1.5;
+    line-height:1.4;
 
-    margin-bottom:12px;
+    margin-bottom:0;
 
 }
 
