@@ -532,13 +532,27 @@ drop-shadow(0 0 80px rgba(212,175,55,.18));
 
 .cover-date{
 
-    color:white;
+    position:absolute;
 
-    font-family:"Cinzel",serif;
+    left:50%;
 
-    line-height:1.8;
+    top:640px; /* nanti kita sesuaikan lagi */
 
-    margin-bottom:24px;
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:"Cinzel", serif;
+
+    font-size:22px;
+
+    color:#FFF7E8;
+
+    letter-spacing:2px;
+
+    line-height:1.6;
 
 }
 
