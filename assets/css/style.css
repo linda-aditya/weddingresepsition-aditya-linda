@@ -118,19 +118,17 @@ button{
    TYPOGRAPHY
 ========================================================= */
 
-.section-subtitle{
-
-    text-align:center;
+#opening .section-subtitle{
 
     color:var(--gold);
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
-    font-size:13px;
+    font-size:14px;
+
+    margin-bottom:20px;
 
     text-transform:uppercase;
-
-    margin-bottom:15px;
 
 }
 
@@ -1030,13 +1028,13 @@ button{
 
 .opening-frame-top{
 
-    margin-bottom:10px;
+    margin-bottom:0px;
 
 }
 
 .opening-frame-bottom{
 
-    margin-top:10px;
+    margin-top:0px;
 
 }
 
@@ -1135,13 +1133,9 @@ button{
 
     color:#f6d98b;
 
-    line-height:1.7;
+    line-height:1.5;
 
-    margin:10px 0 20px;
-
-    text-shadow:
-
-        0 0 25px rgba(212,175,55,.25);
+    margin:0 0 18px;
 
 }
 
@@ -1153,13 +1147,13 @@ button{
 
     width:min(100%,640px);
 
-    margin:0 auto 18px;
+    margin:0 auto 14px;
 
     color:#efe7db;
 
     font-size:17px;
 
-    line-height:2.2;
+    line-height:2;
 
     text-align:center;
 
@@ -1227,11 +1221,11 @@ button{
 
 .mini-divider{
 
-    font-size:22px;
+    font-size:20px;
 
     color:var(--gold);
 
-    margin:35px auto;
+    margin:14px auto;
 
     opacity:.9;
 
