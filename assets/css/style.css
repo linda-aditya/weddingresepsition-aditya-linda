@@ -1034,7 +1034,7 @@ button{
 
 .opening-frame-bottom{
 
-    margin-top:0px;
+    margin-top:-18px;
 
 }
 
@@ -1115,7 +1115,9 @@ button{
 
     font-size:14px;
 
-    margin-bottom:30px;
+    margin-top:6px;
+
+    margin-bottom:14px;
 
     text-transform:uppercase;
 
