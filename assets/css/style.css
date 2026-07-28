@@ -433,19 +433,28 @@ button{
 
 .cover-name{
 
-    font-size:52px;
+    font-family:"Cinzel",serif;
 
-    line-height:1.2;
+    font-size:64px;
 
-    margin:0;
+    color:#FFF7E8;
+
+    line-height:1.25;
+
+    text-shadow:
+
+        0 5px 20px rgba(0,0,0,.35);
 
 }
-
 .cover-name span{
 
-    font-size:28px;
+    display:block;
 
-    margin:8px 0;
+    margin:12px 0;
+
+    color:var(--gold);
+
+    font-size:34px;
 
 }
 /* Gold Line */
@@ -473,7 +482,6 @@ button{
         );
 
 }
-
 /* Date */
 
 .cover-date{
