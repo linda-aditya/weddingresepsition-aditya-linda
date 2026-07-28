@@ -2173,3 +2173,16 @@ button{
     pointer-events:none;
 
 }
+/* ==========================================
+   LOCK COVER
+========================================== */
+
+body.lock-scroll{
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.unlock-scroll{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
