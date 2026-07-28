@@ -342,7 +342,7 @@
 
     animation:frameBottom 1.5s ease forwards;
 
-    animation-delay:1.15s;
+    animation-delay:1.35s;
 
 }
 
@@ -396,8 +396,13 @@
 
     opacity:0;
 
-    animation:
-        fadeDown 1.5s ease forwards;
+    transform:translateY(-25px);
+
+}
+
+#opening.active .section-subtitle{
+
+    animation:fadeDown 1.5s ease forwards;
 
     animation-delay:.15s;
 
@@ -409,8 +414,13 @@
 
     opacity:0;
 
-    animation:
-        bismillahZoom 1.5s ease forwards;
+    transform:scale(.9) translateY(20px);
+
+}
+
+#opening.active .bismillah{
+
+    animation:bismillahZoom 1.5s ease forwards;
 
     animation-delay:.35s;
 
@@ -422,8 +432,13 @@
 
     opacity:0;
 
-    animation:
-        dividerGrow 1.5s ease forwards;
+    transform:scaleX(.3);
+
+}
+
+#opening.active .divider{
+
+    animation:dividerGrow 1.5s ease forwards;
 
     animation-delay:.55s;
 
@@ -435,18 +450,23 @@
 
     opacity:0;
 
-    animation:
-        paragraphFade 1.5s ease forwards;
+    transform:translateY(30px);
 
 }
 
-.opening-text:nth-of-type(1){
+#opening.active .opening-text{
+
+    animation:paragraphFade 1.5s ease forwards;
+
+}
+
+#opening.active .opening-text:nth-of-type(1){
 
     animation-delay:.75s;
 
 }
 
-.opening-text:nth-of-type(2){
+#opening.active .opening-text:nth-of-type(2){
 
     animation-delay:1.05s;
 
@@ -458,13 +478,17 @@
 
     opacity:0;
 
-    animation:
-        starGlow 1.5s ease forwards;
+    transform:scale(.5);
+
+}
+
+#opening.active .mini-divider{
+
+    animation:starGlow 1.5s ease forwards;
 
     animation-delay:.95s;
 
 }
-
 /* ========================= */
 
 @keyframes fadeDown{
