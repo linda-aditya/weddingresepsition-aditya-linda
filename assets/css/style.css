@@ -440,18 +440,20 @@ button{
 
 .cover-frame{
 
-    width:min(70vw,380px);
+    width:min(82vw,520px);
 
-    margin:0 auto 30px;
+    margin:0 auto 10px;
 
 }
 
 .cover-frame img{
 
     width:100%;
-
     display:block;
-
+   
+filter:
+drop-shadow(0 0 30px rgba(212,175,55,.25))
+drop-shadow(0 0 80px rgba(212,175,55,.18));
 }
 
 /* Small Title */
@@ -466,17 +468,17 @@ button{
 
     text-transform:uppercase;
 
-    margin-bottom:18px;
+    margin-top:-10px;
+    margin-bottom:14px;
 
 }
-
 /* Couple Name */
 
 .cover-name{
 
     font-family:"Cinzel",serif;
 
-    font-size:64px;
+    font-size:48px;
 
     color:#FFF7E8;
 
