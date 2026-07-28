@@ -841,11 +841,13 @@ button{
 
     display:flex;
 
+    flex-direction:column;
+
     justify-content:center;
 
     align-items:center;
 
-    padding:120px 20px;
+    padding:40px 20px;
 
     overflow:hidden;
 
@@ -864,6 +866,7 @@ button{
         );
 
 }
+
 /* =========================================================
    BACKGROUND GLOW
 ========================================================= */
@@ -952,20 +955,21 @@ button{
 
 .opening-frame-top{
 
-    margin-bottom:25px;
+    margin-bottom:10px;
 
 }
 
 .opening-frame-bottom{
 
-    margin-top:25px;
+    margin-top:10px;
 
 }
 
 .opening-frame-top img,
 .opening-frame-bottom img{
 
-    width:min(420px,80%);
+    width:min(760px,95%);
+    display:block;
     height:auto;
 
 }
@@ -1058,7 +1062,7 @@ button{
 
     line-height:1.7;
 
-    margin:20px 0 35px;
+    margin:10px 0 20px;
 
     text-shadow:
 
@@ -1074,7 +1078,7 @@ button{
 
     width:min(100%,640px);
 
-    margin:0 auto 32px;
+    margin:0 auto 18px;
 
     color:#efe7db;
 
@@ -1098,7 +1102,7 @@ button{
 
     height:2px;
 
-    margin:40px auto;
+    margin:22px auto;
 
     background:
 
